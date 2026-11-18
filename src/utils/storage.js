@@ -38,7 +38,13 @@ export const getDefaultUserData = () => {
       currentStreak: 1,
       lastActiveDate: today,
       history: [today]
-    }
+    },
+    // Mock reports
+    mockReports: [],
+    // Re-test attempt history: key is questionId
+    retestAttempts: {},
+    // Weekly Study Planner tasks
+    weeklyPlanner: null
   };
 };
 
@@ -62,6 +68,8 @@ export const loadUserData = () => {
         notes: ''
       };
     }
+    if (!parsed.mockReports) parsed.mockReports = [];
+    if (!parsed.retestAttempts) parsed.retestAttempts = {};
     return parsed;
   } catch (e) {
     console.error('Failed to parse user data from localStorage', e);
