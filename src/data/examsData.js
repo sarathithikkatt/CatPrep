@@ -666,18 +666,115 @@ export const EXAMS_CONFIG = [
         description: 'Ethical Dilemmas, Business Cases, HR conflicts, Stakeholder Analysis',
         modules: [
           {
-            id: 'dm-ethics',
+            id: 'xat-dm-ethics',
             title: 'Ethical & Stakeholder Decision Making',
             estimatedHours: 20,
             topics: [
               {
-                id: 'dm-corporate-governance',
-                title: 'Corporate Ethics & Whistleblowing',
+                id: 'xat-dm-governance',
+                title: 'Corporate Governance & Whistleblowing',
                 weightage: 'High (2-3 sets)',
                 difficulty: 'Challenging',
                 hoursNeeded: 8,
-                keyConcepts: 'Balancing profit with ethics, legal compliance vs moral responsibility, long-term brand equity.',
-                subtopics: ['Employee grievances', 'Supply chain violations', 'Shareholder vs stakeholder primacy']
+                keyConcepts: 'Balancing profit with ethics, legal compliance vs moral responsibility, long-term brand equity, whistleblowing protocols.',
+                subtopics: ['Employee grievances', 'Supply chain violations', 'Shareholder vs stakeholder primacy', 'Conflict of interest rules'],
+                lectures: [
+                  { title: 'XAT Decision Making Complete Masterclass', educator: 'Elites Grid (Hunny Malhotra)', url: 'https://www.youtube.com/watch?v=FmHl82Pj2u0', duration: 'Full Series' },
+                  { title: 'Decision Making Ethical Frameworks', educator: 'Gejo Speaks', url: 'https://www.youtube.com/playlist?list=PLg4dY5-Xf7G2_5h84_Y9lq6WJ9mR8iU0d', duration: 'Crash Course' }
+                ]
+              },
+              {
+                id: 'xat-dm-social',
+                title: 'Environmental, Social & CSR Policy',
+                weightage: 'Medium (1 set)',
+                difficulty: 'Moderate',
+                hoursNeeded: 6,
+                keyConcepts: 'Pollution externalities, community consent, tribal land displacement, long-term sustainability vs immediate quarterly profits.',
+                subtopics: ['Factory relocation dilemmas', 'Carbon footprint offsets', 'Community welfare obligations'],
+                lectures: [
+                  { title: 'CSR & Environmental Ethics Cases', educator: '2IIM XAT Prep', url: 'https://www.youtube.com/watch?v=FmHl82Pj2u0', duration: 'Lecture Series' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'xat-dm-mgmt',
+            title: 'Managerial & Business Strategy Dilemmas',
+            estimatedHours: 22,
+            topics: [
+              {
+                id: 'xat-dm-operations',
+                title: 'Operations, Quality Control & Crisis Management',
+                weightage: 'High (2 sets)',
+                difficulty: 'Challenging',
+                hoursNeeded: 8,
+                keyConcepts: 'Product recall thresholds, vendor fraud detection, supply bottleneck mitigation, customer safety primacy.',
+                subtopics: ['Defective batch handling', 'Vendor subcontracting violations', 'Factory strike resolutions'],
+                lectures: [
+                  { title: 'Operational DM Strategy', educator: 'Elites Grid', url: 'https://www.youtube.com/watch?v=FmHl82Pj2u0', duration: 'Case Practice' }
+                ]
+              },
+              {
+                id: 'xat-dm-marketing',
+                title: 'Marketing Ethics & Competitive Strategy',
+                weightage: 'Medium (1-2 sets)',
+                difficulty: 'Moderate',
+                hoursNeeded: 7,
+                keyConcepts: 'Misleading advertisements, predatory pricing, patent infringement claims, customer privacy protections.',
+                subtopics: ['Ad campaign backlash', 'Competitor sabotage counter-strategy', 'Data privacy compliance'],
+                lectures: [
+                  { title: 'Marketing Decision Scenarios', educator: 'Rodha', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: 'Strategy Class' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'xat-dm-hr',
+            title: 'Human Resources & Team Dynamics',
+            estimatedHours: 18,
+            topics: [
+              {
+                id: 'xat-dm-grievance',
+                title: 'Employee Bias, Promotions & Grievances',
+                weightage: 'High (2 sets)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'Objective appraisal matrices, handling senior employee resistance to change, diversity and meritocracy balance.',
+                subtopics: ['Promotion favoritism disputes', 'Workplace harassment investigations', 'Incentive structure redesign'],
+                lectures: [
+                  { title: 'HR Caselets in XAT DM', educator: 'Elites Grid', url: 'https://www.youtube.com/watch?v=FmHl82Pj2u0', duration: 'Past Year Solved' }
+                ]
+              },
+              {
+                id: 'xat-dm-conflicts',
+                title: 'Cross-Functional Team Friction',
+                weightage: 'Medium (1 set)',
+                difficulty: 'Moderate',
+                hoursNeeded: 6,
+                keyConcepts: 'Sales vs Manufacturing tension, resource sharing conflicts, empathetic leadership intervention.',
+                subtopics: ['R&D vs Commercialization timelines', 'Budget allocation disputes', 'Escalation matrices'],
+                lectures: [
+                  { title: 'Team Conflict Resolution Sets', educator: 'Takshzila', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Concept Video' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'xat-dm-quant',
+            title: 'Analytical & Mathematical DM',
+            estimatedHours: 15,
+            topics: [
+              {
+                id: 'xat-dm-cases',
+                title: 'Data-Driven Caselets & Cost-Benefit Analysis',
+                weightage: 'High (1-2 sets)',
+                difficulty: 'Challenging',
+                hoursNeeded: 8,
+                keyConcepts: 'Expected Monetary Value (EMV), probability trees, break-even trade-offs, constraint optimization.',
+                subtopics: ['Bidding strategy under uncertainty', 'Expansion feasibility numbers', 'Risk-reward matrices'],
+                lectures: [
+                  { title: 'Analytical DM Mathematical Problems', educator: 'Elites Grid', url: 'https://www.youtube.com/watch?v=FmHl82Pj2u0', duration: 'Problem Solving' }
+                ]
               }
             ]
           }
@@ -694,7 +791,101 @@ export const EXAMS_CONFIG = [
         borderColor: 'border-purple-200 dark:border-purple-800',
         textColor: 'text-purple-600 dark:text-purple-400',
         description: 'Reading Comprehension, Poem Comprehension, Critical Reasoning, Vocabulary',
-        modules: []
+        modules: [
+          {
+            id: 'xat-val-rc-mod',
+            title: 'Reading & Literary Comprehension',
+            estimatedHours: 25,
+            topics: [
+              {
+                id: 'xat-val-philosophy',
+                title: 'Philosophical, Sociological & Abstract RC',
+                weightage: 'High (3-4 passages)',
+                difficulty: 'Challenging',
+                hoursNeeded: 12,
+                keyConcepts: 'Epistemology, existentialism, aesthetics, structuralism, evaluating nuanced author thesis and unstated premises.',
+                subtopics: ['Primary purpose in abstract texts', 'Author tone & implicit bias', 'Counter-argument identification'],
+                lectures: [
+                  { title: 'XAT RC Decoded: Abstract Passages', educator: 'Gejo Speaks', url: 'https://www.youtube.com/playlist?list=PLg4dY5-Xf7G2_5h84_Y9lq6WJ9mR8iU0d', duration: 'RC Series' }
+                ]
+              },
+              {
+                id: 'xat-val-poem',
+                title: 'Poem Comprehension & Symbolism',
+                weightage: 'High (1-2 poems every year)',
+                difficulty: 'Challenging',
+                hoursNeeded: 8,
+                keyConcepts: 'Poetic devices (metaphor, metonymy, oxymoron), thematic ambiguity, tone shifts between stanzas.',
+                subtopics: ['Underlying theme extraction', 'Symbolic interpretations', 'Attitude of the speaker'],
+                lectures: [
+                  { title: 'XAT Poem Comprehension Masterclass', educator: 'Gejo Speaks', url: 'https://www.youtube.com/playlist?list=PLg4dY5-Xf7G2_5h84_Y9lq6WJ9mR8iU0d', duration: 'Poem Workshop' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'xat-val-cr-mod',
+            title: 'Critical Reasoning & Argumentation',
+            estimatedHours: 20,
+            topics: [
+              {
+                id: 'xat-val-arguments',
+                title: 'Assumptions, Weaken, Strengthen & Flaws',
+                weightage: 'High (5-6 Qs)',
+                difficulty: 'Moderate-Challenging',
+                hoursNeeded: 10,
+                keyConcepts: 'Identifying conclusion vs premises, assumption negation test, causal vs correlation fallacies.',
+                subtopics: ['Assumption identification', 'Weakening through alternative causes', 'Strengthening through control groups'],
+                lectures: [
+                  { title: 'Critical Reasoning Core Rules', educator: 'Bodhee Prep', url: 'https://www.youtube.com/playlist?list=PLg4dY5-Xf7G2_5h84_Y9lq6WJ9mR8iU0d', duration: 'Crash Course' }
+                ]
+              },
+              {
+                id: 'xat-val-logic',
+                title: 'Syllogisms & Logical Deductions',
+                weightage: 'Medium (2 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 6,
+                keyConcepts: 'Venn diagrams for quantifiers (All, Some, None), truth-teller and liar logic in verbal format.',
+                subtopics: ['Deductive syllogisms', 'Logical consistency checks', 'Fallacy of illicit minor/major'],
+                lectures: [
+                  { title: 'Formal Logic & Deductions', educator: 'Takshzila', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Concept Class' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'xat-val-vocab-mod',
+            title: 'Verbal Ability & Contextual Lexicon',
+            estimatedHours: 15,
+            topics: [
+              {
+                id: 'xat-val-vocab',
+                title: 'Nuanced Contextual Vocabulary & Analogies',
+                weightage: 'Medium (3-4 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'Precision of word pairs, subtle connotations (e.g. thrifty vs miserly), etymological roots, semantic analogies.',
+                subtopics: ['Contextual word replacement', 'Analogies of degree and relation', 'Phonetic & idiomatic usage'],
+                lectures: [
+                  { title: 'XAT Vocabulary & Word Pairs', educator: '2IIM Verbal', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Vocabulary Guide' }
+                ]
+              },
+              {
+                id: 'xat-val-cloze',
+                title: 'Sentence Completion & Para Completion',
+                weightage: 'Medium (2-3 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 7,
+                keyConcepts: 'Signpost words (however, nevertheless, consequently), structural sentence balance, paragraph climax tone.',
+                subtopics: ['Double-blank cloze tests', 'Closing sentence matching', 'Punctuation & grammatical mood'],
+                lectures: [
+                  { title: 'Sentence Completion Strategies', educator: 'Bodhee Prep', url: 'https://www.youtube.com/playlist?list=PLg4dY5-Xf7G2_5h84_Y9lq6WJ9mR8iU0d', duration: 'Solved Examples' }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'xat-qadi',
@@ -706,8 +897,142 @@ export const EXAMS_CONFIG = [
         bgColor: 'bg-blue-50 dark:bg-blue-950/40',
         borderColor: 'border-blue-200 dark:border-blue-800',
         textColor: 'text-blue-600 dark:text-blue-400',
-        description: 'Advanced Geometry, Algebra, Functions, Number Systems, Data Sets',
-        modules: []
+        description: 'Advanced Geometry, Higher Algebra, Functions, Numbers, Multi-Variable DI',
+        modules: [
+          {
+            id: 'xat-qadi-geom-mod',
+            title: 'Advanced Geometry & Trigonometry',
+            estimatedHours: 25,
+            topics: [
+              {
+                id: 'xat-qadi-geometry',
+                title: 'Higher Geometry, Trigonometry & Mensuration',
+                weightage: 'High (4-5 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 12,
+                keyConcepts: 'Ptolemy theorem, Stewart theorem, trigonometric heights & angles of elevation, 3D cutting solids, coordinate geometry rotations.',
+                subtopics: ['Cyclic quadrilaterals & chord properties', 'Trigonometric identities in triangles', 'Coordinate reflection & distances', 'Solid frustums & spheres'],
+                lectures: [
+                  { title: 'Advanced Geometry for XAT', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Deep Dive' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'xat-qadi-alg-mod',
+            title: 'Higher Algebra & Modern Math',
+            estimatedHours: 25,
+            topics: [
+              {
+                id: 'xat-qadi-algebra',
+                title: 'Polynomials, Functional Equations & Graphs',
+                weightage: 'High (4-5 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 12,
+                keyConcepts: 'Higher degree roots relation, Vieta formulas, functional equations f(x+y) = f(x)f(y), transformations of curves.',
+                subtopics: ['Cubic & quartic roots', 'Functional equations techniques', 'Graph shifts & symmetry', 'Logarithmic bounds'],
+                lectures: [
+                  { title: 'Higher Algebra & Functions for XAT', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: 'Full Series' }
+                ]
+              },
+              {
+                id: 'xat-qadi-pnc',
+                title: 'Permutations, Combinations & Probability',
+                weightage: 'High (2-3 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 10,
+                keyConcepts: 'Derangements formula, circular permutations with beads, conditional probability, Bayes theorem, geometric probability.',
+                subtopics: ['Derangement problems', 'Distributing identical vs distinct objects', 'Conditional events & expected value'],
+                lectures: [
+                  { title: 'PnC & Probability Mastery', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Masterclass' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'xat-qadi-di-mod',
+            title: 'Data Interpretation & Reasoning',
+            estimatedHours: 20,
+            topics: [
+              {
+                id: 'xat-qadi-caselets',
+                title: 'Data Caselets & Unconventional Tables',
+                weightage: 'High (2-3 sets)',
+                difficulty: 'Challenging',
+                hoursNeeded: 10,
+                keyConcepts: 'Missing value constraint tables, scatter plot trendlines, multi-variable optimization in DI.',
+                subtopics: ['Constraint maximization tables', 'Scatter plots & clustering', 'Radar & bubble charts'],
+                lectures: [
+                  { title: 'XAT Data Interpretation Sets', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Practice Sets' }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'xat-gk',
+        name: 'General Knowledge & Current Affairs',
+        shortName: 'GK',
+        questionsCount: 25,
+        durationMinutes: 15,
+        color: '#10B981',
+        bgColor: 'bg-emerald-50 dark:bg-emerald-950/40',
+        borderColor: 'border-emerald-200 dark:border-emerald-800',
+        textColor: 'text-emerald-600 dark:text-emerald-400',
+        description: 'Business Awareness, Macroeconomics, Indian Polity, Static GK, International Treaties',
+        modules: [
+          {
+            id: 'xat-gk-biz-mod',
+            title: 'Business, Economy & Treaties',
+            estimatedHours: 15,
+            topics: [
+              {
+                id: 'xat-gk-economy',
+                title: 'Macroeconomics, Banking & Monetary Policy',
+                weightage: 'High (8-10 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'RBI repo/reverse repo rates, fiscal deficit metrics, GDP components, inflation indices (CPI/WPI), WTO/IMF mandates.',
+                subtopics: ['Monetary policy tools', 'Foreign exchange reserves', 'Global trade agreements']
+              },
+              {
+                id: 'xat-gk-corporate',
+                title: 'Mergers, Acquisitions & Corporate Leaders',
+                weightage: 'High (6-8 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 6,
+                keyConcepts: 'Recent billion-dollar acquisitions, startup unicorns, prominent CEOs, brand parent companies.',
+                subtopics: ['Tech company leadership', 'Automobile mergers', 'Regulatory antitrust rulings']
+              }
+            ]
+          },
+          {
+            id: 'xat-gk-static-mod',
+            title: 'Static GK & International Affairs',
+            estimatedHours: 15,
+            topics: [
+              {
+                id: 'xat-gk-polity',
+                title: 'Indian Constitution, Geography & Geopolitics',
+                weightage: 'High (6-8 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'Fundamental rights, key constitutional amendments, maritime straits (Malacca, Hormuz), international boundaries.',
+                subtopics: ['Constitutional articles', 'Geographical straits & canals', 'UN bodies & headquarters']
+              },
+              {
+                id: 'xat-gk-awards',
+                title: 'Awards, Nobel Prizes & Summits',
+                weightage: 'Medium (4-5 Qs)',
+                difficulty: 'Easy-Moderate',
+                hoursNeeded: 6,
+                keyConcepts: 'Nobel laureates in Economics & Peace, Booker Prize winners, Oscar awards, G20/BRICS summit hosts.',
+                subtopics: ['Nobel Prize citations', 'Major literature awards', 'Global climate summits']
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -730,8 +1055,114 @@ export const EXAMS_CONFIG = [
         bgColor: 'bg-blue-50 dark:bg-blue-950/40',
         borderColor: 'border-blue-200 dark:border-blue-800',
         textColor: 'text-blue-600 dark:text-blue-400',
-        description: 'Problem Solving (Algebra, Arithmetic - No Geometry)',
-        modules: []
+        description: 'Problem Solving in Algebra & Arithmetic (Note: Focus Edition has ZERO Geometry)',
+        modules: [
+          {
+            id: 'gmat-qr-alg-mod',
+            title: 'Algebra & Pure Math',
+            estimatedHours: 25,
+            topics: [
+              {
+                id: 'gmat-qr-equations',
+                title: 'Linear & Quadratic Systems & Roots',
+                weightage: 'High (4-5 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 10,
+                keyConcepts: 'Solving simultaneous systems with integer constraints, quadratic factoring, discriminant properties, vertex of parabola.',
+                subtopics: ['System of linear equations', 'Quadratic roots & factoring', 'Completing the square'],
+                lectures: [
+                  { title: 'GMAT Focus Algebra Masterclass', educator: 'GMAT Club Official', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Full Series' }
+                ]
+              },
+              {
+                id: 'gmat-qr-inequalities',
+                title: 'Inequalities & Absolute Value Equations',
+                weightage: 'High (3-4 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 8,
+                keyConcepts: 'Flipping inequality signs on negative multiplication, wavy-curve sign charts, distance definition of absolute values |x - a| < d.',
+                subtopics: ['Sign chart interval method', 'Non-linear inequalities', 'Modulus boundary testing'],
+                lectures: [
+                  { title: 'Inequalities & Absolute Values for GMAT', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Core Lesson' }
+                ]
+              },
+              {
+                id: 'gmat-qr-exponents',
+                title: 'Exponents, Roots & Scientific Notation',
+                weightage: 'Medium (2 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 6,
+                keyConcepts: 'Rules of exponents, rationalizing radical expressions, units digit cycles of exponential powers.',
+                subtopics: ['Power rules & negative exponents', 'Surds simplification', 'Units digit cyclicity'],
+                lectures: [
+                  { title: 'Exponents & Roots Crash Course', educator: 'GMAT Club', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Video Guide' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'gmat-qr-arith-mod',
+            title: 'Arithmetic Word Problems',
+            estimatedHours: 25,
+            topics: [
+              {
+                id: 'gmat-qr-rates',
+                title: 'Work-Rate & Speed-Distance Kinetics',
+                weightage: 'High (3-4 Qs)',
+                difficulty: 'Moderate-Challenging',
+                hoursNeeded: 10,
+                keyConcepts: 'Combined rate reciprocals 1/A + 1/B = 1/T, catch-up relative speed, average speed harmonic mean 2ab/(a+b).',
+                subtopics: ['Combined machine work rates', 'Catch-up & pass problems', 'Average speed traps'],
+                lectures: [
+                  { title: 'GMAT Work & Rate Traps', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Masterclass' }
+                ]
+              },
+              {
+                id: 'gmat-qr-numbers',
+                title: 'Number Properties, Primes & Divisibility',
+                weightage: 'High (4-5 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 10,
+                keyConcepts: 'Fundamental theorem of arithmetic, finding number of factors from prime exponents, trailing zeroes from factors of 10 (2x5).',
+                subtopics: ['Prime factorization trees', 'LCM & GCD relations', 'Even/Odd parity & sign rules'],
+                lectures: [
+                  { title: 'Number Properties for 700+ Scorers', educator: 'GMAT Club', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Lecture Series' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'gmat-qr-stats-mod',
+            title: 'Statistics & Combinatorics',
+            estimatedHours: 18,
+            topics: [
+              {
+                id: 'gmat-qr-statistics',
+                title: 'Mean, Median, Range & Standard Deviation',
+                weightage: 'High (3 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'Median positioning in odd vs even sets, effect of outliers on mean vs median, shift/scale effects on standard deviation.',
+                subtopics: ['Equidistant sets mean=median', 'Standard deviation invariance under constant addition', 'Weighted average balance rule'],
+                lectures: [
+                  { title: 'GMAT Statistics & Standard Deviation', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Video Lesson' }
+                ]
+              },
+              {
+                id: 'gmat-qr-counting',
+                title: 'Combinatorics & Overlapping Sets (Venn)',
+                weightage: 'Medium (2 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'Combinations formula nCr, slot method with restrictions, 2-group double-set matrix grids.',
+                subtopics: ['Double-set matrix table', 'Permutation restrictions', 'Independent probability'],
+                lectures: [
+                  { title: 'Overlapping Sets & Combinations', educator: 'GMAT Club', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Practice Class' }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'gmat-vr',
@@ -743,8 +1174,83 @@ export const EXAMS_CONFIG = [
         bgColor: 'bg-purple-50 dark:bg-purple-950/40',
         borderColor: 'border-purple-200 dark:border-purple-800',
         textColor: 'text-purple-600 dark:text-purple-400',
-        description: 'Critical Reasoning & Reading Comprehension (No Sentence Correction)',
-        modules: []
+        description: 'Critical Reasoning & Reading Comprehension (Zero Sentence Correction in Focus)',
+        modules: [
+          {
+            id: 'gmat-vr-cr-mod',
+            title: 'Critical Reasoning (CR)',
+            estimatedHours: 25,
+            topics: [
+              {
+                id: 'gmat-vr-assumptions',
+                title: 'Assumptions (Supporter & Defender Models)',
+                weightage: 'High (3-4 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 9,
+                keyConcepts: 'Negation technique: if negating the option destroys the conclusion, that option is the essential assumption.',
+                subtopics: ['Supporter assumptions (connecting gaps)', 'Defender assumptions (eliminating alternate causes)', 'Negation test mechanics'],
+                lectures: [
+                  { title: 'GMAT Critical Reasoning: The Negation Test', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Masterclass' }
+                ]
+              },
+              {
+                id: 'gmat-vr-weaken',
+                title: 'Weaken & Strengthen Arguments',
+                weightage: 'High (4-5 Qs)',
+                difficulty: 'Moderate-Challenging',
+                hoursNeeded: 9,
+                keyConcepts: 'Causality vs correlation, providing alternative causes to weaken, showing control group consistency to strengthen.',
+                subtopics: ['Alternative cause identification', 'Reversing causality', 'Data sample representation attacks'],
+                lectures: [
+                  { title: 'Strengthen & Weaken Framework', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'CR Series' }
+                ]
+              },
+              {
+                id: 'gmat-vr-boldface',
+                title: 'Boldface Arguments & Method of Reasoning',
+                weightage: 'High (2 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 7,
+                keyConcepts: 'Classifying bold segments: main conclusion, intermediate conclusion, factual premise, counter-premise, or conceded fact.',
+                subtopics: ['Premise vs conclusion distinction', 'Attitude words in arguments', 'Role mapping'],
+                lectures: [
+                  { title: 'Boldface CR Questions Decoded', educator: 'GMAT Club', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Strategy Class' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'gmat-vr-rc-mod',
+            title: 'Reading Comprehension (RC)',
+            estimatedHours: 20,
+            topics: [
+              {
+                id: 'gmat-vr-mainidea',
+                title: 'Primary Purpose & Passage Structure',
+                weightage: 'High (4 passages, ~12 Qs total)',
+                difficulty: 'Moderate',
+                hoursNeeded: 10,
+                keyConcepts: 'Paragraph skeleton mapping, identifying author thesis vs cited researcher opinions, tone neutrality in GMAT.',
+                subtopics: ['Primary purpose identification', 'Structural organization questions', 'Author stance & tone'],
+                lectures: [
+                  { title: 'GMAT Reading Comprehension Framework', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'RC Masterclass' }
+                ]
+              },
+              {
+                id: 'gmat-vr-rc-inference',
+                title: 'Inference & Detail Questions',
+                weightage: 'High (6-7 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 8,
+                keyConcepts: 'Zero extrapolation rule: inferences must be directly supported by text without outside knowledge.',
+                subtopics: ['Unstated implications', 'Direct detail retrieval', 'Contextual terminology'],
+                lectures: [
+                  { title: 'Avoiding Out-of-Scope Trap Answers', educator: 'GMAT Club', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Video Guide' }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'gmat-di',
@@ -757,7 +1263,96 @@ export const EXAMS_CONFIG = [
         borderColor: 'border-emerald-200 dark:border-emerald-800',
         textColor: 'text-emerald-600 dark:text-emerald-400',
         description: 'Data Sufficiency, Multi-Source Reasoning, Two-Part Analysis, Tables & Graphs',
-        modules: []
+        modules: [
+          {
+            id: 'gmat-di-ds-mod',
+            title: 'Data Sufficiency (The 12-Second Grid)',
+            estimatedHours: 25,
+            topics: [
+              {
+                id: 'gmat-di-ds-val',
+                title: 'Value DS vs Yes/No DS Framework',
+                weightage: 'High (6-7 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 12,
+                keyConcepts: 'The AD/BCE decision tree. Statement (1) alone sufficient eliminates BCE. For Yes/No questions: definite YES or definite NO is sufficient; a MAYBE is insufficient.',
+                subtopics: ['The 12-second AD/BCE elimination grid', 'Value questions (unique single numerical answer)', 'Yes/No questions (definite truth value)', 'Avoiding sufficiency confirmation bias'],
+                lectures: [
+                  { title: 'Data Sufficiency Strategy & AD/BCE Grid', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'DS Masterclass' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'gmat-di-tpa-mod',
+            title: 'Two-Part Analysis (TPA)',
+            estimatedHours: 18,
+            topics: [
+              {
+                id: 'gmat-di-tpa-quant',
+                title: 'Quantitative & Verbal Two-Part Analysis',
+                weightage: 'High (4-5 Qs)',
+                difficulty: 'Challenging',
+                hoursNeeded: 10,
+                keyConcepts: 'Evaluating interdependent column choices, dual-variable constraint optimization, identifying premises and conclusions simultaneously.',
+                subtopics: ['Algebraic simultaneous choice matrices', 'Logistical flow trade-offs', 'Argument roles dual classification'],
+                lectures: [
+                  { title: 'Two-Part Analysis in GMAT Data Insights', educator: 'GMAT Club', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Full Workshop' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'gmat-di-msr-mod',
+            title: 'Multi-Source Reasoning (MSR)',
+            estimatedHours: 18,
+            topics: [
+              {
+                id: 'gmat-di-msr-tabs',
+                title: '3-Tab Document Synthesis',
+                weightage: 'High (3-4 Qs per set)',
+                difficulty: 'Challenging',
+                hoursNeeded: 10,
+                keyConcepts: 'Cross-referencing emails, company policies, and numeric tables across 3 tabs; identifying conflicting constraints.',
+                subtopics: ['Email correspondence inference', 'Policy vs implementation audit', 'Triangulating data points'],
+                lectures: [
+                  { title: 'Multi-Source Reasoning Tab Navigation', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'MSR Deep Dive' }
+                ]
+              }
+            ]
+          },
+          {
+            id: 'gmat-di-visual-mod',
+            title: 'Table Analysis & Graphics Interpretation',
+            estimatedHours: 18,
+            topics: [
+              {
+                id: 'gmat-di-tables',
+                title: 'Sortable Table Analysis & Binary Triads',
+                weightage: 'High (3-4 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'Sorting spreadsheets by columns, answering 3-part True/False or Yes/No questions (must get all 3 correct for points).',
+                subtopics: ['Column sorting shortcuts', 'Multi-condition filtering', 'Percentage share verification'],
+                lectures: [
+                  { title: 'Table Analysis Speed Techniques', educator: 'GMAT Club', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Interactive Session' }
+                ]
+              },
+              {
+                id: 'gmat-di-graphics',
+                title: 'Graphics Interpretation (Scatter & Dual Axes)',
+                weightage: 'High (3-4 Qs)',
+                difficulty: 'Moderate',
+                hoursNeeded: 8,
+                keyConcepts: 'Reading scatter plot regression trends, dual vertical axes scaling, fill-in-the-blank drop-down selections.',
+                subtopics: ['Scatter plots & outliers', 'Dual vertical axis charts', 'Cumulative percentage curves'],
+                lectures: [
+                  { title: 'Graphics Interpretation on GMAT Focus', educator: 'GMAT Ninja', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: 'Visual Data Class' }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   }

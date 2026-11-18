@@ -24,7 +24,8 @@ export const Header = ({
   activeTab, 
   setActiveTab, 
   userData, 
-  onImportData 
+  onImportData,
+  onOpenSettings
 }) => {
   const currentExam = EXAMS_CONFIG.find(e => e.id === activeExamId) || EXAMS_CONFIG[0];
   const today = new Date().toISOString().split('T')[0];
@@ -114,8 +115,15 @@ export const Header = ({
               <span>{userData.streak?.currentStreak || 1}d Streak</span>
             </div>
 
-            {/* Data Backup / Restore Buttons */}
+            {/* Data Backup / Restore Buttons & AI Settings */}
             <div className="flex items-center gap-1">
+              <button
+                onClick={onOpenSettings}
+                title="AI & Gemini OCR Settings"
+                className="p-1.5 rounded-lg text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 dark:text-slate-400 dark:hover:text-indigo-400 dark:hover:bg-indigo-950/40 transition-colors cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4 text-indigo-500" />
+              </button>
               <button
                 onClick={() => exportUserDataJSON(userData)}
                 title="Backup progress as JSON"

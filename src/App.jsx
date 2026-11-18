@@ -7,6 +7,7 @@ import { MistakeNotebook } from './components/MistakeNotebook';
 import { MockScorecard } from './components/MockScorecard';
 import { StudyPlanner } from './components/StudyPlanner';
 import { ResourcesGuide } from './components/ResourcesGuide';
+import { SettingsModal } from './components/SettingsModal';
 import { loadUserData, saveUserData } from './utils/storage';
 import { EXAMS_CONFIG } from './data/examsData';
 
@@ -16,6 +17,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [topicFilterForPractice, setTopicFilterForPractice] = useState('all');
   const [retestQuestionId, setRetestQuestionId] = useState(null);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   // Persist user data updates
   const handleUpdateUserData = (newData) => {
