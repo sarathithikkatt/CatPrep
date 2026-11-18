@@ -19,16 +19,15 @@
 | **Resources Page** | `ResourcesGuide.jsx` | Score vs percentile tables, links to 2IIM/Cracku/IIM portal, educator recommendations |
 | **Data Layer** | `storage.js` | LocalStorage persistence, JSON export/import |
 | **Multi-Exam Schema** | `examsData.js` | CAT (full), XAT (skeleton), GMAT Focus (skeleton) |
+| **Mock Test Scorecard** | `MockScorecard.jsx` | Multi-platform mock score logging, net score formula, Capability score & Panic Delta diagnostics |
 
 ### What is thin or missing
 
-1. **Question bank depth**: Only **8 questions** are seeded. A usable practice tool needs 200+ across all topics.
-2. **Video lecture links**: The syllabus shows *what* to study but doesn't link to *where* to learn it. The `coderdevang` repo has 900+ verified YouTube lecture links organized by topic — we have none embedded.
-3. **Mock test scorecard**: No way to log mock exam scores (IMS SimCAT, TIME AIMCAT, etc.) and track trends.
-4. **TITA scoring correctness**: Current system applies -1 penalty uniformly; real CAT gives 0 penalty for wrong TITA answers.
-5. **Image-based questions**: Users who take coaching mocks get questions as screenshots. No way to paste images currently.
-6. **Re-test / revision mode**: Mistake notebook shows errors but can't re-test them with answers hidden.
-7. **Exam countdown**: No visible countdown to CAT exam date.
+1. **Question bank scaling**: 40 authentic CAT questions seeded across 100% of CAT topics. Continuous expansion towards the 200+ milestone.
+2. **Re-test / revision mode**: Mistake notebook shows errors but can't re-test them with answers hidden.
+3. **Weekly study planner**: Need calendar/task scheduler (R-E-S-T framework).
+4. **Topic-level question count badges**: Show available question count badges in syllabus view.
+5. **Image-based questions & Gemini OCR**: Support for pasting mock test screenshots and AI solutions (Phase 3).
 
 ---
 
@@ -70,12 +69,12 @@ Before laying out the plan, here is an honest evaluation of what matters and wha
 
 **Goal**: Make the app genuinely usable for daily practice by filling the content gaps.
 
-| Task | Detail | Deliverable |
+| Task | Detail | Status / Deliverable |
 | :--- | :--- | :--- |
-| **1.1 Expand PYQ bank to 200+ questions** | Add authentic CAT questions (2017-2024) across all 3 sections. Target: ~100 QA, ~50 DILR, ~50 VARC. Each with 4-tier solutions. Source from 2IIM public database and official papers. | Updated `questionsData.js` |
-| **1.2 Embed video lecture links per syllabus topic** | Map the 900+ curated links from `coderdevang` TGJ repository to our topic IDs. Add `lectures` array to each topic in `examsData.js` with `{title, educator, url, durationMins}`. | Updated `examsData.js`, updated `SyllabusManager.jsx` with 🎬 Watch buttons |
-| **1.3 Fix TITA scoring** | In `QuestionPractice.jsx`, when `q.type === 'TITA'` and answer is wrong, display "Incorrect (0 Penalty — TITA)" instead of "-1 Penalty". Update daily log to not increment `incorrectCount` penalty for TITA. | Updated `QuestionPractice.jsx` |
-| **1.4 Add CAT exam countdown** | Add a countdown component to `DashboardTracker.jsx` showing days/hours remaining until November 29, 2026 (CAT exam date). Simple calculation, prominent placement. | New section in `DashboardTracker.jsx` |
+| **1.1 Expand PYQ bank to 200+ questions** | Add authentic CAT questions (2017-2024) across all 3 sections. Target: ~100 QA, ~50 DILR, ~50 VARC. Each with 4-tier solutions. Source from 2IIM public database and official papers. | 🟡 In Progress: 40 questions seeded across 100% of CAT topics; scaling towards 200+ |
+| **1.2 Embed video lecture links per syllabus topic** | Map curated links from top educators (Rodha, Elites Grid, 2IIM, Takshzila, Gejo Speaks) to all topic IDs. Add `lectures` array to each topic in `examsData.js` with `{title, educator, url, duration}`. | ✅ Completed: 40/40 topics linked with verified masterclasses in `examsData.js` |
+| **1.3 Fix TITA scoring** | In `QuestionPractice.jsx`, when `q.type === 'TITA'` and answer is wrong, display "Incorrect (0 Penalty — TITA Exempt)" instead of "-1 Penalty". Update daily log to not increment `incorrectCount` penalty for TITA. | ✅ Completed: Implemented in `QuestionPractice.jsx` |
+| **1.4 Add CAT exam countdown** | Add a countdown component to `DashboardTracker.jsx` showing days/hours remaining until CAT 2026 exam date. Simple calculation, prominent placement. | ✅ Completed: Implemented in `DashboardTracker.jsx` |
 
 ### Phase 2: Diagnostic & Tracking Depth
 

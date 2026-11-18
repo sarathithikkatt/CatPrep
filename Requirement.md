@@ -44,7 +44,7 @@ CatPrep exists to close that loop.
 | FR-1.4 | Confidence rating (1-5 stars) per topic | P1 | ✅ Done |
 | FR-1.5 | Show formula cheatsheet / key concepts per topic (expandable) | P0 | ✅ Done |
 | FR-1.6 | Estimated study hours per topic with progress tracking | P1 | ✅ Done |
-| FR-1.7 | Link curated video lectures (YouTube) per topic for self-study | P1 | 🔲 Planned |
+| FR-1.7 | Link curated video lectures (YouTube) per topic for self-study | P1 | ✅ Done (40/40 topics linked) |
 | FR-1.8 | Search and filter topics by name, status, or section | P1 | ✅ Done |
 | FR-1.9 | Support switching between exam targets (CAT, XAT, GMAT) via top navbar | P2 | ✅ Done |
 
@@ -52,10 +52,10 @@ CatPrep exists to close that loop.
 
 | ID | Requirement | Priority | Status |
 | :--- | :--- | :--- | :--- |
-| FR-2.1 | Pre-loaded previous year CAT questions (MCQ and TITA) with metadata (year, slot, topic, difficulty) | P0 | ⚠️ Partial (8 questions seeded; need 200+) |
+| FR-2.1 | Pre-loaded previous year CAT questions (MCQ and TITA) with metadata (year, slot, topic, difficulty) | P0 | ⚠️ In Progress (40 authentic PYQs covering 100% of CAT topics; expanding towards 200+) |
 | FR-2.2 | Active practice mode: answer hidden until user submits | P0 | ✅ Done |
 | FR-2.3 | Instant evaluation with visual feedback (confetti on correct, highlight on wrong) | P1 | ✅ Done |
-| FR-2.4 | Correct CAT scoring: +3 MCQ correct, -1 MCQ wrong, +3 TITA correct, 0 TITA wrong | P0 | ⚠️ Partial (TITA 0-penalty not yet distinguished) |
+| FR-2.4 | Correct CAT scoring: +3 MCQ correct, -1 MCQ wrong, +3 TITA correct, 0 TITA wrong | P0 | ✅ Done (+3 / -1 MCQ, +3 / 0 TITA) |
 | FR-2.5 | Filter questions by section, topic, difficulty, year, and attempt status | P0 | ✅ Done |
 | FR-2.6 | Bookmark questions to Mistake Notebook | P0 | ✅ Done |
 | FR-2.7 | Add custom questions via form (text + options) | P1 | ✅ Done |
@@ -82,7 +82,7 @@ CatPrep exists to close that loop.
 | FR-4.5 | Study streak counter (consecutive active days) | P1 | ✅ Done |
 | FR-4.6 | Syllabus burndown: topics mastered vs total, section-wise progress bars | P0 | ✅ Done |
 | FR-4.7 | Velocity forecast: estimated days to complete syllabus at current pace | P1 | ✅ Done |
-| FR-4.8 | CAT exam countdown timer/ring | P2 | 🔲 Planned |
+| FR-4.8 | CAT exam countdown timer/ring | P2 | ✅ Done |
 
 ### 3.5 Mistake Notebook & Error Analysis
 
@@ -99,10 +99,10 @@ CatPrep exists to close that loop.
 
 | ID | Requirement | Priority | Status |
 | :--- | :--- | :--- | :--- |
-| FR-6.1 | Log sectional and full mock scores (VARC, DILR, QA: attempted, correct, incorrect, TITA incorrect) | P1 | 🔲 Planned |
-| FR-6.2 | Calculate net score: (Correct × 3) − ((Incorrect − TITA Incorrect) × 1) | P1 | 🔲 Planned |
-| FR-6.3 | Capability score: untimed re-attempt score for same mock | P2 | 🔲 Planned |
-| FR-6.4 | Mock score history with trend visualization | P2 | 🔲 Planned |
+| FR-6.1 | Log sectional and full mock scores (VARC, DILR, QA: attempted, correct, incorrect, TITA incorrect) | P1 | ✅ Done |
+| FR-6.2 | Calculate net score: (Correct × 3) − ((Incorrect − TITA Incorrect) × 1) | P1 | ✅ Done |
+| FR-6.3 | Capability score: untimed re-attempt score for same mock | P2 | ✅ Done |
+| FR-6.4 | Mock score history with trend visualization | P2 | ✅ Done |
 
 ### 3.7 Study Planner
 

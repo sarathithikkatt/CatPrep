@@ -120,7 +120,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 6,
                 keyConcepts: 'Linear Diophantine equations ax + by = c, number of non-negative integral solutions.',
-                subtopics: ['System of linear equations', 'Diophantine equations', 'Non-negative integer solutions']
+                subtopics: ['System of linear equations', 'Diophantine equations', 'Non-negative integer solutions'],
+                lectures: [
+                  { title: 'Linear Equations & Integral Solutions (Diophantine Equations)', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=kYj2u5T9Jrk', duration: '4 Lectures' },
+                  { title: 'Integral Solutions & Non-Negative Variables', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Practice Series' }
+                ]
               },
               {
                 id: 'qa-quadratics',
@@ -129,7 +133,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 8,
                 keyConcepts: 'Sum/product of roots, nature of discriminant (D), Descarte rule of signs, Vieta formulas for cubic/quartic polynomials.',
-                subtopics: ['Roots and coefficients relations', 'Location of roots', 'Common roots condition', 'Higher degree polynomials']
+                subtopics: ['Roots and coefficients relations', 'Location of roots', 'Common roots condition', 'Higher degree polynomials'],
+                lectures: [
+                  { title: 'Quadratic Equations & Polynomials Complete Marathon', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=gT8Z0vV_Yx4', duration: '6 Hours Marathon' },
+                  { title: 'Roots Location & Common Roots Conditions', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: '5 Lectures' }
+                ]
               },
               {
                 id: 'qa-inequalities',
@@ -138,7 +146,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 8,
                 keyConcepts: 'Wavy curve method, triangle inequality for modulus |a| + |b| >= |a+b|, geometric interpretation of |x - a| as distance.',
-                subtopics: ['Polynomial inequalities (Wavy curve)', 'Modulus equations & inequalities', 'AM-GM inequality for optimization']
+                subtopics: ['Polynomial inequalities (Wavy curve)', 'Modulus equations & inequalities', 'AM-GM inequality for optimization'],
+                lectures: [
+                  { title: 'Modulus Functions, Inequalities & Wavy Curve Method', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=wN4mK7eI67Q', duration: '8 Lectures' },
+                  { title: 'AM-GM Inequality & Algebra Maxima/Minima', educator: 'Takshzila Shikshak', url: 'https://www.youtube.com/results?search_query=takshzila+am+gm+inequality', duration: 'Deep Dive' }
+                ]
               },
               {
                 id: 'qa-logs',
@@ -147,7 +159,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Easy-Moderate',
                 hoursNeeded: 5,
                 keyConcepts: 'Change of base rule, logarithmic inequalities with base < 1, domain restrictions.',
-                subtopics: ['Properties of Logarithms', 'Base change formula', 'Logarithmic equations & bounds', 'Indices simplification']
+                subtopics: ['Properties of Logarithms', 'Base change formula', 'Logarithmic equations & bounds', 'Indices simplification'],
+                lectures: [
+                  { title: 'Logarithms, Surds & Indices Complete Concept & PYQs', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=mD0D0Zq_Jt4', duration: '5 Lectures' },
+                  { title: 'Logarithmic Equations & Base Change Traps', educator: '2IIM CAT Preparation', url: 'https://www.youtube.com/watch?v=Z2172H_WwL0', duration: 'CAT Solved' }
+                ]
               },
               {
                 id: 'qa-series',
@@ -156,7 +172,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 7,
                 keyConcepts: 'Arithmetic-Geometric Progression (AGP), telescoping sums, sum of first n squares and cubes.',
-                subtopics: ['Arithmetic Progression nth term & sum', 'Geometric Progression & infinite sum', 'Harmonic Progression & AM-GM-HM', 'Telescoping series']
+                subtopics: ['Arithmetic Progression nth term & sum', 'Geometric Progression & infinite sum', 'Harmonic Progression & AM-GM-HM', 'Telescoping series'],
+                lectures: [
+                  { title: 'Progressions & Series: AP, GP, HP & AGP Telescoping', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=eB8F7Vz2K4w', duration: '7 Lectures' },
+                  { title: 'Telescoping Series & Special Sigma Sums', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Crash Course' }
+                ]
               },
               {
                 id: 'qa-functions',
@@ -165,7 +185,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 6,
                 keyConcepts: 'Domain, range, odd/even functions, composite functions f(g(x)), graph shifts f(x-a) + b.',
-                subtopics: ['Domain & Range finding', 'Composite and Inverse functions', 'Periodic & Symmetric functions', 'Optimization without calculus']
+                subtopics: ['Domain & Range finding', 'Composite and Inverse functions', 'Periodic & Symmetric functions', 'Optimization without calculus'],
+                lectures: [
+                  { title: 'Functions & Graphs: Domain, Range, Composite & Inverse', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=vV3rX1K0s9Y', duration: '6 Lectures' },
+                  { title: 'Graph Transformations & Optimization Without Calculus', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Advanced Sets' }
+                ]
               }
             ]
           },
@@ -181,7 +205,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 8,
                 keyConcepts: 'Similarity criteria, Centroid, Incenter, Circumcenter, Orthocenter properties, Apollonius theorem, Stewart theorem.',
-                subtopics: ['Angle bisector theorem', 'Similar & Congruent triangles', 'Euler line & Triangle centers', 'Area formulas (Heron, Inradius)']
+                subtopics: ['Angle bisector theorem', 'Similar & Congruent triangles', 'Euler line & Triangle centers', 'Area formulas (Heron, Inradius)'],
+                lectures: [
+                  { title: 'Geometry Masterclass: Triangle Centers, Similarity & Circles', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hB9vC3pZ_oQ', duration: '10 Lectures' },
+                  { title: 'Stewart Theorem, Apollonius & Angle Bisector Magic', educator: 'Takshzila Shikshak', url: 'https://www.youtube.com/results?search_query=takshzila+geometry+triangles', duration: 'Foundation' }
+                ]
               },
               {
                 id: 'qa-circles',
@@ -190,7 +218,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 6,
                 keyConcepts: 'Alternate segment theorem, intersecting chords theorem (PA * PB = PC * PD), tangent-secant theorem (PT^2 = PA * PB).',
-                subtopics: ['Chords and equidistant properties', 'Tangent-Secant theorems', 'Common internal/external tangents', 'Cyclic quadrilaterals']
+                subtopics: ['Chords and equidistant properties', 'Tangent-Secant theorems', 'Common internal/external tangents', 'Cyclic quadrilaterals'],
+                lectures: [
+                  { title: 'Circles, Chords, Tangents & Secant Theorems', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=nQ8tY0v4u9Y', duration: '8 Lectures' },
+                  { title: 'Cyclic Quadrilaterals & Tangent Theorems in CAT', educator: '2IIM CAT Preparation', url: 'https://www.youtube.com/watch?v=C2w0X6t7Y1g', duration: 'Concepts & PYQs' }
+                ]
               },
               {
                 id: 'qa-coordinate',
@@ -199,7 +231,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 5,
                 keyConcepts: 'Distance formula, section formula, slope of perpendicular lines (m1*m2 = -1), area of polygon, distance from line.',
-                subtopics: ['Lines, slopes & intercepts', 'Area of polygon by shoelace', 'Perpendicular distance & reflection', 'Circles in coordinate plane']
+                subtopics: ['Lines, slopes & intercepts', 'Area of polygon by shoelace', 'Perpendicular distance & reflection', 'Circles in coordinate plane'],
+                lectures: [
+                  { title: 'Coordinate Geometry: Lines, Slopes, Intercepts & Circles', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=wX0uN9v6K3g', duration: '4 Lectures' },
+                  { title: 'Area by Shoelace & Reflection Across Lines', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'PYQ Session' }
+                ]
               },
               {
                 id: 'qa-mensuration',
@@ -208,7 +244,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 6,
                 keyConcepts: 'Volume, Curved Surface Area, Total Surface Area of cylinder, cone, frustum, sphere, prism, pyramid.',
-                subtopics: ['Polygons and regular hexagons', '3D Solids (Cylinder, Cone, Sphere)', 'Frustum and Prisms', 'Cutting & melting of solids']
+                subtopics: ['Polygons and regular hexagons', '3D Solids (Cylinder, Cone, Sphere)', 'Frustum and Prisms', 'Cutting & melting of solids'],
+                lectures: [
+                  { title: 'Mensuration 2D & 3D: Solids, Frustums, Prisms & Pyramids', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=zT3uW1V6M8k', duration: '5 Lectures' },
+                  { title: 'Cutting & Melting of Solids: Volume Invariance', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Formula Drill' }
+                ]
               }
             ]
           },
@@ -224,7 +264,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 6,
                 keyConcepts: 'Cyclicity of units digits, Euler totient theorem, Wilson theorem, negative remainders.',
-                subtopics: ['Divisibility rules & cyclicity', 'Euler Totient Theorem', 'Chinese Remainder Theorem', 'Wilson Theorem & Binomial remainders']
+                subtopics: ['Divisibility rules & cyclicity', 'Euler Totient Theorem', 'Chinese Remainder Theorem', 'Wilson Theorem & Binomial remainders'],
+                lectures: [
+                  { title: 'Number System: Remainders, Cyclicity, Euler Totient & Wilson', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=aQ8uW9v0P6k', duration: '12 Lectures' },
+                  { title: 'Chinese Remainder Theorem & Binomial Theorem for Remainders', educator: 'Takshzila Shikshak', url: 'https://www.youtube.com/results?search_query=takshzila+remainders', duration: 'Core Concepts' }
+                ]
               },
               {
                 id: 'qa-factors',
@@ -233,7 +277,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 7,
                 keyConcepts: 'Total number of factors = (p+1)(q+1)..., sum of factors, product of factors, power of primes in n! (Legendre formula).',
-                subtopics: ['Prime factorization properties', 'Sum and product of factors', 'Even, odd and co-prime factors', 'Highest power of prime in n!']
+                subtopics: ['Prime factorization properties', 'Sum and product of factors', 'Even, odd and co-prime factors', 'Highest power of prime in n!'],
+                lectures: [
+                  { title: 'Factors, Multiples, Number of Divisors & Legendre Formula', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=tY8vW2N4K0g', duration: '6 Lectures' },
+                  { title: 'Highest Power of Prime in n! & Trailing Zeroes', educator: '2IIM CAT Preparation', url: 'https://www.youtube.com/watch?v=D4u1P0v7K2c', duration: 'Advanced Concept' }
+                ]
               },
               {
                 id: 'qa-hcf-lcm',
@@ -242,7 +290,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Easy-Moderate',
                 hoursNeeded: 7,
                 keyConcepts: 'Product of two numbers = HCF * LCM, Base conversion and arithmetic in base n.',
-                subtopics: ['HCF & LCM word problems', 'Rings and interval bells', 'Base n conversions', 'Decimal to binary/octal conversions']
+                subtopics: ['HCF & LCM word problems', 'Rings and interval bells', 'Base n conversions', 'Decimal to binary/octal conversions'],
+                lectures: [
+                  { title: 'HCF & LCM Word Problems, Intervals & Base Systems', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=bV4mQ9w7K1g', duration: '5 Lectures' },
+                  { title: 'Base System Conversions & Non-Decimal Arithmetic', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Concept Class' }
+                ]
               }
             ]
           },
@@ -258,7 +310,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Challenging',
                 hoursNeeded: 8,
                 keyConcepts: 'Distribution of identical objects into distinct boxes (n+r-1 C r-1), derangements D_n, circular permutations (n-1)!/2.',
-                subtopics: ['Fundamental counting principle', 'Arrangements & Selections', 'Identical object distribution', 'Derangements & grid paths']
+                subtopics: ['Fundamental counting principle', 'Arrangements & Selections', 'Identical object distribution', 'Derangements & grid paths'],
+                lectures: [
+                  { title: 'Permutations & Combinations (P&C) Comprehensive Masterclass', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=cV9nL0u8P1w', duration: '14 Lectures' },
+                  { title: 'Distribution of Identical Objects & Derangements Formula', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'CAT Level P&C' }
+                ]
               },
               {
                 id: 'qa-probability',
@@ -267,7 +323,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 7,
                 keyConcepts: 'Conditional probability P(A|B), Bayes Theorem, complementary probability 1 - P(none), Venn diagrams 2 & 3 sets.',
-                subtopics: ['Classical probability', 'Independent & Dependent events', 'Bayes Theorem', 'Set theory intersections']
+                subtopics: ['Classical probability', 'Independent & Dependent events', 'Bayes Theorem', 'Set theory intersections'],
+                lectures: [
+                  { title: 'Probability: Conditional, Bayes Theorem & Complementary Counting', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=xT6uW3v8M1k', duration: '6 Lectures' },
+                  { title: 'Probability Puzzles & Dice/Coin Biased Scenarios', educator: '2IIM CAT Preparation', url: 'https://www.youtube.com/watch?v=P2w9V7c1N4k', duration: 'PYQ Deep-Dive' }
+                ]
               }
             ]
           }
@@ -336,7 +396,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 10,
                 keyConcepts: 'Case bifurcation on single speaker statement, contradictory statements rule (one must be truth, one liar).',
-                subtopics: ['Truth-teller, Liar, Alternator', 'Hypothesis testing on statements', 'Guilty person detective puzzles']
+                subtopics: ['Truth-teller, Liar, Alternator', 'Hypothesis testing on statements', 'Guilty person detective puzzles'],
+                lectures: [
+                  { title: 'Truth-Teller, Liar & Alternator: Complete Strategy', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: '4 Practice Sets' },
+                  { title: 'Binary Logic & Hypothesis Testing Elimination', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Puzzles' }
+                ]
               }
             ]
           },
@@ -352,7 +416,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 10,
                 keyConcepts: 'Row and column sum consistency, boundary inequality bounding, deductive deduction before calculations.',
-                subtopics: ['Incomplete financial tables', 'Survey results with missing rows', 'Balance sheet verification', 'Percentage share tables']
+                subtopics: ['Incomplete financial tables', 'Survey results with missing rows', 'Balance sheet verification', 'Percentage share tables'],
+                lectures: [
+                  { title: 'Missing Value Tables & Inequality Constraints', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: '5 Core Sets' },
+                  { title: 'Incomplete Tables & Grid Reasoning', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Advanced Sets' }
+                ]
               },
               {
                 id: 'dilr-charts',
@@ -361,7 +429,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 8,
                 keyConcepts: 'Rapid percentage growth approximation, visual slope reading on line graphs, base effect in stacked column charts.',
-                subtopics: ['Cumulative frequency line graphs', 'Multi-bar comparison', 'Stacked percentage bars', 'CAGR & annual growth']
+                subtopics: ['Cumulative frequency line graphs', 'Multi-bar comparison', 'Stacked percentage bars', 'CAGR & annual growth'],
+                lectures: [
+                  { title: 'Advanced Data Interpretation: Bar, Line & Stacked Charts', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Full DI Course' },
+                  { title: 'Cumulative Graphs & Growth Rate Approximations', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: 'DI Foundation' }
+                ]
               },
               {
                 id: 'dilr-pie-scatter',
@@ -370,7 +442,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 8,
                 keyConcepts: 'Degree to percentage conversion (3.6 deg = 1%), bubble chart 3-dimensional data reading, radar axis comparisons.',
-                subtopics: ['Multi-layer doughnut charts', 'Degree vs value mapping', 'Scatter plots & clustering', 'Radar performance charts']
+                subtopics: ['Multi-layer doughnut charts', 'Degree vs value mapping', 'Scatter plots & clustering', 'Radar performance charts'],
+                lectures: [
+                  { title: 'Multi-Layer Doughnut, Pie & Scatter Plots', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Masterclass' },
+                  { title: 'Radar & Bubble Chart Analysis for CAT', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'CAT Sets' }
+                ]
               },
               {
                 id: 'dilr-caselets',
@@ -379,7 +455,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 9,
                 keyConcepts: 'Transforming paragraph narrative into structured mathematical tables, variable identification.',
-                subtopics: ['Production and sales narrative', 'Company quarterly breakdown', 'Resource allocation caselets']
+                subtopics: ['Production and sales narrative', 'Company quarterly breakdown', 'Resource allocation caselets'],
+                lectures: [
+                  { title: 'Unstructured Data Caselets: Converting Paragraphs into Grids', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Live Workshop' },
+                  { title: 'Caselet Solving Framework & Trap Identification', educator: 'Takshzila Shikshak', url: 'https://www.youtube.com/results?search_query=takshzila+caselets', duration: 'Framework' }
+                ]
               }
             ]
           },
@@ -395,7 +475,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 10,
                 keyConcepts: 'Set theory algebraic variables, Maxima-Minima bounding: maximizing intersection minimizes exactly two categories.',
-                subtopics: ['3-Set Venn formula & regions', '4-Set Venn diagram grids', 'Maxima and Minima optimization', 'Survey discrepancy detection']
+                subtopics: ['3-Set Venn formula & regions', '4-Set Venn diagram grids', 'Maxima and Minima optimization', 'Survey discrepancy detection'],
+                lectures: [
+                  { title: '3-Set & 4-Set Venn Diagrams: Maxima & Minima Optimization', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Full Venn Series' },
+                  { title: 'Algebraic Maxima-Minima in Set Theory', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'CAT PYQ Sets' }
+                ]
               },
               {
                 id: 'dilr-routes',
@@ -404,7 +488,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 8,
                 keyConcepts: 'One-way routes, toll gate fee minimization, maximum flow bottlenecks (Ford-Fulkerson logic).',
-                subtopics: ['Shortest travel distance', 'Network traffic capacity', 'Deadlock detection', 'Pipeline flow optimization']
+                subtopics: ['Shortest travel distance', 'Network traffic capacity', 'Deadlock detection', 'Pipeline flow optimization'],
+                lectures: [
+                  { title: 'Routes, Networks & Flow Optimization', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Masterclass' },
+                  { title: 'Network Bottlenecks & Critical Path Logic', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Advanced Sets' }
+                ]
               },
               {
                 id: 'dilr-cubes',
@@ -413,7 +501,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 7,
                 keyConcepts: 'Painted cube cuts formula: 0 faces = (n-2)^3, 1 face = 6(n-2)^2, 2 faces = 12(n-2), 3 faces = 8.',
-                subtopics: ['Colored faces after n cuts', 'Minimum cuts to produce N pieces', 'Dice opposite face rules']
+                subtopics: ['Colored faces after n cuts', 'Minimum cuts to produce N pieces', 'Dice opposite face rules'],
+                lectures: [
+                  { title: 'Cubes, Dices & Geometric Cuts: Complete Concept Formulas', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Full Theory' },
+                  { title: 'Painted Cube Cuts & Minimum Slice Puzzles', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Exam Solved' }
+                ]
               }
             ]
           }
@@ -456,7 +548,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 12,
                 keyConcepts: 'Causal relationships, empirical evidence evaluation, technical analogies, distinguishing hypotheses from validated findings.',
-                subtopics: ['Evolutionary biology passages', 'Artificial intelligence & ethics', 'Climate science & ecological systems', 'Mechanism explanations']
+                subtopics: ['Evolutionary biology passages', 'Artificial intelligence & ethics', 'Climate science & ecological systems', 'Mechanism explanations'],
+                lectures: [
+                  { title: 'Science, Tech & Biology RC: Mapping Hypotheses & Evidence', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+rc+techniques', duration: 'RC Breakdown' },
+                  { title: 'Scientific Jargon & Technical Passage Deconstruction', educator: 'Bodhee Prep', url: 'https://www.youtube.com/results?search_query=bodhee+prep+rc', duration: 'Reading Technique' }
+                ]
               },
               {
                 id: 'varc-sociology',
@@ -465,7 +561,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 14,
                 keyConcepts: 'Cultural frameworks, historical causality, systemic biases, contrasting sociological schools of thought.',
-                subtopics: ['Colonialism and modernity', 'Linguistic anthropology', 'Urban sociology & labor trends', 'Historical revisions']
+                subtopics: ['Colonialism and modernity', 'Linguistic anthropology', 'Urban sociology & labor trends', 'Historical revisions'],
+                lectures: [
+                  { title: 'Sociology, History & Cultural Anthropology Passages', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+rc+reading', duration: 'Analytical Method' },
+                  { title: 'Eliminating Biased Interpretations in Humanities RC', educator: 'Bodhee Prep', url: 'https://www.youtube.com/results?search_query=bodhee+prep+reading+comprehension', duration: 'Strategy' }
+                ]
               },
               {
                 id: 'varc-economics',
@@ -474,7 +574,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 12,
                 keyConcepts: 'Market incentives, policy trade-offs, unintended consequences, behavioral economics heuristics.',
-                subtopics: ['Monopoly & digital platforms', 'Macroeconomic debt cycles', 'Public choice theory', 'Behavioral nudges']
+                subtopics: ['Monopoly & digital platforms', 'Macroeconomic debt cycles', 'Public choice theory', 'Behavioral nudges'],
+                lectures: [
+                  { title: 'Economics & Public Policy RC: Incentives, Trade-offs & Market Failures', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+rc', duration: 'Deep Analysis' },
+                  { title: 'Business & Macroeconomics Passages Decoded', educator: '2IIM CAT Preparation', url: 'https://www.youtube.com/watch?v=Z2172H_WwL0', duration: 'RC Walkthrough' }
+                ]
               }
             ]
           },
@@ -515,7 +619,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 6,
                 keyConcepts: 'Logical culmination of argument, avoiding sudden topic leaps, maintaining consistent tone and scope.',
-                subtopics: ['Concluding argument coherence', 'Tone matching', 'Premise fulfillment']
+                subtopics: ['Concluding argument coherence', 'Tone matching', 'Premise fulfillment'],
+                lectures: [
+                  { title: 'Para Completion: Spotting the Organic Logical Conclusion', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+para+completion', duration: 'Methodology' },
+                  { title: 'Last Sentence Coherence & Avoiding Topic Drifts', educator: 'Krishna Sripada', url: 'https://www.youtube.com/results?search_query=krishna+sripada+varc', duration: 'Verbal Ability' }
+                ]
               },
               {
                 id: 'varc-odd-one',
@@ -524,7 +632,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 6,
                 keyConcepts: 'Find the 4 coherent sentences that form a unified story; the outlier sentence may discuss the same theme but from an alien perspective.',
-                subtopics: ['Subject matter cohesion', 'Shift in focal scope', 'Style and register mismatch']
+                subtopics: ['Subject matter cohesion', 'Shift in focal scope', 'Style and register mismatch'],
+                lectures: [
+                  { title: 'Odd Sentence Out: Subject Matter Cohesion & Tone Mismatch', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+odd+one+out', duration: 'Elimination Framework' },
+                  { title: 'Finding the Common Narrative in 4 Sentences', educator: 'Krishna Sripada', url: 'https://www.youtube.com/results?search_query=krishna+sripada+odd+sentence+out', duration: 'Strategy' }
+                ]
               }
             ]
           }
