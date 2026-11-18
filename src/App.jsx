@@ -65,6 +65,7 @@ export default function App() {
         setActiveTab={setActiveTab}
         userData={userData}
         onImportData={handleUpdateUserData}
+        onOpenSettings={() => setIsSettingsOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -100,6 +101,7 @@ export default function App() {
             initialTopicFilter={topicFilterForPractice}
             retestQuestionId={retestQuestionId}
             onClearRetest={handleClearRetest}
+            onOpenSettings={() => setIsSettingsOpen(true)}
             userData={userData}
             onUpdateUserData={handleUpdateUserData}
           />
@@ -125,6 +127,12 @@ export default function App() {
           <ResourcesGuide />
         )}
       </main>
+
+      {/* Global AI & System Settings Modal */}
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+      />
 
       {/* Footer */}
       <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-400">
