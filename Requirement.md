@@ -93,7 +93,7 @@ CatPrep exists to close that loop.
 | FR-5.3 | Personal reflection notes per mistake | P1 | ✅ Done |
 | FR-5.4 | Filter notebook by root cause tag | P1 | ✅ Done |
 | FR-5.5 | Display shortcut reminder for each mistake | P1 | ✅ Done |
-| FR-5.6 | Re-test mode: re-attempt mistakes with answer hidden again | P2 | 🔲 Planned |
+| FR-5.6 | Re-test mode: re-attempt mistakes with answer hidden again | P2 | ✅ Done |
 
 ### 3.6 Mock Test Scorecards
 
@@ -108,8 +108,8 @@ CatPrep exists to close that loop.
 
 | ID | Requirement | Priority | Status |
 | :--- | :--- | :--- | :--- |
-| FR-7.1 | Structured multi-week study schedule (R-E-S-T: Revise, Enhance, Strategize, Test) | P2 | 🔲 Planned |
-| FR-7.2 | Daily to-do list with section-tagged tasks | P2 | 🔲 Planned |
+| FR-7.1 | Structured multi-week study schedule (R-E-S-T: Revise, Enhance, Strategize, Test) | P2 | ✅ Done |
+| FR-7.2 | Daily to-do list with section-tagged tasks | P2 | ✅ Done |
 
 ### 3.8 Data & Privacy
 

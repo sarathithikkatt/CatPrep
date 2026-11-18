@@ -20,6 +20,7 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 import { EXAMS_CONFIG } from '../data/examsData';
+import { QUESTIONS_BANK } from '../data/questionsData';
 
 export const SyllabusManager = ({ 
   activeExamId, 
@@ -34,6 +35,35 @@ export const SyllabusManager = ({
   const [expandedTopicId, setExpandedTopicId] = useState(null);
 
   const activeSection = currentExam.sections.find(s => s.id === selectedSectionId) || currentExam.sections[0];
+
+  const allQuestions = React.useMemo(() => [
+    ...QUESTIONS_BANK,
+    ...(userData.customQuestions || [])
+  ], [userData.customQuestions]);
+
+  // Topic-level question count mapping
+  const topicQuestionCounts = React.useMemo(() => {
+    const counts = {};
+    for (const q of allQuestions) {
+      if (q.examId && q.examId !== activeExamId) continue;
+      if (q.topicId) {
+        counts[q.topicId] = (counts[q.topicId] || 0) + 1;
+      }
+    }
+    return counts;
+  }, [allQuestions, activeExamId]);
+
+  // Section-level question count mapping
+  const sectionQuestionCounts = React.useMemo(() => {
+    const counts = {};
+    for (const q of allQuestions) {
+      if (q.examId && q.examId !== activeExamId) continue;
+      if (q.sectionId) {
+        counts[q.sectionId] = (counts[q.sectionId] || 0) + 1;
+      }
+    }
+    return counts;
+  }, [allQuestions, activeExamId]);
 
   // Update a topic status or confidence
   const handleUpdateTopicProgress = (topicId, updates) => {
@@ -125,7 +155,7 @@ export const SyllabusManager = ({
               >
                 <span>{sec.name}</span>
                 <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-black/10 dark:bg-white/10">
-                  {sec.questionsCount} Qs
+                  {sectionQuestionCounts[sec.id] || 0} PYQs
                 </span>
               </button>
             );
@@ -167,6 +197,7 @@ export const SyllabusManager = ({
           });
 
           if (filteredTopics.length === 0) return null;
+          const modulePYQCount = filteredTopics.reduce((acc, t) => acc + (topicQuestionCounts[t.id] || 0), 0);
 
           return (
             <div key={module.id} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
@@ -177,7 +208,7 @@ export const SyllabusManager = ({
                     {module.title}
                   </h3>
                   <span className="text-xs text-slate-400">
-                    Est. Study Effort: ~{module.estimatedHours} hours • {filteredTopics.length} Topics
+                    Est. Study Effort: ~{module.estimatedHours} hours • {filteredTopics.length} Topics • {modulePYQCount} PYQs Available
                   </span>
                 </div>
               </div>
@@ -192,6 +223,7 @@ export const SyllabusManager = ({
                   };
                   const isExpanded = expandedTopicId === topic.id;
                   const badge = getStatusBadge(progress.status);
+                  const pyqCount = topicQuestionCounts[topic.id] || 0;
 
                   return (
                     <div key={topic.id} className="p-5 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
@@ -220,6 +252,16 @@ export const SyllabusManager = ({
                             <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                               {topic.difficulty}
                             </span>
+
+                            {/* Topic Question Count Badge */}
+                            <button
+                              onClick={() => onPracticeTopic(topic.id)}
+                              title={`Practice ${pyqCount} PYQ${pyqCount === 1 ? '' : 's'} on ${topic.title}`}
+                              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950/60 dark:hover:bg-indigo-900 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 transition cursor-pointer shadow-xs group"
+                            >
+                              <Layers className="w-3 h-3 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
+                              <span>{pyqCount} PYQ{pyqCount === 1 ? '' : 's'}</span>
+                            </button>
                           </div>
 
                           <div className="flex items-center gap-3 text-xs text-slate-400">
@@ -269,10 +311,11 @@ export const SyllabusManager = ({
                           {/* Quick Practice Topic Button */}
                           <button
                             onClick={() => onPracticeTopic(topic.id)}
-                            title="Practice PYQs on this topic"
-                            className="p-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 border border-indigo-200 dark:border-indigo-800 transition"
+                            title={`Practice ${pyqCount} PYQ${pyqCount === 1 ? '' : 's'} on this topic`}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 border border-indigo-200 dark:border-indigo-800 text-xs font-bold transition shadow-xs cursor-pointer"
                           >
-                            <ArrowRight className="w-4 h-4" />
+                            <span>Practice</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
                           </button>
                         </div>
                       </div>

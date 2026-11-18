@@ -5,6 +5,7 @@ import { SyllabusManager } from './components/SyllabusManager';
 import { QuestionPractice } from './components/QuestionPractice';
 import { MistakeNotebook } from './components/MistakeNotebook';
 import { MockScorecard } from './components/MockScorecard';
+import { StudyPlanner } from './components/StudyPlanner';
 import { ResourcesGuide } from './components/ResourcesGuide';
 import { loadUserData, saveUserData } from './utils/storage';
 import { EXAMS_CONFIG } from './data/examsData';
@@ -14,6 +15,7 @@ export default function App() {
   const [activeExamId, setActiveExamId] = useState(userData.activeExamId || 'cat');
   const [activeTab, setActiveTab] = useState('dashboard');
   const [topicFilterForPractice, setTopicFilterForPractice] = useState('all');
+  const [retestQuestionId, setRetestQuestionId] = useState(null);
 
   // Persist user data updates
   const handleUpdateUserData = (newData) => {
@@ -41,6 +43,16 @@ export default function App() {
     setActiveTab('practice');
   };
 
+  // Navigate to Practice tab focused on re-testing a specific mistake
+  const handleRetestInPractice = (questionId) => {
+    setRetestQuestionId(questionId);
+    setActiveTab('practice');
+  };
+
+  const handleClearRetest = () => {
+    setRetestQuestionId(null);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
       {/* Top Navigation & Brand Header */}
@@ -64,6 +76,13 @@ export default function App() {
           />
         )}
 
+        {activeTab === 'planner' && (
+          <StudyPlanner
+            userData={userData}
+            onUpdateUserData={handleUpdateUserData}
+          />
+        )}
+
         {activeTab === 'syllabus' && (
           <SyllabusManager
             activeExamId={activeExamId}
@@ -77,6 +96,8 @@ export default function App() {
           <QuestionPractice
             activeExamId={activeExamId}
             initialTopicFilter={topicFilterForPractice}
+            retestQuestionId={retestQuestionId}
+            onClearRetest={handleClearRetest}
             userData={userData}
             onUpdateUserData={handleUpdateUserData}
           />
@@ -87,6 +108,7 @@ export default function App() {
             userData={userData}
             onUpdateUserData={handleUpdateUserData}
             onNavigateToPractice={handleNavigateToPractice}
+            onRetestInPractice={handleRetestInPractice}
           />
         )}
 

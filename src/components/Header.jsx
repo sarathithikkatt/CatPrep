@@ -12,7 +12,8 @@ import {
   Layers,
   HelpCircle,
   Clock,
-  Award
+  Award,
+  Calendar
 } from 'lucide-react';
 import { EXAMS_CONFIG } from '../data/examsData';
 import { exportUserDataJSON } from '../utils/storage';
@@ -145,6 +146,21 @@ export const Header = ({
           >
             <Target className="w-4 h-4" />
             <span>Daily Tracker</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('planner')}
+            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+              activeTab === 'planner'
+                ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-500/20'
+                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            <Calendar className="w-4 h-4" />
+            <span>Study Planner</span>
+            <span className="ml-0.5 px-1.5 py-0.2 rounded-full text-[10px] bg-indigo-200 dark:bg-indigo-900/60 text-indigo-900 dark:text-indigo-200">
+              R-E-S-T
+            </span>
           </button>
 
           <button

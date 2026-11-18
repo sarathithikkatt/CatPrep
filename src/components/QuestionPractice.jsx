@@ -23,6 +23,8 @@ import { MathText } from './MathText';
 export const QuestionPractice = ({ 
   activeExamId, 
   initialTopicFilter = 'all', 
+  retestQuestionId = null,
+  onClearRetest,
   userData, 
   onUpdateUserData 
 }) => {
@@ -33,6 +35,7 @@ export const QuestionPractice = ({
   const [selectedYear, setSelectedYear] = useState('all');
   const [userAnswers, setUserAnswers] = useState({}); // { [qid]: selectedOptionIndex | string }
   const [submittedQuestions, setSubmittedQuestions] = useState({}); // { [qid]: boolean }
+  const [retestingQuestions, setRetestingQuestions] = useState({}); // { [qid]: boolean }
   const [activeSolutionTab, setActiveSolutionTab] = useState({}); // { [qid]: 'step' | 'shortcut' | 'concept' | 'traps' }
   const [showAddModal, setShowAddModal] = useState(false);
 
@@ -76,10 +79,38 @@ export const QuestionPractice = ({
     return true;
   });
 
+  // Retest navigation effect
+  React.useEffect(() => {
+    if (retestQuestionId) {
+      const target = allQuestions.find(q => q.id === retestQuestionId);
+      if (target) {
+        if (target.sectionId) setSelectedSection(target.sectionId);
+        if (target.topicId) setSelectedTopic(target.topicId);
+        setSelectedDifficulty('all');
+        setSelectedYear('all');
+        setStatusFilter('all');
+        handleRetestQuestion(retestQuestionId);
+      }
+      if (onClearRetest) onClearRetest();
+    }
+  }, [retestQuestionId]);
+
   // Handle Option Pick
   const handleSelectOption = (qid, optionIndexOrVal) => {
-    if (submittedQuestions[qid]) return; // lock once submitted
+    const isRetesting = !!retestingQuestions[qid];
+    if (submittedQuestions[qid] && !isRetesting) return; // lock once submitted unless retesting
     setUserAnswers(prev => ({ ...prev, [qid]: optionIndexOrVal }));
+  };
+
+  // Re-attempt / Re-test fresh attempt
+  const handleRetestQuestion = (qid) => {
+    setUserAnswers(prev => {
+      const updated = { ...prev };
+      delete updated[qid];
+      return updated;
+    });
+    setSubmittedQuestions(prev => ({ ...prev, [qid]: false }));
+    setRetestingQuestions(prev => ({ ...prev, [qid]: true }));
   };
 
   // Submit Answer
@@ -96,7 +127,11 @@ export const QuestionPractice = ({
       isCorrect = answer.toString().trim().toLowerCase() === q.correctAnswer.toString().trim().toLowerCase();
     }
 
+    const wasRetesting = !!retestingQuestions[qid];
     setSubmittedQuestions(prev => ({ ...prev, [qid]: true }));
+    if (wasRetesting) {
+      setRetestingQuestions(prev => ({ ...prev, [qid]: false }));
+    }
 
     // Confetti on correct answer
     if (isCorrect) {
@@ -137,10 +172,25 @@ export const QuestionPractice = ({
       }
     };
 
+    // If retesting, also log retest attempt
+    let updatedRetests = userData.retestAttempts;
+    if (wasRetesting) {
+      const prevCount = (userData.retestAttempts?.[qid]?.count || 0) + 1;
+      updatedRetests = {
+        ...userData.retestAttempts,
+        [qid]: {
+          count: prevCount,
+          isCorrect,
+          lastAttemptDate: new Date().toISOString()
+        }
+      };
+    }
+
     onUpdateUserData({
       ...userData,
       dailyLogs: updatedDailyLogs,
-      questionAttempts: updatedAttempts
+      questionAttempts: updatedAttempts,
+      ...(updatedRetests ? { retestAttempts: updatedRetests } : {})
     });
   };
 
@@ -281,7 +331,8 @@ export const QuestionPractice = ({
       <div className="space-y-6">
         {filteredQuestions.map((q, index) => {
           const qid = q.id;
-          const isSubmitted = submittedQuestions[qid] || !!userData.questionAttempts?.[qid];
+          const isRetesting = !!retestingQuestions[qid];
+          const isSubmitted = !isRetesting && (submittedQuestions[qid] || (submittedQuestions[qid] !== false && !!userData.questionAttempts?.[qid]));
           const previousAttempt = userData.questionAttempts?.[qid];
           const isBookmarked = !!userData.bookmarkedQuestions?.[qid];
           const currentAnswer = userAnswers[qid] !== undefined ? userAnswers[qid] : (previousAttempt?.userAnswer ?? '');
@@ -417,7 +468,7 @@ export const QuestionPractice = ({
                       Submit & Evaluate
                     </button>
                   ) : (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2.5 flex-wrap">
                       {isCorrect ? (
                         <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1.5 rounded-xl border border-emerald-200 dark:border-emerald-800">
                           <CheckCircle2 className="w-4 h-4" />
@@ -433,6 +484,15 @@ export const QuestionPractice = ({
                           <span>{q.type === 'TITA' ? 'Incorrect (0 Penalty — TITA Exempt)' : 'Incorrect (-1 Mark Penalty)'}</span>
                         </div>
                       )}
+
+                      <button
+                        onClick={() => handleRetestQuestion(qid)}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition cursor-pointer"
+                        title="Clear previous attempt and re-test this question fresh"
+                      >
+                        <RotateCcw className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                        <span>Re-attempt Question</span>
+                      </button>
                     </div>
                   )}
 

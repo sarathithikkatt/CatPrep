@@ -80,12 +80,12 @@ Before laying out the plan, here is an honest evaluation of what matters and wha
 
 **Goal**: Turn passive tracking into active improvement tools.
 
-| Task | Detail | Deliverable |
+| Task | Detail | Status / Deliverable |
 | :--- | :--- | :--- |
-| **2.1 Mock test scorecard tab** | New component `MockScorecard.jsx`. Form to log: Mock Name, Date, Platform (IMS/TIME/CL/Cracku/Other), and per-section input table (Total Qs, Attempted, Correct, Incorrect, TITA Incorrect). Auto-calculate net score using official formula. Store in LocalStorage. Display as a card list sorted by date. | New `MockScorecard.jsx`, new nav tab |
-| **2.2 Re-test mode in Mistake Notebook** | Add a "Re-test" button per question in the notebook. Clicking it navigates to `QuestionPractice` with that specific question, answer hidden, allowing a fresh attempt. Track re-test results separately. | Updated `MistakeNotebook.jsx`, updated `QuestionPractice.jsx` |
-| **2.3 Weekly study planner** | New component `StudyPlanner.jsx`. Display a week-view calendar with daily to-do items tagged by section. Users can add/check off tasks. Pre-seed with the R-E-S-T framework structure from `coderdevang` as a template. | New `StudyPlanner.jsx` |
-| **2.4 Topic-level question count badges** | In `SyllabusManager.jsx`, show how many PYQs exist for each topic (e.g., "12 PYQs available"). Links directly to filtered practice view. | Updated `SyllabusManager.jsx` |
+| **2.1 Mock test scorecard tab** | Component `MockScorecard.jsx`. Form to log: Mock Name, Date, Platform (IMS/TIME/CL/Cracku/Other), and per-section input table (Total Qs, Attempted, Correct, Incorrect, TITA Incorrect). Auto-calculate net score using official formula. Capability score & Panic Delta diagnostics. | ✅ Completed: Implemented `MockScorecard.jsx`, with percentile estimator and trend analysis |
+| **2.2 Re-test mode in Mistake Notebook & Practice** | In-place interactive Re-test mode in `MistakeNotebook.jsx` with hidden answers, instant feedback, confetti, and mastery tracking. Added one-click navigation to Practice in re-test mode and "Re-attempt Question" on practice cards. | ✅ Completed: Implemented in `MistakeNotebook.jsx` & `QuestionPractice.jsx` |
+| **2.3 Weekly study planner (R-E-S-T framework)** | New component `StudyPlanner.jsx`. 7-day interactive schedule pre-seeded with coderdevang's R-E-S-T framework (Revise, Enhance, Strategize, Test). Add/delete custom tasks, track completion %, study minutes, and section filtering. | ✅ Completed: Implemented `StudyPlanner.jsx` & added to top navigation |
+| **2.4 Topic-level question count badges** | In `SyllabusManager.jsx`, show how many authentic PYQs exist for each topic (e.g., "1 PYQ", "2 PYQs") with direct one-click practice launch. Module and section headers also summarize available practice volume. | ✅ Completed: Implemented in `SyllabusManager.jsx` |
 
 ### Phase 3: Image Ingestion & AI (Optional / API-dependent)
 
