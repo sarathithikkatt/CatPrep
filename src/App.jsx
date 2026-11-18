@@ -8,21 +8,73 @@ import { MockScorecard } from './components/MockScorecard';
 import { StudyPlanner } from './components/StudyPlanner';
 import { ResourcesGuide } from './components/ResourcesGuide';
 import { SettingsModal } from './components/SettingsModal';
+import { FirebaseSetupModal } from './components/FirebaseSetupModal';
 import { loadUserData, saveUserData } from './utils/storage';
 import { EXAMS_CONFIG } from './data/examsData';
+import { useAuth } from './context/AuthContext';
+import { 
+  loadUserCloudData, 
+  saveUserCloudDataImmediate, 
+  saveUserCloudDataDebounced 
+} from './utils/cloudSync';
 
 export default function App() {
+  const { currentUser, syncStatus, setSyncStatus } = useAuth();
   const [userData, setUserData] = useState(() => loadUserData());
   const [activeExamId, setActiveExamId] = useState(userData.activeExamId || 'cat');
   const [activeTab, setActiveTab] = useState('dashboard');
   const [topicFilterForPractice, setTopicFilterForPractice] = useState('all');
   const [retestQuestionId, setRetestQuestionId] = useState(null);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isFirebaseSetupOpen, setIsFirebaseSetupOpen] = useState(false);
 
-  // Persist user data updates
+  // Sync with Firestore when auth state changes
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function syncOnLogin() {
+      if (currentUser?.uid) {
+        try {
+          setSyncStatus('saving');
+          const cloudData = await loadUserCloudData(currentUser.uid);
+          if (isCancelled) return;
+
+          if (cloudData) {
+            // Restore from cloud
+            setUserData(cloudData);
+            saveUserData(cloudData); // Keep local storage fresh
+            if (cloudData.activeExamId) {
+              setActiveExamId(cloudData.activeExamId);
+            }
+          } else {
+            // First time login: migrate guest local progress to Firestore
+            await saveUserCloudDataImmediate(currentUser.uid, userData);
+          }
+          setSyncStatus('synced');
+        } catch (err) {
+          console.error('Cloud sync error on login:', err);
+          setSyncStatus('error');
+        }
+      } else {
+        setSyncStatus('guest');
+      }
+    }
+
+    syncOnLogin();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [currentUser?.uid]);
+
+  // Persist user data updates locally and debounced to Firestore
   const handleUpdateUserData = (newData) => {
     setUserData(newData);
     saveUserData(newData);
+
+    if (currentUser?.uid) {
+      saveUserCloudDataDebounced(currentUser.uid, newData, 1500, setSyncStatus);
+    }
   };
 
   // Switch Target Exam
@@ -66,6 +118,7 @@ export default function App() {
         userData={userData}
         onImportData={handleUpdateUserData}
         onOpenSettings={() => setIsSettingsOpen(true)}
+        onOpenFirebaseSetup={() => setIsFirebaseSetupOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -132,6 +185,12 @@ export default function App() {
       <SettingsModal
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
+      />
+
+      {/* Firebase Setup Guide Modal */}
+      <FirebaseSetupModal
+        isOpen={isFirebaseSetupOpen}
+        onClose={() => setIsFirebaseSetupOpen(false)}
       />
 
       {/* Footer */}
