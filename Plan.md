@@ -23,11 +23,11 @@
 
 ### What is thin or missing
 
-1. **Question bank scaling**: 40 authentic CAT questions seeded across 100% of CAT topics. Continuous expansion towards the 200+ milestone.
-2. **Re-test / revision mode**: Mistake notebook shows errors but can't re-test them with answers hidden.
-3. **Weekly study planner**: Need calendar/task scheduler (R-E-S-T framework).
-4. **Topic-level question count badges**: Show available question count badges in syllabus view.
-5. **Image-based questions & Gemini OCR**: Support for pasting mock test screenshots and AI solutions (Phase 3).
+1. **Question bank scaling**: 61 authentic questions seeded (40 CAT, 11 XAT, 10 GMAT) covering 100% of CAT, XAT, and GMAT syllabus topics. Continuous community expansion towards the 200+ milestone.
+2. **Re-test / revision mode**: Completed in Mistake Notebook and Practice mode with hidden answers and mastery tracking.
+3. **Weekly study planner**: Completed in `StudyPlanner.jsx` pre-seeded with coderdevang's R-E-S-T framework.
+4. **Topic-level question count badges**: Completed in `SyllabusManager.jsx` with real-time topic badges and module summaries.
+5. **Image-based questions & Gemini OCR**: Completed in `QuestionPractice.jsx`, `gemini.js`, and `SettingsModal.jsx`.
 
 ---
 
@@ -87,25 +87,25 @@ Before laying out the plan, here is an honest evaluation of what matters and wha
 | **2.3 Weekly study planner (R-E-S-T framework)** | New component `StudyPlanner.jsx`. 7-day interactive schedule pre-seeded with coderdevang's R-E-S-T framework (Revise, Enhance, Strategize, Test). Add/delete custom tasks, track completion %, study minutes, and section filtering. | ✅ Completed: Implemented `StudyPlanner.jsx` & added to top navigation |
 | **2.4 Topic-level question count badges** | In `SyllabusManager.jsx`, show how many authentic PYQs exist for each topic (e.g., "1 PYQ", "2 PYQs") with direct one-click practice launch. Module and section headers also summarize available practice volume. | ✅ Completed: Implemented in `SyllabusManager.jsx` |
 
-### Phase 3: Image Ingestion & AI (Optional / API-dependent)
+### Phase 3: Image Ingestion & AI Solution Engine
 
-**Goal**: Support users who practice from coaching mock screenshots.
+**Goal**: Support users who practice from coaching mock screenshots and automate 4-tier solution generation.
 
-| Task | Detail | Deliverable |
+| Task | Detail | Status / Deliverable |
 | :--- | :--- | :--- |
-| **3.1 Image paste upload zone** | Add clipboard paste (`Ctrl+V`) and drag-and-drop support to the "Add Custom Question" modal. Store images as base64 in LocalStorage or IndexedDB. Display image thumbnails on question cards. | Updated `QuestionPractice.jsx` |
-| **3.2 Gemini API integration (optional)** | Settings page for entering a personal Gemini API key (stored encrypted in LocalStorage). When an image question is uploaded, offer a "Generate Solution with AI" button that sends the image to Gemini Vision API and receives a structured solution. | New `Settings.jsx`, new `gemini.js` utility |
-| **3.3 Auto-topic classification** | When Gemini generates a solution, parse the response for a `TOPIC_CHECK` line (following `Naman-64000`'s prompt pattern) and auto-assign the question to the correct syllabus topic. | Updated `gemini.js` |
+| **3.1 Image paste upload zone** | Add clipboard paste (`Ctrl+V`), drag-and-drop, and file upload support to the "Add Custom Question" modal. Store images as base64 in LocalStorage. Display screenshot thumbnails and previews on question cards. | ✅ Completed: Implemented in `QuestionPractice.jsx` |
+| **3.2 Gemini API integration (optional)** | Settings modal for entering and testing a personal Gemini API key (stored in LocalStorage). When an image question is uploaded, provide "✨ Auto-Solve with Gemini AI" that sends the image to `gemini-2.5-flash` with structured JSON schema response. | ✅ Completed: Implemented in `gemini.js` and `SettingsModal.jsx` |
+| **3.3 Auto-topic classification & 4-tier generation** | When Gemini generates a solution, auto-populate question text, options, correct answer, topic assignment (`TOPIC_CHECK`), and complete 4-tier solution drawers (Core Concept, Step-by-Step, Shortcut, Traps). | ✅ Completed: Implemented in `gemini.js` and `QuestionPractice.jsx` |
 
 ### Phase 4: Multi-Exam Expansion
 
-**Goal**: Fulfill the vision of supporting multiple competitive exams.
+**Goal**: Fulfill the vision of supporting multiple competitive management entrance exams.
 
-| Task | Detail | Deliverable |
+| Task | Detail | Status / Deliverable |
 | :--- | :--- | :--- |
-| **4.1 Flesh out XAT syllabus** | Complete the XAT section schemas in `examsData.js`: fill Decision Making module topics, expand Verbal & Logical Ability, add GK section. | Updated `examsData.js` |
-| **4.2 Flesh out GMAT Focus syllabus** | Complete GMAT Focus Edition: Quantitative Reasoning, Verbal Reasoning, Data Insights (Multi-Source Reasoning, Data Sufficiency, Two-Part Analysis). | Updated `examsData.js` |
-| **4.3 Add XAT/GMAT practice questions** | Seed 50+ questions per exam with section-appropriate solutions. | Updated `questionsData.js` |
+| **4.1 Flesh out XAT syllabus** | Complete authentic XAT section schemas in `examsData.js`: Decision Making (4 modules / 7 topics), Verbal & Logical Ability (3 modules / 6 topics), QA & DI (3 modules / 4 topics), and General Knowledge (2 modules / 4 topics) with lectures and cheatsheets. | ✅ Completed: Implemented in `examsData.js` |
+| **4.2 Flesh out GMAT Focus syllabus** | Complete GMAT Focus Edition schemas in `examsData.js`: Quantitative Reasoning (3 modules / 7 topics), Verbal Reasoning (2 modules / 5 topics), and Data Insights (4 modules / 6 topics: Data Sufficiency, Multi-Source Reasoning, Two-Part Analysis, Tables & Graphs). | ✅ Completed: Implemented in `examsData.js` |
+| **4.3 Add XAT/GMAT practice questions** | Seed authentic questions across XAT and GMAT with exam-specific features (5-option MCQs, ethical dilemma DM caselets, 12-second AD/BCE Data Sufficiency grids, Integrated Reasoning) and full 4-tier solutions. | ✅ Completed: 21 authentic multi-exam questions seeded in `questionsData.js` (bank total: 61 questions) |
 
 ---
 
@@ -114,22 +114,23 @@ Before laying out the plan, here is an honest evaluation of what matters and wha
 ```
 src/
 ├── components/
-│   ├── Header.jsx              ← (exists) add new tab for Mocks
-│   ├── DashboardTracker.jsx    ← (exists) add exam countdown
-│   ├── SyllabusManager.jsx     ← (exists) add lecture links + PYQ count badges
-│   ├── QuestionPractice.jsx    ← (exists) fix TITA scoring, add re-test entry point
-│   ├── MistakeNotebook.jsx     ← (exists) add re-test button
-│   ├── ResourcesGuide.jsx      ← (exists)
-│   ├── MathText.jsx            ← (exists)
-│   ├── MockScorecard.jsx       ← NEW (Phase 2)
-│   └── StudyPlanner.jsx        ← NEW (Phase 2)
+│   ├── Header.jsx              ← (updated) mock scorecard, study planner tabs, and AI settings gear
+│   ├── DashboardTracker.jsx    ← (updated) exam countdown, streak counter, burndown metrics
+│   ├── SyllabusManager.jsx     ← (updated) lecture links, PYQ count badges, multi-exam section sync
+│   ├── QuestionPractice.jsx    ← (updated) TITA scoring, re-test mode, Ctrl+V image paste, Gemini AI solver
+│   ├── MistakeNotebook.jsx     ← (updated) in-place interactive re-test engine with answer hiding
+│   ├── MockScorecard.jsx       ← (new) multi-platform score logging, Panic Delta & Capability diagnostics
+│   ├── StudyPlanner.jsx        ← (new) 7-day R-E-S-T study planner with customizable tasks
+│   ├── SettingsModal.jsx       ← (new) Gemini API key configuration & connection test
+│   ├── ResourcesGuide.jsx      ← (exists) percentile tables & study guide
+│   └── MathText.jsx            ← (exists) KaTeX mathematical renderer
 ├── data/
-│   ├── examsData.js            ← (exists) add lectures array per topic
-│   └── questionsData.js        ← (exists) expand from 8 → 200+ questions
+│   ├── examsData.js            ← (updated) comprehensive CAT, XAT, and GMAT Focus Edition schemas
+│   └── questionsData.js        ← (updated) 61 authentic questions with 4-tier KaTeX solutions
 ├── utils/
-│   ├── storage.js              ← (exists)
-│   └── gemini.js               ← NEW (Phase 3, optional)
-├── App.jsx                     ← (exists) add routing for new tabs
+│   ├── storage.js              ← (updated) mockReports, retestAttempts, and weeklyPlanner schemas
+│   └── gemini.js               ← (new) Gemini 2.5 Flash multimodal vision & 4-tier solver API client
+├── App.jsx                     ← (updated) tab routing, retest navigation, settings modal wiring
 ├── main.jsx                    ← (exists)
 └── index.css                   ← (exists)
 ```

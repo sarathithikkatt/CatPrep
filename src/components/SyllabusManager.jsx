@@ -34,6 +34,12 @@ export const SyllabusManager = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedTopicId, setExpandedTopicId] = useState(null);
 
+  React.useEffect(() => {
+    if (!currentExam.sections.some(s => s.id === selectedSectionId)) {
+      setSelectedSectionId(currentExam.sections[0]?.id || '');
+    }
+  }, [activeExamId, currentExam]);
+
   const activeSection = currentExam.sections.find(s => s.id === selectedSectionId) || currentExam.sections[0];
 
   const allQuestions = React.useMemo(() => [

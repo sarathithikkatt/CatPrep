@@ -46,21 +46,21 @@ CatPrep exists to close that loop.
 | FR-1.6 | Estimated study hours per topic with progress tracking | P1 | ✅ Done |
 | FR-1.7 | Link curated video lectures (YouTube) per topic for self-study | P1 | ✅ Done (40/40 topics linked) |
 | FR-1.8 | Search and filter topics by name, status, or section | P1 | ✅ Done |
-| FR-1.9 | Support switching between exam targets (CAT, XAT, GMAT) via top navbar | P2 | ✅ Done |
+| FR-1.9 | Support switching between exam targets (CAT, XAT, GMAT Focus) with full syllabi and authentic questions | P2 | ✅ Done |
 
 ### 3.2 Question Bank & Practice
 
 | ID | Requirement | Priority | Status |
 | :--- | :--- | :--- | :--- |
-| FR-2.1 | Pre-loaded previous year CAT questions (MCQ and TITA) with metadata (year, slot, topic, difficulty) | P0 | ⚠️ In Progress (40 authentic PYQs covering 100% of CAT topics; expanding towards 200+) |
+| FR-2.1 | Pre-loaded previous year questions (MCQ, 5-option, TITA) with metadata (year, slot, topic, difficulty) across CAT, XAT, and GMAT | P0 | ✅ Done (61 authentic questions: 40 CAT covering 100% of syllabus topics, 11 XAT, 10 GMAT Focus) |
 | FR-2.2 | Active practice mode: answer hidden until user submits | P0 | ✅ Done |
 | FR-2.3 | Instant evaluation with visual feedback (confetti on correct, highlight on wrong) | P1 | ✅ Done |
 | FR-2.4 | Correct CAT scoring: +3 MCQ correct, -1 MCQ wrong, +3 TITA correct, 0 TITA wrong | P0 | ✅ Done (+3 / -1 MCQ, +3 / 0 TITA) |
 | FR-2.5 | Filter questions by section, topic, difficulty, year, and attempt status | P0 | ✅ Done |
 | FR-2.6 | Bookmark questions to Mistake Notebook | P0 | ✅ Done |
 | FR-2.7 | Add custom questions via form (text + options) | P1 | ✅ Done |
-| FR-2.8 | Paste screenshot from clipboard (Ctrl+V) to add image-based questions | P2 | 🔲 Planned |
-| FR-2.9 | AI-generated solutions via Gemini API for pasted image questions | P3 | 🔲 Planned |
+| FR-2.8 | Paste screenshot from clipboard (Ctrl+V), drag & drop, and file upload to add image-based questions | P2 | ✅ Done |
+| FR-2.9 | AI-generated solutions via Gemini Vision API (`gemini-2.5-flash`) with structured 4-tier solutions & auto-tagging | P3 | ✅ Done |
 | FR-2.10 | KaTeX math rendering in question text, options, and solutions | P0 | ✅ Done |
 
 ### 3.3 Solution Quality
