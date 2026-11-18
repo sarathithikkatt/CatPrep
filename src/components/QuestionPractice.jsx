@@ -317,8 +317,12 @@ export const QuestionPractice = ({
                   <span className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
                     {q.difficulty}
                   </span>
-                  <span className="text-[11px] font-semibold text-slate-400">
-                    [{q.type}]
+                  <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
+                    q.type === 'TITA' 
+                      ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
+                      : 'text-slate-500 bg-slate-100 dark:bg-slate-800'
+                  }`}>
+                    {q.type === 'TITA' ? 'TITA (0 Negative Marks)' : 'MCQ (+3 / -1)'}
                   </span>
                 </div>
 
@@ -420,9 +424,13 @@ export const QuestionPractice = ({
                           <span>Correct (+3 Marks)</span>
                         </div>
                       ) : (
-                        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-3 py-1.5 rounded-xl border border-rose-200 dark:border-rose-800">
+                        <div className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border ${
+                          q.type === 'TITA'
+                            ? 'text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800'
+                            : 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800'
+                        }`}>
                           <XCircle className="w-4 h-4" />
-                          <span>Incorrect (-1 Penalty)</span>
+                          <span>{q.type === 'TITA' ? 'Incorrect (0 Penalty — TITA Exempt)' : 'Incorrect (-1 Mark Penalty)'}</span>
                         </div>
                       )}
                     </div>

@@ -4,6 +4,7 @@ import { DashboardTracker } from './components/DashboardTracker';
 import { SyllabusManager } from './components/SyllabusManager';
 import { QuestionPractice } from './components/QuestionPractice';
 import { MistakeNotebook } from './components/MistakeNotebook';
+import { MockScorecard } from './components/MockScorecard';
 import { ResourcesGuide } from './components/ResourcesGuide';
 import { loadUserData, saveUserData } from './utils/storage';
 import { EXAMS_CONFIG } from './data/examsData';
@@ -86,6 +87,13 @@ export default function App() {
             userData={userData}
             onUpdateUserData={handleUpdateUserData}
             onNavigateToPractice={handleNavigateToPractice}
+          />
+        )}
+
+        {activeTab === 'mocks' && (
+          <MockScorecard
+            userData={userData}
+            onUpdateUserData={handleUpdateUserData}
           />
         )}
 

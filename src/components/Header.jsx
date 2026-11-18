@@ -11,7 +11,8 @@ import {
   ChevronDown,
   Layers,
   HelpCircle,
-  Clock
+  Clock,
+  Award
 } from 'lucide-react';
 import { EXAMS_CONFIG } from '../data/examsData';
 import { exportUserDataJSON } from '../utils/storage';
@@ -186,6 +187,21 @@ export const Header = ({
           </button>
 
           <button
+            onClick={() => setActiveTab('mocks')}
+            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+              activeTab === 'mocks'
+                ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-500/20'
+                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            <Award className="w-4 h-4" />
+            <span>Mock Scorecards</span>
+            <span className="ml-0.5 px-1.5 py-0.2 rounded-full text-[10px] bg-amber-200 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200">
+              Panic Delta
+            </span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('resources')}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
               activeTab === 'resources'
@@ -194,7 +210,7 @@ export const Header = ({
             }`}
           >
             <Sparkles className="w-4 h-4" />
-            <span>Resources & Mocks</span>
+            <span>Resources</span>
           </button>
         </div>
       </div>

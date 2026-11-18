@@ -34,7 +34,12 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 8,
                 keyConcepts: 'Multiplier approach (1.15 for 15% increase), successive percentage changes, markup & margin relation, false weights.',
-                subtopics: ['Fraction to % conversions', 'Successive % changes', 'Cost Price vs Selling Price', 'Marked Price & Discount', 'Dishonest Merchant']
+                subtopics: ['Fraction to % conversions', 'Successive % changes', 'Cost Price vs Selling Price', 'Marked Price & Discount', 'Dishonest Merchant'],
+                lectures: [
+                  { title: 'Percentages Foundation to Advanced', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: 'Full Series' },
+                  { title: 'Profit, Loss & False Weights Mastery', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Crash Course' },
+                  { title: 'Arithmetic Practice Part 1', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Solved Problems' }
+                ]
               },
               {
                 id: 'qa-sici',
@@ -43,7 +48,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 5,
                 keyConcepts: 'Difference between CI and SI for 2 and 3 years, CI compounding frequency, Loan equal installments formula.',
-                subtopics: ['SI formula & rate comparison', 'CI compounding periods', 'Installments in SI & CI', 'Growth factor equations']
+                subtopics: ['SI formula & rate comparison', 'CI compounding periods', 'Installments in SI & CI', 'Growth factor equations'],
+                lectures: [
+                  { title: 'SI & CI Complete Concepts & Installments', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=ADH2rAo-wKk', duration: '3 Videos' },
+                  { title: 'Installments & Compound Formulas', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Formula Book' }
+                ]
               },
               {
                 id: 'qa-ratios',
@@ -52,7 +61,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Easy-Moderate',
                 hoursNeeded: 6,
                 keyConcepts: 'Direct and inverse variation proportionality constants, compounding ratios, coins and currency distributions.',
-                subtopics: ['Ratios & scaling constants', 'Direct & Inverse variation', 'Joint variation problems', 'Partnership & profit sharing']
+                subtopics: ['Ratios & scaling constants', 'Direct & Inverse variation', 'Joint variation problems', 'Partnership & profit sharing'],
+                lectures: [
+                  { title: 'Ratio & Proportion Foundation', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: 'Day 02, 04' },
+                  { title: 'Variation & Partnership Applications', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Concept Class' }
+                ]
               },
               {
                 id: 'qa-averages',
@@ -61,7 +74,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 8,
                 keyConcepts: 'Deviation method for quick average, Alligation cross-rule, replacement formula: Final = Initial * (1 - x/V)^n.',
-                subtopics: ['Deviation method for averages', 'Weighted averages', 'Rule of Alligation', 'Successive dilution / replacement']
+                subtopics: ['Deviation method for averages', 'Weighted averages', 'Rule of Alligation', 'Successive dilution / replacement'],
+                lectures: [
+                  { title: 'Rule of Alligation & Replacement', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: 'Full Module' },
+                  { title: 'Mixtures & Alligation Practice', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Practice Sets' }
+                ]
               },
               {
                 id: 'qa-timework',
@@ -70,7 +87,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 8,
                 keyConcepts: 'LCM method for total work units, negative work by leak pipes, efficiency ratios, alternate day work cycles.',
-                subtopics: ['LCM unit work model', 'Men, Women, Boys efficiency', 'Pipes, leaks & filling rates', 'Alternate day cycles & wages']
+                subtopics: ['LCM unit work model', 'Men, Women, Boys efficiency', 'Pipes, leaks & filling rates', 'Alternate day cycles & wages'],
+                lectures: [
+                  { title: 'Time & Work LCM Unit Method', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: 'Core Lectures' },
+                  { title: 'Pipes & Cisterns Alternate Cycles', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Concept Video' }
+                ]
               },
               {
                 id: 'qa-tsd',
@@ -79,7 +100,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Challenging',
                 hoursNeeded: 10,
                 keyConcepts: 'Relative speed in opposite/same direction, average speed harmonic mean, circular tracks meeting points, escalator steps.',
-                subtopics: ['Relative Speed & Trains', 'Boats & Streams', 'Circular Tracks (First meeting & start point)', 'Races & Head starts', 'Escalators']
+                subtopics: ['Relative Speed & Trains', 'Boats & Streams', 'Circular Tracks (First meeting & start point)', 'Races & Head starts', 'Escalators'],
+                lectures: [
+                  { title: 'TSD Masterclass: Races & Circular Tracks', educator: 'Ravi Prakash (Rodha)', url: 'https://www.youtube.com/watch?v=hGOn9659ujo', duration: '12 Lectures' },
+                  { title: 'Escalators & Relative Speed Shortcuts', educator: 'Raman Tiwari', url: 'https://www.youtube.com/playlist?list=PLj8E34obZYU0sxwpe8w7ZLN6PlzLcMtqs', duration: 'Advanced' }
+                ]
               }
             ]
           },
@@ -272,7 +297,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate-Hard',
                 hoursNeeded: 10,
                 keyConcepts: 'Bidirectional seating, facing center vs facing outward, relative positioning anchors, circular symmetry.',
-                subtopics: ['Linear arrangement with attributes', 'Circular facing center / outside', 'Dual row parallel seating', 'Complex multi-variable arrangements']
+                subtopics: ['Linear arrangement with attributes', 'Circular facing center / outside', 'Dual row parallel seating', 'Complex multi-variable arrangements'],
+                lectures: [
+                  { title: 'Conundrum Carousel: 400+ DILR Sets', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Daily Sets' },
+                  { title: 'Linear & Circular Seating Mastery', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Marathon' }
+                ]
               },
               {
                 id: 'dilr-matrix',
@@ -281,7 +310,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 8,
                 keyConcepts: 'Grid matrix notation (tick/cross method), elimination of invalid states, conditional linkages (If A is X, B is not Y).',
-                subtopics: ['3-Variable matching grids', 'Order sequencing with constraints', 'Blood relations hybrid matrix', 'Scheduling timelines']
+                subtopics: ['3-Variable matching grids', 'Order sequencing with constraints', 'Blood relations hybrid matrix', 'Scheduling timelines'],
+                lectures: [
+                  { title: 'Matrix Puzzles & Elimination Logic', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Practice Sets' },
+                  { title: 'Multi-Attribute Matching Strategy', educator: 'Elites Grid', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Exam Level' }
+                ]
               },
               {
                 id: 'dilr-tournaments',
@@ -290,7 +323,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 12,
                 keyConcepts: 'Round-robin points tables (win=2, draw=1, loss=0), knockout tournament seeding brackets (Seed 1 vs Seed n), upsets calculation.',
-                subtopics: ['Round-robin points analysis', 'Knockout tournament & Seeding', 'Match margins & bonus points', 'Minimum wins required to qualify']
+                subtopics: ['Round-robin points analysis', 'Knockout tournament & Seeding', 'Match margins & bonus points', 'Minimum wins required to qualify'],
+                lectures: [
+                  { title: 'Complete Games & Tournaments Series', educator: 'Elites Grid (Hunny Sharma)', url: 'https://www.youtube.com/watch?v=sN4GIKb409A', duration: 'Marathon' },
+                  { title: 'Knockout Seeding & Round Robin Sets', educator: 'Anastasis Shankar', url: 'https://www.youtube.com/playlist?list=PLgdxDqtv4Gt-4vXeT_OuiwJ7-jBujAEru', duration: 'Advanced' }
+                ]
               },
               {
                 id: 'dilr-binary-logic',
@@ -406,7 +443,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Hard',
                 hoursNeeded: 12,
                 keyConcepts: 'Deconstructing ontological/epistemological arguments, mapping premises to conclusion, identifying tone.',
-                subtopics: ['Existentialism & ethics passages', 'Cognitive psychology & consciousness', 'Author stance vs cited critics', 'Inference vs stated fact']
+                subtopics: ['Existentialism & ethics passages', 'Cognitive psychology & consciousness', 'Author stance vs cited critics', 'Inference vs stated fact'],
+                lectures: [
+                  { title: 'Option Traps in Reading Comprehension', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+option+traps', duration: 'Masterclass' },
+                  { title: 'How to Read Aeon Essays for CAT RC', educator: 'Bodhee Prep', url: 'https://www.youtube.com/results?search_query=bodhee+prep+aeon+essays', duration: 'RC Technique' }
+                ]
               },
               {
                 id: 'varc-science',
@@ -449,7 +490,11 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Challenging',
                 hoursNeeded: 10,
                 keyConcepts: 'Mandatory pairs identification, noun-pronoun references, chronological markers, transition words (however, thus).',
-                subtopics: ['Pronoun antecedent tracking', 'Transition connectors (contrast/cause)', 'Opening & closing sentence identification', 'TITA numerical ordering strategies']
+                subtopics: ['Pronoun antecedent tracking', 'Transition connectors (contrast/cause)', 'Opening & closing sentence identification', 'TITA numerical ordering strategies'],
+                lectures: [
+                  { title: 'Mandatory Pairs & VA Strategies', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+parajumbles', duration: 'Full Series' },
+                  { title: 'Para Jumbles TITA Elimination Rules', educator: 'Krishna Sripada', url: 'https://www.youtube.com/results?search_query=krishna+sripada+parajumbles', duration: 'Technique' }
+                ]
               },
               {
                 id: 'varc-summary',
@@ -458,7 +503,10 @@ export const EXAMS_CONFIG = [
                 difficulty: 'Moderate',
                 hoursNeeded: 8,
                 keyConcepts: 'Identifying core thesis sentence, eliminating options with broad/narrow distortion, eliminating extreme words (always, never).',
-                subtopics: ['Main idea extraction', 'Eliminating over-generalizations', 'Spotting out-of-scope additions', 'Tone preservation']
+                subtopics: ['Main idea extraction', 'Eliminating over-generalizations', 'Spotting out-of-scope additions', 'Tone preservation'],
+                lectures: [
+                  { title: 'Paragraph Summary Elimination Traps', educator: 'Gejo Speaks', url: 'https://www.youtube.com/results?search_query=gejospeaks+para+summary', duration: 'Mastery' }
+                ]
               },
               {
                 id: 'varc-completion',
