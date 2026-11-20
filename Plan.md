@@ -107,6 +107,17 @@ Before laying out the plan, here is an honest evaluation of what matters and wha
 | **4.2 Flesh out GMAT Focus syllabus** | Complete GMAT Focus Edition schemas in `examsData.js`: Quantitative Reasoning (3 modules / 7 topics), Verbal Reasoning (2 modules / 5 topics), and Data Insights (4 modules / 6 topics: Data Sufficiency, Multi-Source Reasoning, Two-Part Analysis, Tables & Graphs). | ✅ Completed: Implemented in `examsData.js` |
 | **4.3 Add XAT/GMAT practice questions** | Seed authentic questions across XAT and GMAT with exam-specific features (5-option MCQs, ethical dilemma DM caselets, 12-second AD/BCE Data Sufficiency grids, Integrated Reasoning) and full 4-tier solutions. | ✅ Completed: 21 authentic multi-exam questions seeded in `questionsData.js` (bank total: 61 questions) |
 
+### Phase 5: Cloud Authentication & Multi-Device Sync
+
+**Goal**: Provide optional, zero-friction cloud backup and synchronization across devices using Firebase Spark tier (free forever).
+
+| Task | Detail | Status / Deliverable |
+| :--- | :--- | :--- |
+| **5.1 Firebase SDK & Auth Initialization** | Configure `firebase.js` with Google OAuth provider, Cloud Firestore, and optional Google Analytics. Provide safe guest mode fallback when credentials are not configured. | ✅ Completed: Implemented in `firebase.js` |
+| **5.2 User Authentication Context** | Create `AuthContext.jsx` with reactive authentication state, Google popup sign-in, account switching, and sign-out handlers. | ✅ Completed: Implemented in `AuthContext.jsx` & wrapped in `main.jsx` |
+| **5.3 Bi-directional Cloud Sync Engine** | Implement `cloudSync.js` with `pushToCloud`, `pullFromCloud`, and last-synced timestamp tracking across topics, custom questions, daily tracker, mistake notebook, mock scorecards, and study planner. | ✅ Completed: Implemented in `cloudSync.js` |
+| **5.4 Cloud Sync UI & Setup Modal** | Add interactive Cloud Sync status button in `Header.jsx` with sync dropdown, manual push/pull actions, user avatar, and 1-click `FirebaseSetupModal.jsx` with copyable `.env.local` template. | ✅ Completed: Implemented in `FirebaseSetupModal.jsx` & `Header.jsx` |
+
 ---
 
 ## 4. File Architecture (Current → Target)
@@ -114,7 +125,7 @@ Before laying out the plan, here is an honest evaluation of what matters and wha
 ```
 src/
 ├── components/
-│   ├── Header.jsx              ← (updated) mock scorecard, study planner tabs, and AI settings gear
+│   ├── Header.jsx              ← (updated) mock scorecard, study planner tabs, AI settings, & Cloud Sync dropdown
 │   ├── DashboardTracker.jsx    ← (updated) exam countdown, streak counter, burndown metrics
 │   ├── SyllabusManager.jsx     ← (updated) lecture links, PYQ count badges, multi-exam section sync
 │   ├── QuestionPractice.jsx    ← (updated) TITA scoring, re-test mode, Ctrl+V image paste, Gemini AI solver
@@ -122,16 +133,21 @@ src/
 │   ├── MockScorecard.jsx       ← (new) multi-platform score logging, Panic Delta & Capability diagnostics
 │   ├── StudyPlanner.jsx        ← (new) 7-day R-E-S-T study planner with customizable tasks
 │   ├── SettingsModal.jsx       ← (new) Gemini API key configuration & connection test
+│   ├── FirebaseSetupModal.jsx  ← (new) Google Sign-In & Firebase credentials setup guide
 │   ├── ResourcesGuide.jsx      ← (exists) percentile tables & study guide
 │   └── MathText.jsx            ← (exists) KaTeX mathematical renderer
+├── context/
+│   └── AuthContext.jsx         ← (new) Google Firebase authentication state & login/logout methods
 ├── data/
 │   ├── examsData.js            ← (updated) comprehensive CAT, XAT, and GMAT Focus Edition schemas
 │   └── questionsData.js        ← (updated) 61 authentic questions with 4-tier KaTeX solutions
 ├── utils/
 │   ├── storage.js              ← (updated) mockReports, retestAttempts, and weeklyPlanner schemas
-│   └── gemini.js               ← (new) Gemini 2.5 Flash multimodal vision & 4-tier solver API client
+│   ├── gemini.js               ← (new) Gemini 2.5 Flash multimodal vision & 4-tier solver API client
+│   ├── firebase.js             ← (new) Firebase app, Google Auth, and Firestore initialization
+│   └── cloudSync.js            ← (new) Bi-directional Firestore sync engine for all user state
 ├── App.jsx                     ← (updated) tab routing, retest navigation, settings modal wiring
-├── main.jsx                    ← (exists)
+├── main.jsx                    ← (updated) AuthProvider context wrapper
 └── index.css                   ← (exists)
 ```
 
@@ -141,11 +157,11 @@ src/
 
 To stay focused and ship something useful:
 
-- **Not an Electron app.** Web-first. No native binaries, no SQLite, no Prisma. Browser LocalStorage is sufficient for a single-user study tool.
-- **Not a content-creation CMS.** We curate and pre-seed questions. The custom question form is a convenience, not the primary workflow.
+- **Not an Electron app.** Web-first. No native binaries, no SQLite, no Prisma. Browser LocalStorage and Firebase Spark Firestore provide zero-friction persistence.
+- **Not a content-creation CMS.** We curate and pre-seed questions. The custom question form and Gemini AI OCR solver are conveniences, not the primary workflow.
 - **Not a timed mock simulator.** Recording mock scores (taken on IMS/TIME/CL platforms) is in scope. Simulating a full 120-minute timed mock exam with section switching is out of scope for v1.
-- **Not a social platform.** No leaderboards, no peer comparison, no sharing. This is a private study workstation.
-- **Not dependent on paid APIs.** Gemini integration is optional and user-brings-their-own-key. All core features work without any API key.
+- **Not a social platform.** No public leaderboards, no peer comparison, no sharing. This is a private study workstation.
+- **Not dependent on paid APIs or mandatory cloud logins.** Gemini integration is optional (bring-your-own-key). Firebase cloud sync is optional (runs fully local/offline if unconfigured). All core features work without any account or API key.
 
 ---
 

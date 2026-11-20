@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -9,6 +10,7 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Verify if required environment credentials are present
@@ -22,6 +24,7 @@ export const isFirebaseConfigured = Boolean(
 let app = null;
 let auth = null;
 let db = null;
+let analytics = null;
 let googleProvider = null;
 
 if (isFirebaseConfigured) {
@@ -29,6 +32,13 @@ if (isFirebaseConfigured) {
     app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
     auth = getAuth(app);
     db = getFirestore(app);
+    if (firebaseConfig.measurementId && typeof window !== 'undefined') {
+      try {
+        analytics = getAnalytics(app);
+      } catch (analyticsErr) {
+        console.warn('Firebase Analytics initialization skipped:', analyticsErr);
+      }
+    }
     googleProvider = new GoogleAuthProvider();
     googleProvider.setCustomParameters({
       prompt: 'select_account',
@@ -42,4 +52,4 @@ if (isFirebaseConfigured) {
   );
 }
 
-export { app, auth, db, googleProvider };
+export { app, auth, db, analytics, googleProvider };

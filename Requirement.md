@@ -111,13 +111,16 @@ CatPrep exists to close that loop.
 | FR-7.1 | Structured multi-week study schedule (R-E-S-T: Revise, Enhance, Strategize, Test) | P2 | ✅ Done |
 | FR-7.2 | Daily to-do list with section-tagged tasks | P2 | ✅ Done |
 
-### 3.8 Data & Privacy
+### 3.8 Data, Privacy & Cloud Sync
 
 | ID | Requirement | Priority | Status |
 | :--- | :--- | :--- | :--- |
-| FR-8.1 | All data stored locally (LocalStorage). No cloud servers. | P0 | ✅ Done |
+| FR-8.1 | All data stored locally (LocalStorage) with offline-first persistence | P0 | ✅ Done |
 | FR-8.2 | One-click JSON export backup | P0 | ✅ Done |
 | FR-8.3 | One-click JSON import restore | P0 | ✅ Done |
+| FR-8.4 | Optional Google Sign-In via Firebase Auth (free Spark tier) | P2 | ✅ Done |
+| FR-8.5 | Bi-directional Cloud Firestore sync across devices with manual Push/Pull and auto-sync triggers | P2 | ✅ Done |
+| FR-8.6 | Setup guidance modal with copyable `.env.local` template and zero-lock-in fallback | P2 | ✅ Done |
 
 ---
 
@@ -126,19 +129,17 @@ CatPrep exists to close that loop.
 | ID | Requirement | Priority |
 | :--- | :--- | :--- |
 | NFR-1 | Page loads in under 2 seconds | P0 |
-| NFR-2 | Works fully offline after first load | P1 |
+| NFR-2 | Works fully offline in guest/local mode without internet | P1 |
 | NFR-3 | Responsive layout: desktop-first, usable on tablet and mobile | P1 |
 | NFR-4 | Supports Chrome, Edge, Firefox, Safari | P0 |
-| NFR-5 | Clean module separation: data / components / utilities | P0 |
+| NFR-5 | Clean module separation: data / components / context / utilities | P0 |
 | NFR-6 | No paid dependencies or mandatory API keys for core features | P0 |
 
 ---
 
 ## 5. Out of Scope (for v1)
 
-- User authentication or multi-user accounts
-- Cloud sync or server-side storage
-- Native mobile app (iOS / Android)
-- Paid coaching content or DRM-protected material
-- Full-length timed mock exam simulation engine
-- Payment or subscription features
+- Native mobile app (iOS / Android) binary releases
+- Paid coaching content or DRM-protected proprietary question packs
+- Full-length 120-minute timed mock exam simulation with sectional countdown lockouts
+- Payment gateways, subscription paywalls, or public social leaderboards (CatPrep is a private, distraction-free study workstation)
