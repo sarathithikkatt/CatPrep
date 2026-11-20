@@ -1,9 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-  signInWithPopup, 
-  signOut, 
-  onAuthStateChanged 
-} from 'firebase/auth';
+import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth, googleProvider, isFirebaseConfigured } from '../utils/firebase';
 
 const AuthContext = createContext({
@@ -13,7 +9,7 @@ const AuthContext = createContext({
   syncStatus: 'guest',
   setSyncStatus: () => {},
   loginWithGoogle: async () => {},
-  logout: async () => {},
+  logout: async () => {}
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -31,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const unsubscribe = onAuthStateChanged(
-      auth, 
+      auth,
       (user) => {
         setCurrentUser(user);
         setSyncStatus(user ? 'synced' : 'guest');
@@ -67,9 +63,11 @@ export const AuthProvider = ({ children }) => {
       if (error.code === 'auth/popup-closed-by-user') {
         message = 'Sign-in popup was closed before completion.';
       } else if (error.code === 'auth/unauthorized-domain') {
-        message = 'This domain is not authorized in Firebase Console -> Authentication -> Settings -> Authorized domains.';
+        message =
+          'This domain is not authorized in Firebase Console -> Authentication -> Settings -> Authorized domains.';
       } else if (error.code === 'auth/operation-not-allowed') {
-        message = 'Google sign-in is not enabled in Firebase Console -> Authentication -> Sign-in method.';
+        message =
+          'Google sign-in is not enabled in Firebase Console -> Authentication -> Sign-in method.';
       }
       return { success: false, error: message, code: error.code };
     }
@@ -99,7 +97,7 @@ export const AuthProvider = ({ children }) => {
         syncStatus,
         setSyncStatus,
         loginWithGoogle,
-        logout,
+        logout
       }}
     >
       {children}

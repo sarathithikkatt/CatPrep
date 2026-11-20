@@ -25,7 +25,8 @@ export const PracticeFiltersHeader = ({
             {currentExam.name} Practice & Solutions
           </h1>
           <p className="text-xs text-slate-400">
-            Authentic past paper questions & sectional drills with instant evaluation & 4-tier solutions
+            Authentic past paper questions & sectional drills with instant evaluation & 4-tier
+            solutions
           </p>
         </div>
 
@@ -44,7 +45,9 @@ export const PracticeFiltersHeader = ({
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-2">
         {/* Section Filter */}
         <div>
-          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Section</label>
+          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+            Section
+          </label>
           <select
             value={selectedSection}
             onChange={(e) => onSelectSection(e.target.value)}
@@ -52,14 +55,18 @@ export const PracticeFiltersHeader = ({
           >
             <option value="all">All Sections</option>
             {currentExam.sections.map((s) => (
-              <option key={s.id} value={s.id}>{s.name}</option>
+              <option key={s.id} value={s.id}>
+                {s.name}
+              </option>
             ))}
           </select>
         </div>
 
         {/* Difficulty Filter */}
         <div>
-          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Difficulty</label>
+          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+            Difficulty
+          </label>
           <select
             value={selectedDifficulty}
             onChange={(e) => onSelectDifficulty(e.target.value)}
@@ -74,7 +81,9 @@ export const PracticeFiltersHeader = ({
 
         {/* Status Filter */}
         <div>
-          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Attempt Status</label>
+          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+            Attempt Status
+          </label>
           <select
             value={statusFilter}
             onChange={(e) => onSelectStatus(e.target.value)}
@@ -90,7 +99,9 @@ export const PracticeFiltersHeader = ({
 
         {/* Year Filter */}
         <div>
-          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Year</label>
+          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+            Year
+          </label>
           <select
             value={selectedYear}
             onChange={(e) => onSelectYear(e.target.value)}

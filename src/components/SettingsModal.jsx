@@ -42,11 +42,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
         <FeatureExplainer />
 
         {/* API Key Form */}
-        <ApiKeyForm
-          apiKey={apiKey}
-          setApiKey={setApiKey}
-          onClose={onClose}
-        />
+        <ApiKeyForm apiKey={apiKey} setApiKey={setApiKey} onClose={onClose} />
       </div>
     </div>
   );

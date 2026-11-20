@@ -25,25 +25,25 @@ export const loadUserCloudData = async (uid) => {
         ...cloudData,
         dailyTarget: {
           ...defaultData.dailyTarget,
-          ...(cloudData.dailyTarget || {}),
+          ...(cloudData.dailyTarget || {})
         },
         topicProgress: {
           ...defaultData.topicProgress,
-          ...(cloudData.topicProgress || {}),
+          ...(cloudData.topicProgress || {})
         },
         dailyLogs: {
           ...defaultData.dailyLogs,
-          ...(cloudData.dailyLogs || {}),
+          ...(cloudData.dailyLogs || {})
         },
         streak: {
           ...defaultData.streak,
-          ...(cloudData.streak || {}),
+          ...(cloudData.streak || {})
         },
         mockReports: cloudData.mockReports || [],
         questionAttempts: cloudData.questionAttempts || {},
         bookmarkedQuestions: cloudData.bookmarkedQuestions || {},
         retestAttempts: cloudData.retestAttempts || {},
-        weeklyPlanner: cloudData.weeklyPlanner || null,
+        weeklyPlanner: cloudData.weeklyPlanner || null
       };
     }
     return null;
@@ -64,7 +64,7 @@ export const saveUserCloudDataImmediate = async (uid, userData) => {
     // Exclude any non-serializable properties
     const payload = {
       ...userData,
-      _updatedAt: new Date().toISOString(),
+      _updatedAt: new Date().toISOString()
     };
     await setDoc(docRef, payload, { merge: true });
   } catch (error) {

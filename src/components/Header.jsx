@@ -13,13 +13,13 @@ import { NavigationTabs } from './header/NavigationTabs';
  * Top navigation header: brand logo, active exam switcher, daily study counters,
  * data export/import, Google auth status, and primary tab navigation.
  */
-export const Header = ({ 
-  activeExamId, 
-  onSelectExam, 
-  activeTab, 
-  setActiveTab, 
-  userData, 
-  onImportData, 
+export const Header = ({
+  activeExamId,
+  onSelectExam,
+  activeTab,
+  setActiveTab,
+  userData,
+  onImportData,
   onOpenSettings,
   onOpenFirebaseSetup
 }) => {
@@ -52,10 +52,7 @@ export const Header = ({
           {/* Logo & Exam Switcher */}
           <div className="flex items-center gap-3 sm:gap-6">
             <BrandLogo />
-            <ExamSelector
-              activeExamId={activeExamId}
-              onSelectExam={onSelectExam}
-            />
+            <ExamSelector activeExamId={activeExamId} onSelectExam={onSelectExam} />
           </div>
 
           {/* Quick Metrics & Actions */}
@@ -98,10 +95,7 @@ export const Header = ({
         </div>
 
         {/* Tab Navigation */}
-        <NavigationTabs
-          activeTab={activeTab}
-          onSelectTab={setActiveTab}
-        />
+        <NavigationTabs activeTab={activeTab} onSelectTab={setActiveTab} />
       </div>
     </header>
   );

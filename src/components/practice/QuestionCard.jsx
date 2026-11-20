@@ -54,12 +54,18 @@ export const QuestionCard = ({
           <span className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
             {question.difficulty}
           </span>
-          <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
-            question.type === 'TITA' 
-              ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
-              : 'text-slate-500 bg-slate-100 dark:bg-slate-800'
-          }`}>
-            {question.type === 'TITA' ? 'TITA (0 Negative Marks)' : (question.options?.length === 5 ? 'MCQ (+3 / -1) • 5 Options' : 'MCQ (+3 / -1)')}
+          <span
+            className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
+              question.type === 'TITA'
+                ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
+                : 'text-slate-500 bg-slate-100 dark:bg-slate-800'
+            }`}
+          >
+            {question.type === 'TITA'
+              ? 'TITA (0 Negative Marks)'
+              : question.options?.length === 5
+                ? 'MCQ (+3 / -1) • 5 Options'
+                : 'MCQ (+3 / -1)'}
           </span>
         </div>
 
@@ -83,9 +89,9 @@ export const QuestionCard = ({
         {/* Screenshot thumbnail if present */}
         {(question.imageBase64 || question.imageUrl) && (
           <div className="mb-4 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 max-w-xl">
-            <img 
-              src={question.imageBase64 || question.imageUrl} 
-              alt="Question Screenshot" 
+            <img
+              src={question.imageBase64 || question.imageUrl}
+              alt="Question Screenshot"
               className="w-full h-auto object-contain bg-slate-50 dark:bg-slate-800 cursor-pointer hover:opacity-95 transition"
               onClick={() => window.open(question.imageBase64 || question.imageUrl, '_blank')}
             />

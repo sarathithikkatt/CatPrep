@@ -11,9 +11,7 @@ export const SetupStepItem = ({ stepNumber, title, children }) => {
       </span>
       <div>
         <p className="font-semibold text-slate-800 dark:text-slate-200">{title}</p>
-        <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-          {children}
-        </div>
+        <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{children}</div>
       </div>
     </div>
   );

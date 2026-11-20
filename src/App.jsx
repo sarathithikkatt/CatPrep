@@ -6,15 +6,16 @@ import { QuestionPractice } from './components/QuestionPractice';
 import { MistakeNotebook } from './components/MistakeNotebook';
 import { MockScorecard } from './components/MockScorecard';
 import { StudyPlanner } from './components/StudyPlanner';
+import { SprintPlansView } from './components/roadmaps/SprintPlansView';
 import { ResourcesGuide } from './components/ResourcesGuide';
 import { SettingsModal } from './components/SettingsModal';
 import { FirebaseSetupModal } from './components/FirebaseSetupModal';
 import { loadUserData, saveUserData } from './utils/storage';
 import { useAuth } from './context/AuthContext';
-import { 
-  loadUserCloudData, 
-  saveUserCloudDataImmediate, 
-  saveUserCloudDataDebounced 
+import {
+  loadUserCloudData,
+  saveUserCloudDataImmediate,
+  saveUserCloudDataDebounced
 } from './utils/cloudSync';
 
 export default function App() {
@@ -106,6 +107,17 @@ export default function App() {
     setRetestQuestionId(null);
   };
 
+  // Cross-module deep-link navigation handler for planner tasks
+  const handleNavigateAction = (targetAction) => {
+    if (!targetAction) return;
+    if (targetAction.tab) {
+      setActiveTab(targetAction.tab);
+    }
+    if (targetAction.filter) {
+      setTopicFilterForPractice(targetAction.filter);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
       {/* Top Navigation & Brand Header */}
@@ -128,6 +140,8 @@ export default function App() {
             userData={userData}
             onUpdateUserData={handleUpdateUserData}
             onNavigateToPractice={handleNavigateToPractice}
+            onNavigateToPlanner={() => setActiveTab('planner')}
+            onNavigateAction={handleNavigateAction}
           />
         )}
 
@@ -135,7 +149,12 @@ export default function App() {
           <StudyPlanner
             userData={userData}
             onUpdateUserData={handleUpdateUserData}
+            onNavigateAction={handleNavigateAction}
           />
+        )}
+
+        {activeTab === 'roadmaps' && (
+          <SprintPlansView userData={userData} onUpdateUserData={handleUpdateUserData} />
         )}
 
         {activeTab === 'syllabus' && (
@@ -169,22 +188,14 @@ export default function App() {
         )}
 
         {activeTab === 'mocks' && (
-          <MockScorecard
-            userData={userData}
-            onUpdateUserData={handleUpdateUserData}
-          />
+          <MockScorecard userData={userData} onUpdateUserData={handleUpdateUserData} />
         )}
 
-        {activeTab === 'resources' && (
-          <ResourcesGuide />
-        )}
+        {activeTab === 'resources' && <ResourcesGuide />}
       </main>
 
       {/* Global AI & System Settings Modal */}
-      <SettingsModal
-        isOpen={isSettingsOpen}
-        onClose={() => setIsSettingsOpen(false)}
-      />
+      <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
 
       {/* Firebase Setup Guide Modal */}
       <FirebaseSetupModal
@@ -196,7 +207,8 @@ export default function App() {
       <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-400">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>
-            <strong className="text-slate-600 dark:text-slate-300">AptiPrep Elite Hub</strong> — Architected for CAT, XAT, GMAT & Competitive Aptitude Mastery.
+            <strong className="text-slate-600 dark:text-slate-300">AptiPrep Elite Hub</strong> —
+            Architected for CAT, XAT, GMAT & Competitive Aptitude Mastery.
           </p>
           <div className="flex items-center gap-4 text-slate-500">
             <span>Selection & Accuracy &gt; Blind Completion</span>

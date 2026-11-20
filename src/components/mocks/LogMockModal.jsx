@@ -12,16 +12,37 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
 
   // Section inputs
   const [sectionData, setSectionData] = useState({
-    varc: { total: 24, attempted: 18, correct: 13, incorrectMcq: 4, incorrectTita: 1, capabilityMarks: 45 },
-    dilr: { total: 20, attempted: 12, correct: 9, incorrectMcq: 3, incorrectTita: 0, capabilityMarks: 36 },
-    qa: { total: 22, attempted: 14, correct: 11, incorrectMcq: 2, incorrectTita: 1, capabilityMarks: 42 }
+    varc: {
+      total: 24,
+      attempted: 18,
+      correct: 13,
+      incorrectMcq: 4,
+      incorrectTita: 1,
+      capabilityMarks: 45
+    },
+    dilr: {
+      total: 20,
+      attempted: 12,
+      correct: 9,
+      incorrectMcq: 3,
+      incorrectTita: 0,
+      capabilityMarks: 36
+    },
+    qa: {
+      total: 22,
+      attempted: 14,
+      correct: 11,
+      incorrectMcq: 2,
+      incorrectTita: 1,
+      capabilityMarks: 42
+    }
   });
 
   if (!isOpen) return null;
 
   const handleUpdateSection = (secKey, field, val) => {
     const num = Math.max(0, parseInt(val, 10) || 0);
-    setSectionData(prev => ({
+    setSectionData((prev) => ({
       ...prev,
       [secKey]: {
         ...prev[secKey],
@@ -34,11 +55,16 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
   const dilrScore = calcSectionScore(sectionData.dilr);
   const qaScore = calcSectionScore(sectionData.qa);
   const totalScore = varcScore + dilrScore + qaScore;
-  const totalAttempted = sectionData.varc.attempted + sectionData.dilr.attempted + sectionData.qa.attempted;
+  const totalAttempted =
+    sectionData.varc.attempted + sectionData.dilr.attempted + sectionData.qa.attempted;
   const totalCorrect = sectionData.varc.correct + sectionData.dilr.correct + sectionData.qa.correct;
-  const totalCapability = sectionData.varc.capabilityMarks + sectionData.dilr.capabilityMarks + sectionData.qa.capabilityMarks;
+  const totalCapability =
+    sectionData.varc.capabilityMarks +
+    sectionData.dilr.capabilityMarks +
+    sectionData.qa.capabilityMarks;
   const panicDelta = Math.max(0, totalCapability - totalScore);
-  const overallAccuracy = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+  const overallAccuracy =
+    totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
 
   const handleSubmit = () => {
     if (!mockName.trim()) {
@@ -76,8 +102,8 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
           <h2 className="text-base font-bold text-slate-900 dark:text-white">
             Log Mock Test Report Card
           </h2>
-          <button 
-            onClick={onClose} 
+          <button
+            onClick={onClose}
             className="text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 text-lg cursor-pointer"
           >
             <X className="w-4 h-4" />
@@ -87,7 +113,9 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
         {/* General Info */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
           <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Mock Name</label>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              Mock Name
+            </label>
             <input
               type="text"
               placeholder="e.g. SimCAT 4"
@@ -98,7 +126,9 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
           </div>
 
           <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Test Platform</label>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              Test Platform
+            </label>
             <select
               value={platform}
               onChange={(e) => setPlatform(e.target.value)}
@@ -114,7 +144,9 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
           </div>
 
           <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Date Taken</label>
+            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              Date Taken
+            </label>
             <input
               type="date"
               value={dateTaken}
@@ -136,7 +168,10 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
             const currentSecMarks = calcSectionScore(sec);
 
             return (
-              <div key={secKey} className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-2">
+              <div
+                key={secKey}
+                className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-2"
+              >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                     {secName} Section
@@ -188,7 +223,9 @@ export const LogMockModal = ({ isOpen, onClose, onSaveMock }) => {
                     <input
                       type="number"
                       value={sec.capabilityMarks}
-                      onChange={(e) => handleUpdateSection(secKey, 'capabilityMarks', e.target.value)}
+                      onChange={(e) =>
+                        handleUpdateSection(secKey, 'capabilityMarks', e.target.value)
+                      }
                       className="w-full p-1.5 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-indigo-500"
                     />
                   </div>

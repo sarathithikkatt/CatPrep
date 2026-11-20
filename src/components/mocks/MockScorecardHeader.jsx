@@ -15,7 +15,8 @@ export const MockScorecardHeader = ({ onOpenAddModal }) => {
           </h1>
         </div>
         <p className="text-xs text-slate-400">
-          Log sectional & full-length mock exams (IMS, TIME, CL, Cracku), track percentiles & measure your Panic Delta
+          Log sectional & full-length mock exams (IMS, TIME, CL, Cracku), track percentiles &
+          measure your Panic Delta
         </p>
       </div>
 

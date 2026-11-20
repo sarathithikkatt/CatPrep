@@ -24,10 +24,12 @@
   - [4. Multimodal AI Question Solver (Gemini 2.5 Flash)](#4-multimodal-ai-question-solver-gemini-25-flash)
   - [5. Mistake Notebook & Interactive Re-Test Engine](#5-mistake-notebook--interactive-re-test-engine)
   - [6. Mock Test Scorecards & Capability Gap Diagnostics](#6-mock-test-scorecards--capability-gap-diagnostics)
-  - [7. R-E-S-T Weekly Study Planner](#7-r-e-s-t-weekly-study-planner)
-  - [8. Multi-Exam Ecosystem (CAT, XAT & GMAT Focus)](#8-multi-exam-ecosystem-cat-xat--gmat-focus)
-  - [9. Google Sign-In & Multi-Device Cloud Sync (Firebase Spark)](#9-google-sign-in--multi-device-cloud-sync-firebase-spark)
-  - [10. Local-First Sovereignty & Instant Backup](#10-local-first-sovereignty--instant-backup)
+  - [7. Unified Multi-Track Study Planner (3M • 1M • 1W & R-E-S-T Engine)](#7-unified-multi-track-study-planner-3m--1m--1w--r-e-s-t-engine)
+  - [8. Sprint Roadmaps & Countdown Plans (3M • 1M • 1W)](#8-sprint-roadmaps--countdown-plans-3m--1m--1w)
+  - [9. Multi-Exam Ecosystem (CAT, XAT & GMAT Focus)](#9-multi-exam-ecosystem-cat-xat--gmat-focus)
+  - [10. Google Sign-In & Multi-Device Cloud Sync (Firebase Spark)](#10-google-sign-in--multi-device-cloud-sync-firebase-spark)
+  - [11. Local-First Sovereignty & Instant Backup](#11-local-first-sovereignty--instant-backup)
+  - [12. Automated Visual Audit & Dual-Viewport E2E Testing](#12-automated-visual-audit--dual-viewport-e2e-testing)
 - [Architecture & Modular Component Design](#-architecture--modular-component-design)
 - [Exam Structure & Scoring Blueprints](#-exam-structure--scoring-blueprints)
   - [Common Admission Test (CAT)](#common-admission-test-cat)
@@ -134,16 +136,26 @@ flowchart LR
   - **Panic Delta**: Difference between Capability Score and Timed Score — reveals marks lost to time pressure and anxiety vs. concept gaps.
 - **Percentile Estimator & Trend Analysis**: Visual indicators of scoring trajectory across test series.
 
-### 7. R-E-S-T Weekly Study Planner
-- **R-E-S-T Framework**: Pre-configured with coderdevang's proven study strategy:
-  - 🔄 **Revise**: Formula sheets, vocabulary flashcards, and concept notes.
-  - 🚀 **Enhance**: Targeted practice on weak topics and new concept masterclasses.
-  - 🎯 **Strategize**: Sectional test drills, mock error analysis, and question selection rules.
-  - 📝 **Test**: Full-length proctored mock exams and time-boxed simulation.
-- **Interactive Daily Checklist**: Add, delete, and check off daily study tasks with section tags (QA, DILR, VARC, Mocks).
-- **Study Metrics**: Live completion rate %, study minutes logged, and weekly task burndown.
+### 7. Unified Multi-Track Study Planner (3M • 1M • 1W & R-E-S-T Engine)
+- **Multi-Track Macro Horizons**:
+  - ⚡ **3-Month Track (90 Days | 3.5–4 hrs/day)**: 40% Concept / 40% Practice / 20% Revision focus split across Phase 1 (Foundation), Phase 2 (Authentic PYQs & Weekly Mocks), and Phase 3 (Strategy Convergence & Slot Lock).
+  - 🎯 **1-Month Track (30 Days | 5–6 hrs/day)**: 15% Concept / 50% Practice / 35% Revision focus split across Phase 1 (Simulation & Autopsy), Phase 2 (Selection Discipline & 5-Min DILR Rule), and Phase 3 (Mental Taper & Mock Freeze).
+  - ⏱️ **1-Week Track (7 Days | 4–5 hrs/day tapering to 0)**: 0% New Theory / 30% Light Touch / 70% Revision focus split (D-7 Baseline Mock $\rightarrow$ D-4 Formulas $\rightarrow$ D-1 Total Rest $\rightarrow$ D-Day 120-minute Exam Playbook).
+- **Cross-Module Deep-Links**: Every task features a direct launcher button (`Practice QA →`, `Solve DILR →`, `Log Mock →`, `Open Notebook →`, etc.) that jumps straight into the relevant module with section/topic filters pre-applied.
+- **Dynamic Timeline Tracking**: Real-time `Day X of Y` tracking derived from an editable `startDate`, active phase indicators, and bulk phase completion toggles.
+- **R-E-S-T Cyclical Engine**: Integrated view switcher allowing students to toggle between high-level **Multi-Track Horizons** and coderdevang's tactical 7-day **R-E-S-T Weekly Planner** (Revise, Enhance, Strategize, Test).
+- **Dashboard Priority Widget**: Live active plan progress bar and next pending task launcher embedded directly on the main Dashboard.
 
-### 8. Multi-Exam Ecosystem (CAT, XAT & GMAT Focus)
+### 8. Sprint Roadmaps & Countdown Plans (3M • 1M • 1W)
+- **Multi-Horizon Roadmaps**:
+  - ⚡ **3-Month Master Sprint (90 Days / ~400 Hours)**: High-ROI concept dominance (Arithmetic + Algebra), 2017–2024 authentic DILR set consolidation, and 15–20 full mocks with 1:2 test-to-analysis forensic autopsies.
+  - 🎯 **1-Month Lockdown Sprint (30 Days)**: Peak execution, 2 slot-timed mocks/week, 5-minute DILR set selection rule, ABC question triage, zero new chapters, and confidence preservation.
+  - ⏱️ **1-Week Countdown Protocol (D-7 to D-Day)**: Baseline mock on D-7, error log purge, formula flashcards, logistics clearance (admit card + original ID), complete study shutdown on D-1, and 120-minute exam hall execution playbook.
+- **Interactive Checklists**: Check off action items saved directly into `userData.sprintChecklist` and synchronized across devices.
+- **Curated Internet Resources & Toolkit**: One-click direct directory to top free channels and portals: **Rodha** (concept video theory), **Cracku** (free mocks & daily targets), **2IIM** (free authentic past paper solutions), **Elites Grid** (DILR puzzle mastery), **Takshzila** (free fundabooks), **Bodhee Prep / Gejo Speaks** (VARC), and the **Official IIM Mock Simulator**.
+- **Master Sprint Guide**: See [CAT_SPRINT_PLANS.md](file:///d:/Dev/CatPrep/CAT_SPRINT_PLANS.md) for full blueprints.
+
+### 9. Multi-Exam Ecosystem (CAT, XAT & GMAT Focus)
 - **Common Admission Test (CAT)**: Complete 40-topic QA, DILR, and VARC schemas with video links and cheatsheets.
 - **Xavier Aptitude Test (XAT)**:
   - Decision Making (ethical dilemmas, stakeholder trade-offs, managerial caselets).
@@ -155,14 +167,23 @@ flowchart LR
   - Verbal Reasoning (Critical Reasoning & Reading Comprehension).
   - Data Insights (Data Sufficiency with 12-second AD/BCE grid method, Multi-Source Reasoning, Two-Part Analysis, Tables & Graphs).
 
-### 9. Google Sign-In & Multi-Device Cloud Sync (Firebase Spark)
+### 10. Google Sign-In & Multi-Device Cloud Sync (Firebase Spark)
 - **100% Free Tier (Firebase Spark)**: Uses Google Firebase Authentication and Cloud Firestore within the permanent free limits.
 - **One-Click Google Sign-In**: Authenticate using your Google account with pop-up authentication.
 - **Bi-directional Cloud Sync**: Push local study progress to Firestore or pull cloud progress to your current device.
 - **Safe Guest / Offline Fallback**: Zero forced login. If no Firebase keys are configured, CatPrep functions flawlessly in local guest mode.
 - **Setup Guidance Modal**: Built-in interactive setup assistant (`FirebaseSetupModal`) with 1-click template copying for `.env.local`.
 
-### 10. Local-First Sovereignty & Instant Backup
+### 11. Local-First Sovereignty & Instant Backup
+- **Zero Lock-In**: All progress, mistake logs, study sessions, and mock scores are kept in browser `localStorage`.
+- **1-Click Backup Export**: Download your complete study history as a structured `.json` file at any time.
+- **1-Click Restore**: Seamlessly import your data on any device or browser to restore state without data loss.
+
+### 12. Automated Visual Audit & Dual-Viewport E2E Testing
+- **Automated Headless Test Runner**: Custom browser automation via Puppeteer-Core capturing dual-viewport screenshots:
+  - **Desktop**: `1440 × 900`
+  - **Mobile**: `390 × 844` (iPhone 14 standard)
+- **Two-Pass Audit Workflow**: Initial screenshots captured in `./audit/pass-1/`, evaluated in `./audit/ux-improvements.md`, followed by UX optimization and verified regression-free in `./audit/pass-2/`.
 - **Zero Lock-In**: All progress, mistake logs, study sessions, and mock scores are kept in browser `localStorage`.
 - **1-Click Backup Export**: Download your complete study history as a structured `.json` file at any time.
 - **1-Click Restore**: Seamlessly import your data on any device or browser to restore state without data loss.
@@ -171,97 +192,133 @@ flowchart LR
 
 ## 🏗️ Architecture & Modular Component Design
 
-CatPrep is architected with a **fully component-wise, modular, and extensible design**. Each major domain encapsulates its presentation, business logic, and UI elements into dedicated feature directories under `src/components/`:
+CatPrep is architected with a **clean, modular, and feature-driven component design**. The codebase separates cross-cutting UI primitives, feature modules, business logic services, custom hooks, and data definitions:
 
 ```
-src/components/
-├── common/                              # Reusable cross-cutting UI primitives
-│   ├── Badge.jsx                        # Status & difficulty indicator pills
-│   ├── EmptyState.jsx                   # Consistent empty-state displays
-│   └── ProgressBar.jsx                  # Animated progress bars
+src/
+├── components/
+│   ├── common/                          # Atomic, reusable design system primitives
+│   │   ├── Badge.jsx                    # Status, pill & difficulty indicators
+│   │   ├── Button.jsx                   # Standardized buttons with variant & size tokens
+│   │   ├── Card.jsx                     # Glassmorphic bordered containers
+│   │   ├── EmptyState.jsx               # Consistent zero-state & fallback displays
+│   │   ├── Modal.jsx                    # Accessible dialog overlay with backdrop blur
+│   │   └── ProgressBar.jsx              # Smooth animated progress meters
+│   │
+│   ├── features/                        # Advanced high-cohesion feature domains
+│   │   ├── dashboard/
+│   │   │   └── ActivePlanWidget.jsx     # Active multi-track progress & next task launcher
+│   │   └── planner/
+│   │       ├── PhaseCard.jsx            # Multi-week phase milestone card with bulk-complete
+│   │       ├── ProgressBanner.jsx       # Day X of Y progress meter, completion % & dates
+│   │       ├── RestWeeklyView.jsx       # 7-day cyclical R-E-S-T tactical schedule
+│   │       ├── StudyPlanner.jsx         # Unified planner orchestrator (Tracks + R-E-S-T)
+│   │       ├── TaskRow.jsx              # Actionable task item with deep-linking buttons
+│   │       └── TrackSelector.jsx        # Track switcher tabs (3-Month, 1-Month, 1-Week)
+│   │
+│   ├── roadmaps/                        # Countdown Sprint Roadmaps & Resources
+│   │   ├── InternetResourcesView.jsx    # Curated free prep portal & playlist directory
+│   │   ├── OneMonthPlanView.jsx         # 30-day lockdown roadmap (5-min DILR rule, mock slots)
+│   │   ├── OneWeekPlanView.jsx          # D-7 to D-Day countdown protocol & exam kit
+│   │   ├── SprintMilestoneChecklist.jsx # Interactive milestone checklist with local persistence
+│   │   ├── SprintPlansView.jsx          # Multi-horizon sprint view switcher & exam countdown
+│   │   ├── sprintPlansData.js           # Structured roadmap definitions & verified URLs
+│   │   └── ThreeMonthPlanView.jsx       # 90-day phase-wise roadmap (Foundation, PYQs, Mock Lock)
+│   │
+│   ├── dashboard/                       # Daily Tracker & Velocity domain
+│   │   ├── AccuracyMetricCard.jsx       # Daily accuracy % and target editor toggle
+│   │   ├── DailyMetricsGrid.jsx         # 3-column metric cards container
+│   │   ├── DailyTargetEditor.jsx        # Inline target customization form
+│   │   ├── ExamHeroBanner.jsx           # Header banner & CAT countdown timer
+│   │   ├── QuestionsMetricCard.jsx      # Questions solved vs target
+│   │   ├── SectionProgressRow.jsx       # Individual section progress row
+│   │   ├── SyllabusBurndownCard.jsx     # Master burndown progress & section breakdown
+│   │   ├── TimeSpentMetricCard.jsx      # Study time invested + quick logging (+15m, +30m, +1h)
+│   │   ├── TopicsStatsGrid.jsx          # Topic mastery statistics grid
+│   │   └── VelocityForecastCard.jsx     # Remaining hours, completion forecast & CTA
+│   │
+│   ├── syllabus/                        # Syllabus & Weightage domain
+│   │   ├── CuratedVideoItem.jsx         # Curated YouTube lecture masterclass cards
+│   │   ├── ModuleCard.jsx               # Module grouping card with study effort hours
+│   │   ├── SectionTabs.jsx              # Section tabs (QA, DILR, VARC) with PYQ count badges
+│   │   ├── StatusFilterPills.jsx        # Filter buttons (All, Mastered, In Progress, Not Started)
+│   │   ├── SyllabusHeader.jsx           # Header banner & search input
+│   │   ├── TopicDetailsDrawer.jsx       # Expandable cheatsheet, subtopics & study hour logger
+│   │   ├── TopicRow.jsx                 # Topic row (confidence stars, status, quick practice)
+│   │   └── syllabusHelpers.js           # Topic status badge styling helper
+│   │
+│   ├── practice/                        # PYQs & Solutions domain
+│   │   ├── AddQuestionModal.jsx         # Custom question creation & screenshot OCR modal
+│   │   ├── GeminiAutoSolveSection.jsx   # Gemini AI Vision OCR & 4-tier solution trigger
+│   │   ├── PracticeFiltersHeader.jsx    # 5-filter control bar (Section, Difficulty, Status, Year)
+│   │   ├── QuestionActionFooter.jsx     # Submit button, marks breakdown (+3/-1/0) & re-attempt
+│   │   ├── QuestionCard.jsx             # Full question container with KaTeX & solutions
+│   │   ├── QuestionOptions.jsx          # MCQ options list with post-submission highlights
+│   │   ├── QuestionTitaInput.jsx        # Numerical input field for TITA questions
+│   │   ├── ScreenshotDropzone.jsx       # Drag-and-drop & clipboard screenshot upload area
+│   │   └── SolutionDrawer.jsx           # 4-tier solution drawer (Step/Shortcut/Concept/Traps)
+│   │
+│   ├── notebook/                        # Mistake & Revision Notebook domain
+│   │   ├── InlineRetestArea.jsx         # Active re-test mode with answers hidden & evaluation
+│   │   ├── MistakeReflectionNotes.jsx   # Personal mistake reflection view & editor
+│   │   ├── NotebookHeader.jsx           # Counters, Start Drill CTA & root-cause filter pills
+│   │   ├── NotebookQuestionCard.jsx     # Combined mistake card orchestrator
+│   │   ├── NotebookQuestionHeader.jsx   # Exam slot badge, re-test status, root-cause tag
+│   │   ├── NotebookSolutionViewer.jsx   # Tabbed solution viewer (Step, Shortcut, Concept)
+│   │   └── notebookConstants.js         # MISTAKE_REASONS root-cause taxonomy
+│   │
+│   ├── mocks/                           # Mock Scorecard domain
+│   │   ├── LogMockModal.jsx             # Scorecard logger with real-time net score preview
+│   │   ├── MockReportCard.jsx           # Logged test card with panic delta summary
+│   │   ├── MockScorecardHeader.jsx      # Header with Log Mock Score CTA
+│   │   ├── PanicDeltaInsightCard.jsx    # Explainer for Untimed Capability & Panic Delta
+│   │   ├── SectionScoreCard.jsx         # Section-level score badges (VARC, DILR, QA)
+│   │   └── mocksHelper.js               # calcSectionScore & percentile estimator
+│   │
+│   ├── resources/                       # Resources & Knowledge Repository domain
+│   │   ├── ExamExtensibilityCards.jsx   # Architecture roadmap for XAT, GMAT, GRE, GATE
+│   │   ├── PastPapersRepository.jsx     # 2IIM, IIM official portal, Cracku past paper links
+│   │   ├── ResourcesHeader.jsx          # Resources title and description
+│   │   ├── ScorePercentileTable.jsx     # Score vs Percentile cutoffs (99.5%, 99%, 95%, 90%)
+│   │   └── VideoMasterclassesList.jsx   # Elites Grid, Rodha, Bodhee Prep, Aeon recommendations
+│   │
+│   ├── header/                          # Global Navigation & Top Bar domain
+│   │   ├── BrandLogo.jsx                # AptiPrep branding & 99%ile badge
+│   │   ├── DataActions.jsx              # AI settings, export JSON, restore JSON
+│   │   ├── ExamSelector.jsx             # Target exam switcher
+│   │   ├── GoogleSignInButton.jsx       # Google OAuth button with spinner
+│   │   ├── NavigationTabs.jsx           # Primary navigation view tabs with active indicators
+│   │   ├── QuickStatsBar.jsx            # Daily target progress bar & streak counter
+│   │   └── UserProfileDropdown.jsx      # Avatar, sync status, and account dropdown
+│   │
+│   ├── settings/                        # AI Settings domain
+│   │   ├── ApiKeyForm.jsx               # Password toggle, key verification & storage
+│   │   └── FeatureExplainer.jsx         # Vision OCR & 4-tier solution explainer
+│   │
+│   └── firebase/                        # Cloud Auth Setup domain
+│       ├── EnvTemplateBlock.jsx         # One-click copyable environment template
+│       └── SetupStepItem.jsx            # Numbered guide step cards
 │
-├── dashboard/                           # Daily Tracker & Velocity domain
-│   ├── ExamHeroBanner.jsx               # Header banner & CAT countdown timer
-│   ├── DailyMetricsGrid.jsx             # 3-column metric cards container
-│   ├── QuestionsMetricCard.jsx          # Questions solved vs target
-│   ├── TimeSpentMetricCard.jsx          # Study time invested + quick logging (+15m, +30m, +1h)
-│   ├── AccuracyMetricCard.jsx           # Daily accuracy % and target editor toggle
-│   ├── DailyTargetEditor.jsx            # Inline target customization form
-│   ├── SyllabusBurndownCard.jsx         # Master burndown progress & section breakdown
-│   ├── TopicsStatsGrid.jsx              # Topic mastery statistics grid
-│   ├── SectionProgressRow.jsx           # Individual section progress row
-│   └── VelocityForecastCard.jsx         # Remaining hours, completion forecast & CTA
+├── hooks/
+│   └── useStudyPlans.js                 # Custom React hook for track selection, tasks & dates
 │
-├── planner/                             # Weekly Study Planner (R-E-S-T)
-│   ├── plannerConstants.js              # DEFAULT_REST_PLAN, badge helpers & pillar metadata
-│   ├── PlannerHeaderBanner.jsx          # Header, task meter, study time meter, reset
-│   ├── PillarFilterCards.jsx            # Interactive Revise-Enhance-Strategize-Test filter cards
-│   ├── PlannerControls.jsx              # Day selection pills + section filter dropdown
-│   ├── PlannerTaskItem.jsx              # Task row with checkbox, badges, minutes & delete
-│   ├── DayScheduleCard.jsx              # Day card with theme, progress bar, complete-all
-│   └── AddTaskModal.jsx                 # Custom scheduled task creator dialog
+├── services/
+│   ├── planCalculator.js                # Pure functions for day calculation & track completion
+│   └── storageService.js                # Centralized local-first persistence layer
 │
-├── syllabus/                            # Syllabus & Weightage domain
-│   ├── syllabusHelpers.js               # Topic status badge styling helper
-│   ├── SyllabusHeader.jsx               # Header banner & search input
-│   ├── SectionTabs.jsx                  # Section tabs (QA, DILR, VARC) with PYQ count badges
-│   ├── StatusFilterPills.jsx            # Filter buttons (All, Mastered, In Progress, Not Started)
-│   ├── ModuleCard.jsx                   # Module grouping card with study effort hours
-│   ├── TopicRow.jsx                     # Topic row (confidence stars, status dropdown, quick practice)
-│   ├── TopicDetailsDrawer.jsx           # Expandable cheatsheet, subtopics & study hour logger
-│   └── CuratedVideoItem.jsx             # Curated YouTube lecture masterclass cards
+├── data/
+│   ├── examsData.js                     # Exam definitions, sections & scoring rules
+│   ├── questionsData.js                 # 60+ authentic questions with 4-tier solutions
+│   ├── studyPlansData.js                # 3-Month, 1-Month, 1-Week structured tracks & deep-links
+│   └── syllabusData.js                  # Complete QA, DILR, VARC syllabus modules & video links
 │
-├── practice/                            # PYQs & Solutions domain
-│   ├── PracticeFiltersHeader.jsx        # 5-filter control bar (Section, Difficulty, Status, Year)
-│   ├── QuestionCard.jsx                 # Full question container with KaTeX & solutions
-│   ├── QuestionOptions.jsx              # MCQ options list with post-submission highlights
-│   ├── QuestionTitaInput.jsx            # Numerical input field for TITA questions
-│   ├── QuestionActionFooter.jsx         # Submit button, marks breakdown (+3/-1/0) & re-attempt
-│   ├── SolutionDrawer.jsx               # 4-tier solution drawer (Step/Shortcut/Concept/Traps)
-│   ├── ScreenshotDropzone.jsx           # Drag-and-drop & clipboard screenshot upload area
-│   ├── GeminiAutoSolveSection.jsx       # Gemini AI Vision OCR & 4-tier solution trigger
-│   └── AddQuestionModal.jsx             # Custom question creation & screenshot OCR modal
+├── scripts/
+│   └── capture-audit-screenshots.js    # Automated headless browser dual-viewport visual audit
 │
-├── notebook/                            # Mistake & Revision Notebook domain
-│   ├── notebookConstants.js             # MISTAKE_REASONS root-cause taxonomy
-│   ├── NotebookHeader.jsx               # Counters, Start Drill CTA & root-cause filter pills
-│   ├── NotebookQuestionHeader.jsx       # Exam slot badge, re-test status, root-cause tag
-│   ├── InlineRetestArea.jsx             # Active re-test mode with answers hidden & evaluation
-│   ├── NotebookSolutionViewer.jsx       # Tabbed solution viewer (Step, Shortcut, Concept)
-│   ├── MistakeReflectionNotes.jsx       # Personal mistake reflection view & editor
-│   └── NotebookQuestionCard.jsx         # Combined mistake card orchestrator
-│
-├── mocks/                               # Mock Scorecard domain
-│   ├── mocksHelper.js                   # calcSectionScore & percentile estimator
-│   ├── MockScorecardHeader.jsx          # Header with Log Mock Score CTA
-│   ├── PanicDeltaInsightCard.jsx        # Explainer for Untimed Capability & Panic Delta
-│   ├── SectionScoreCard.jsx             # Section-level score badges (VARC, DILR, QA)
-│   ├── MockReportCard.jsx               # Logged test card with panic delta summary
-│   └── LogMockModal.jsx                 # Scorecard logger with real-time net score preview
-│
-├── resources/                           # Resources & Knowledge Repository domain
-│   ├── ResourcesHeader.jsx              # Resources title and description
-│   ├── ScorePercentileTable.jsx         # Score vs Percentile cutoffs (99.5%, 99%, 95%, 90%)
-│   ├── PastPapersRepository.jsx         # 2IIM, IIM official portal, Cracku past paper links
-│   ├── VideoMasterclassesList.jsx       # Elites Grid, Rodha, Bodhee Prep, Aeon recommendations
-│   └── ExamExtensibilityCards.jsx       # Architecture roadmap for XAT, GMAT, GRE, GATE
-│
-├── header/                              # Global Navigation & Top Bar domain
-│   ├── BrandLogo.jsx                    # AptiPrep branding & 99%ile badge
-│   ├── ExamSelector.jsx                 # Target exam switcher
-│   ├── QuickStatsBar.jsx                # Daily target progress bar & streak counter
-│   ├── DataActions.jsx                  # AI settings, export JSON, restore JSON
-│   ├── GoogleSignInButton.jsx           # Google OAuth button with spinner
-│   ├── UserProfileDropdown.jsx          # Avatar, sync status, and account dropdown
-│   └── NavigationTabs.jsx               # 7 primary navigation view tabs
-│
-├── settings/                            # AI Settings domain
-│   ├── FeatureExplainer.jsx             # Vision OCR & 4-tier solution explainer
-│   └── ApiKeyForm.jsx                   # Password toggle, key verification & storage
-│
-└── firebase/                            # Cloud Auth Setup domain
-    ├── SetupStepItem.jsx                # Numbered guide step cards
-    └── EnvTemplateBlock.jsx             # One-click copyable environment template
+└── audit/
+    ├── ux-improvements.md               # Visual audit report, identified issues & fixes
+    ├── pass-1/                          # 9 Desktop + 9 Mobile baseline audit screenshots
+    └── pass-2/                          # 9 Desktop + 9 Mobile post-improvement verified screenshots
 ```
 
 ---
@@ -425,6 +482,9 @@ You can enter your Google Gemini API key directly in the application UI:
 | `npm run build` | Compiles and bundles production-ready assets into `/dist`. |
 | `npm run preview` | Locally serves the production build for testing. |
 | `npm run lint` | Runs Oxlint to check code quality and detect lint errors quickly. |
+| `npm run format` | Automatically formats all `.js`, `.jsx`, `.css`, and `.json` source files with Prettier. |
+| `npm run format:check` | Verifies codebase formatting compliance with Prettier without modifying files. |
+| `npm run audit:screenshots` | Runs the automated dual-viewport headless browser visual regression test suite (`pass-1` / `pass-2`). |
 
 ---
 
@@ -439,7 +499,12 @@ You can enter your Google Gemini API key directly in the application UI:
 - [x] **Exam Countdown**: Live countdown timer for CAT exam.
 - [x] **4-Tier Solution Drawer**: Core Concept, Step-by-Step, Exam Shortcut, and Trap Alerts.
 - [x] **Interactive Re-Test Mode**: Hidden-answer revision engine in Mistake Notebook and Practice arena.
-- [x] **Weekly Study Planner**: 7-day R-E-S-T (Revise, Enhance, Strategize, Test) task scheduler.
+- [x] **Unified Multi-Track Study Planner**: 3-Month, 1-Month, and 1-Week structured macro tracks with deep-link navigation actions (`Practice QA →`, `Solve DILR →`, `Log Mock →`).
+- [x] **R-E-S-T Cyclical Engine**: Integrated 7-day tactical planner (Revise, Enhance, Strategize, Test) seamlessly switchable inside Study Planner.
+- [x] **Countdown Sprint Roadmaps**: 90-day, 30-day, and 7-day tactical sprints with interactive milestone checklists and persistent progress.
+- [x] **Curated Free Internet Directory**: Direct links to top-tier free portals (Rodha, Cracku, 2IIM, Elites Grid, Takshzila, Bodhee Prep).
+- [x] **Automated Dual-Viewport Visual Regression Testing**: Edge/Puppeteer automated screenshot audit pipeline (`1440x900` Desktop and `390x844` Mobile).
+- [x] **Code Quality & Prettier Standard**: Comprehensive formatting standard across the entire project.
 - [x] **Multi-Exam Expansion**: Full syllabus and authentic questions for XAT (Decision Making) and GMAT Focus Edition (Data Insights).
 - [x] **Multimodal AI Solver**: Gemini 2.5 Flash vision OCR, image paste/upload, and automatic 4-tier solution generation.
 - [x] **Firebase Cloud Sync & Google Auth**: Free Spark tier Google OAuth and bi-directional Firestore cloud synchronization.

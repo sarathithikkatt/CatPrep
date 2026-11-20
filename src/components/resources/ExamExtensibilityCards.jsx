@@ -14,28 +14,32 @@ export const ExamExtensibilityCards = () => {
         </h2>
       </div>
       <p className="text-xs text-slate-300 mb-4 max-w-2xl leading-relaxed">
-        The system architecture has been engineered with modular schemas. Switching exams in the top navbar instantly loads the corresponding curriculum:
+        The system architecture has been engineered with modular schemas. Switching exams in the top
+        navbar instantly loads the corresponding curriculum:
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
         <div className="p-4 rounded-xl bg-white/5 border border-white/10">
           <span className="font-bold text-amber-300 block mb-1">XAT (XLRI Jamshedpur)</span>
           <p className="text-slate-300 text-[11px] leading-relaxed">
-            Shares 70% syllabus with CAT (QA, DI, Verbal). Adds the critical <strong>Decision Making (DM)</strong> section and General Knowledge.
+            Shares 70% syllabus with CAT (QA, DI, Verbal). Adds the critical{' '}
+            <strong>Decision Making (DM)</strong> section and General Knowledge.
           </p>
         </div>
 
         <div className="p-4 rounded-xl bg-white/5 border border-white/10">
           <span className="font-bold text-emerald-300 block mb-1">GMAT (Focus Edition)</span>
           <p className="text-slate-300 text-[11px] leading-relaxed">
-            Shares Arithmetic & Algebra with CAT QA. Replaces Geometry with <strong>Data Insights (Multi-Source Reasoning & Data Sufficiency)</strong>.
+            Shares Arithmetic & Algebra with CAT QA. Replaces Geometry with{' '}
+            <strong>Data Insights (Multi-Source Reasoning & Data Sufficiency)</strong>.
           </p>
         </div>
 
         <div className="p-4 rounded-xl bg-white/5 border border-white/10">
           <span className="font-bold text-blue-300 block mb-1">GRE & GATE</span>
           <p className="text-slate-300 text-[11px] leading-relaxed">
-            Easily plug in vocabulary-rich verbal or engineering math modules directly into <code>src/data/examsData.js</code>.
+            Easily plug in vocabulary-rich verbal or engineering math modules directly into{' '}
+            <code>src/data/examsData.js</code>.
           </p>
         </div>
       </div>

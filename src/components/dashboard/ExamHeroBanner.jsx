@@ -33,7 +33,9 @@ export const ExamHeroBanner = ({ currentExam, streakCount = 1 }) => {
             {currentExam.name} Preparation Dashboard
           </h1>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-            {currentExam.tagline} • Exam Duration: {currentExam.durationMinutes} mins • Total Questions: {currentExam.totalQuestions} • Target Net Score: ~{currentExam.targetScore99ile}+
+            {currentExam.tagline} • Exam Duration: {currentExam.durationMinutes} mins • Total
+            Questions: {currentExam.totalQuestions} • Target Net Score: ~
+            {currentExam.targetScore99ile}+
           </p>
           <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-300">
             <div className="flex items-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">
@@ -57,14 +59,10 @@ export const ExamHeroBanner = ({ currentExam, streakCount = 1 }) => {
               {daysUntilExam}
             </span>
             <span className="text-xs font-bold text-slate-300">Days</span>
-            <span className="text-xl font-extrabold text-white ml-1">
-              {hoursUntilExam}
-            </span>
+            <span className="text-xl font-extrabold text-white ml-1">{hoursUntilExam}</span>
             <span className="text-xs font-medium text-slate-300">Hrs</span>
           </div>
-          <span className="text-[10px] text-slate-300 block">
-            Exam Date: Sun, Nov 29, 2026
-          </span>
+          <span className="text-[10px] text-slate-300 block">Exam Date: Sun, Nov 29, 2026</span>
         </div>
       </div>
       <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />

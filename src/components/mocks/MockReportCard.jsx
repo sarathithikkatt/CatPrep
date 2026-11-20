@@ -93,7 +93,10 @@ export const MockReportCard = ({ mock, onDeleteMock }) => {
       {/* Capability Gap Footnote */}
       <div className="flex items-center justify-between text-xs pt-1 px-1 text-slate-500">
         <span>
-          Untimed Capability: <strong className="text-slate-800 dark:text-slate-200">{mock.totalCapability} Marks</strong>
+          Untimed Capability:{' '}
+          <strong className="text-slate-800 dark:text-slate-200">
+            {mock.totalCapability} Marks
+          </strong>
         </span>
         <span className="font-semibold text-amber-600 dark:text-amber-400">
           Panic Delta: -{mock.panicDelta} Marks lost to time pressure

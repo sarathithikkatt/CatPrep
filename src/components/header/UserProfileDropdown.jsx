@@ -5,12 +5,7 @@ import { exportUserDataJSON } from '../../utils/storage';
 /**
  * User avatar profile button with sync status badge and dropdown options (Export, Sign Out).
  */
-export const UserProfileDropdown = ({
-  currentUser,
-  syncStatus,
-  userData,
-  onLogout
-}) => {
+export const UserProfileDropdown = ({ currentUser, syncStatus, userData, onLogout }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const profileDropdownRef = useRef(null);
 
@@ -49,7 +44,10 @@ export const UserProfileDropdown = ({
 
         {/* Cloud status icon */}
         {syncStatus === 'saving' ? (
-          <Loader2 className="w-3.5 h-3.5 animate-spin text-indigo-500" title="Syncing to cloud..." />
+          <Loader2
+            className="w-3.5 h-3.5 animate-spin text-indigo-500"
+            title="Syncing to cloud..."
+          />
         ) : syncStatus === 'synced' ? (
           <Cloud className="w-3.5 h-3.5 text-emerald-500" title="Synced to Firestore" />
         ) : syncStatus === 'error' ? (

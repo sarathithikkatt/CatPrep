@@ -5,11 +5,7 @@ import { MathText } from '../MathText';
 /**
  * 4-Tier Solution Drawer: Step-by-Step, Exam Pro Shortcut, Core Concept, and Trap Alerts.
  */
-export const SolutionDrawer = ({
-  solution,
-  currentTab = 'step',
-  onSelectTab
-}) => {
+export const SolutionDrawer = ({ solution, currentTab = 'step', onSelectTab }) => {
   if (!solution) return null;
 
   return (

@@ -51,9 +51,13 @@ export const InlineRetestArea = ({
                     : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300 text-slate-700 dark:text-slate-200'
                 }`}
               >
-                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs shrink-0 font-bold ${
-                  isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
-                }`}>
+                <span
+                  className={`w-5 h-5 rounded-full flex items-center justify-center text-xs shrink-0 font-bold ${
+                    isSelected
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                  }`}
+                >
                   {String.fromCharCode(65 + optIdx)}
                 </span>
                 <div className="flex-1">

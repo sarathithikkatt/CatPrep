@@ -1,0 +1,5 @@
+dist
+node_modules
+audit
+.git
+package-lock.json

@@ -17,10 +17,7 @@ export const DailyMetricsGrid = ({
 }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-      <QuestionsMetricCard
-        questionsSolved={todayLog.questionsSolved}
-        targetQuestions={targetQs}
-      />
+      <QuestionsMetricCard questionsSolved={todayLog.questionsSolved} targetQuestions={targetQs} />
       <TimeSpentMetricCard
         minutesSpent={todayLog.minutesSpent}
         targetMinutes={targetMins}

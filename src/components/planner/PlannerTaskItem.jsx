@@ -5,12 +5,7 @@ import { getSectionBadge, getPillarBadge } from './plannerConstants';
 /**
  * Individual schedule task item with completion toggle, badges, estimated time, and delete button.
  */
-export const PlannerTaskItem = ({
-  task,
-  dayId,
-  onToggleTask,
-  onDeleteTask
-}) => {
+export const PlannerTaskItem = ({ task, dayId, onToggleTask, onDeleteTask }) => {
   const secBadge = getSectionBadge(task.section);
   const pillarBadge = getPillarBadge(task.pillar);
 
@@ -38,11 +33,15 @@ export const PlannerTaskItem = ({
 
         <div className="flex-1 space-y-1.5">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md border ${secBadge.className}`}>
+            <span
+              className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md border ${secBadge.className}`}
+            >
               {secBadge.label}
             </span>
 
-            <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${pillarBadge.className}`}>
+            <span
+              className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${pillarBadge.className}`}
+            >
               {pillarBadge.label}
             </span>
 
@@ -52,11 +51,13 @@ export const PlannerTaskItem = ({
             </span>
           </div>
 
-          <p className={`text-xs sm:text-sm font-semibold leading-relaxed ${
-            task.completed
-              ? 'line-through text-slate-400 dark:text-slate-500'
-              : 'text-slate-800 dark:text-slate-100'
-          }`}>
+          <p
+            className={`text-xs sm:text-sm font-semibold leading-relaxed ${
+              task.completed
+                ? 'line-through text-slate-400 dark:text-slate-500'
+                : 'text-slate-800 dark:text-slate-100'
+            }`}
+          >
             {task.title}
           </p>
         </div>

@@ -12,7 +12,12 @@ export const FeatureExplainer = () => {
         <span>Why connect Gemini API?</span>
       </div>
       <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-[11px]">
-        When you paste mock test screenshots (<kbd className="px-1 py-0.5 rounded bg-white dark:bg-slate-800 font-mono text-[10px] border border-slate-200 dark:border-slate-700">Ctrl+V</kbd>), Gemini automatically transcribes formulas into KaTeX, identifies the syllabus topic, and drafts full 4-tier step-by-step and shortcut solutions.
+        When you paste mock test screenshots (
+        <kbd className="px-1 py-0.5 rounded bg-white dark:bg-slate-800 font-mono text-[10px] border border-slate-200 dark:border-slate-700">
+          Ctrl+V
+        </kbd>
+        ), Gemini automatically transcribes formulas into KaTeX, identifies the syllabus topic, and
+        drafts full 4-tier step-by-step and shortcut solutions.
       </p>
     </div>
   );

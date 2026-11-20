@@ -29,16 +29,12 @@ export const DayScheduleCard = ({
       <div className="px-6 py-4 bg-slate-50/80 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2.5">
-            <h2 className="text-base font-black text-slate-900 dark:text-white">
-              {day.dayName}
-            </h2>
+            <h2 className="text-base font-black text-slate-900 dark:text-white">{day.dayName}</h2>
             <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
               {day.theme}
             </span>
           </div>
-          <p className="text-xs text-slate-400 mt-0.5">
-            {day.description}
-          </p>
+          <p className="text-xs text-slate-400 mt-0.5">{day.description}</p>
         </div>
 
         <div className="flex items-center gap-3">

@@ -10,25 +10,29 @@ export const VideoMasterclassesList = () => {
       name: 'Elites Grid (Hunny Sharma)',
       specialty: 'Best for DILR Puzzles',
       specialtyClass: 'text-emerald-600',
-      description: 'Famous for their "100 DILR Sets" marathon covering Games & Tournaments, Matrix matchings, and Venn Maxima-Minima.'
+      description:
+        'Famous for their "100 DILR Sets" marathon covering Games & Tournaments, Matrix matchings, and Venn Maxima-Minima.'
     },
     {
       name: 'Rodha (Ravi Prakash)',
       specialty: 'Best for QA Foundations',
       specialtyClass: 'text-blue-600',
-      description: 'In-depth mathematical concepts for Arithmetic, Algebra, and Geometry from scratch to advanced level.'
+      description:
+        'In-depth mathematical concepts for Arithmetic, Algebra, and Geometry from scratch to advanced level.'
     },
     {
       name: 'Bodhee Prep & Gejo Speaks',
       specialty: 'Best for VARC RC & Tone',
       specialtyClass: 'text-purple-600',
-      description: 'Teaches how to deconstruct Aeon essays, identify author assumptions, and eliminate trap choices in Reading Comprehension.'
+      description:
+        'Teaches how to deconstruct Aeon essays, identify author assumptions, and eliminate trap choices in Reading Comprehension.'
     },
     {
       name: 'Aeon Essays (aeon.co)',
       specialty: 'Must-Read for RC Mastery',
       specialtyClass: 'text-amber-600',
-      description: 'Read 1 essay every single day on philosophy, anthropology, psychology, and science to build mental stamina.'
+      description:
+        'Read 1 essay every single day on philosophy, anthropology, psychology, and science to build mental stamina.'
     }
   ];
 
@@ -46,14 +50,19 @@ export const VideoMasterclassesList = () => {
 
       <div className="space-y-3">
         {mentors.map((mentor, idx) => (
-          <div key={idx} className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/30">
+          <div
+            key={idx}
+            className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/30"
+          >
             <div className="flex items-center justify-between mb-1">
-              <span className="font-bold text-xs text-slate-800 dark:text-slate-200">{mentor.name}</span>
-              <span className={`text-[10px] font-bold ${mentor.specialtyClass}`}>{mentor.specialty}</span>
+              <span className="font-bold text-xs text-slate-800 dark:text-slate-200">
+                {mentor.name}
+              </span>
+              <span className={`text-[10px] font-bold ${mentor.specialtyClass}`}>
+                {mentor.specialty}
+              </span>
             </div>
-            <p className="text-[11px] text-slate-500 leading-relaxed">
-              {mentor.description}
-            </p>
+            <p className="text-[11px] text-slate-500 leading-relaxed">{mentor.description}</p>
           </div>
         ))}
       </div>

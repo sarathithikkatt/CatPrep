@@ -172,3 +172,18 @@ classDiagram
 - **XAT Module**: Add *Decision Making* (DM) ethical cases and Critical Reasoning.
 - **GMAT Focus Module**: Add *Data Insights* (Multi-Source, Data Sufficiency, Table Analysis).
 - **GRE / GATE**: Add specialized technical modules and analytical writing without altering application code.
+
+---
+
+## 7. Sprint Roadmaps & Countdown Blueprints (3M / 1M / 1W)
+
+For detailed, research-backed countdown execution strategies across various time horizons before exam day, refer to the master sprint guide:
+
+👉 **[CAT Master Sprint Plans Guide (3-Month, 1-Month & 1-Week Blueprints)](file:///d:/Dev/CatPrep/CAT_SPRINT_PLANS.md)**
+
+### Key Countdown Horizons:
+1. **3-Month Master Sprint (90 Days / ~400 Hours)**: High-ROI concept dominance (Arithmetic + Algebra), 2017–2024 authentic DILR set consolidation, and 15–20 full mocks with 1:2 test-to-analysis forensic autopsies.
+2. **1-Month Lockdown Sprint (30 Days)**: Peak execution, 2 slot-timed mocks/week, 5-minute DILR set selection rule, ABC question triage, zero new chapters, and confidence preservation.
+3. **1-Week Countdown Protocol (D-7 to D-Day)**: Baseline mock on D-7, error log purge, formula flashcards, logistics clearance (admit card + original ID), complete study shutdown on D-1, and 120-minute exam hall execution playbook.
+4. **Curated Free Internet Directory**: Direct links to top free channels and portals: **Rodha** (concept video theory), **Cracku** (free mocks & daily targets), **2IIM** (free authentic past paper solutions), **Elites Grid** (DILR puzzle mastery), **Takshzila** (free fundabooks), **Bodhee Prep / Gejo Speaks** (VARC), and the **Official IIM Mock Simulator**.
+

@@ -25,7 +25,8 @@ export const MathText = ({ text, className = '' }) => {
       if (part.startsWith('$$') && part.endsWith('$$')) {
         const math = part.slice(2, -2).trim();
         const span = document.createElement('div');
-        span.className = 'my-2 overflow-x-auto text-center py-1 text-primary-600 dark:text-primary-400 font-medium';
+        span.className =
+          'my-2 overflow-x-auto text-center py-1 text-primary-600 dark:text-primary-400 font-medium';
         try {
           katex.render(math, span, { displayMode: true, throwOnError: false });
         } catch (e) {

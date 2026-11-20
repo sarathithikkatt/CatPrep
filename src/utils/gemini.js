@@ -16,21 +16,25 @@ export const saveGeminiApiKey = (key) => {
 
 export const testGeminiApiKey = async (apiKey) => {
   if (!apiKey) throw new Error('API key is empty');
-  
+
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      contents: [{
-        parts: [{ text: 'Reply with the word "PONG" if you can hear me.' }]
-      }]
+      contents: [
+        {
+          parts: [{ text: 'Reply with the word "PONG" if you can hear me.' }]
+        }
+      ]
     })
   });
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error?.message || `HTTP ${response.status}: Failed to authenticate Gemini API`);
+    throw new Error(
+      errorData.error?.message || `HTTP ${response.status}: Failed to authenticate Gemini API`
+    );
   }
 
   const data = await response.json();
@@ -46,7 +50,9 @@ export const analyzeQuestionScreenshot = async ({
 }) => {
   const apiKey = getGeminiApiKey();
   if (!apiKey) {
-    throw new Error('Gemini API key is not configured. Please open AI Settings to add your free key.');
+    throw new Error(
+      'Gemini API key is not configured. Please open AI Settings to add your free key.'
+    );
   }
 
   // Strip prefix if present in base64 data url
@@ -129,6 +135,9 @@ ${questionHint ? `User notes/hints: ${questionHint}` : ''}
     return parsed;
   } catch (err) {
     console.error('Failed to parse Gemini output:', err, rawContent);
-    throw new Error('Failed to parse AI solution into structured question format. Raw response: ' + rawContent.slice(0, 150));
+    throw new Error(
+      'Failed to parse AI solution into structured question format. Raw response: ' +
+        rawContent.slice(0, 150)
+    );
   }
 };

@@ -45,7 +45,7 @@ export const AddQuestionModal = ({
     if (!file || !file.type.startsWith('image/')) return;
     const reader = new FileReader();
     reader.onload = (e) => {
-      setNewQuestion(prev => ({
+      setNewQuestion((prev) => ({
         ...prev,
         imageBase64: e.target.result,
         imageMime: file.type
@@ -92,7 +92,7 @@ export const AddQuestionModal = ({
         examId: activeExamId
       });
 
-      setNewQuestion(prev => ({
+      setNewQuestion((prev) => ({
         ...prev,
         sectionId: result.sectionId || prev.sectionId,
         topicId: result.topicId || prev.topicId,
@@ -133,7 +133,7 @@ export const AddQuestionModal = ({
   };
 
   return (
-    <div 
+    <div
       onPaste={handlePaste}
       className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
     >
@@ -153,8 +153,8 @@ export const AddQuestionModal = ({
               </span>
             </div>
           </div>
-          <button 
-            onClick={onClose} 
+          <button
+            onClick={onClose}
             className="text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 cursor-pointer font-bold"
           >
             <X className="w-4 h-4" />
@@ -165,7 +165,7 @@ export const AddQuestionModal = ({
         <ScreenshotDropzone
           imageBase64={newQuestion.imageBase64}
           onImageFile={handleImageFile}
-          onRemoveImage={() => setNewQuestion(prev => ({ ...prev, imageBase64: '' }))}
+          onRemoveImage={() => setNewQuestion((prev) => ({ ...prev, imageBase64: '' }))}
         />
 
         {/* Gemini Auto-Solve Button */}
@@ -179,20 +179,26 @@ export const AddQuestionModal = ({
         {/* Section & Topic Controls */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-2">
           <div>
-            <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">Target Section</label>
+            <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
+              Target Section
+            </label>
             <select
               value={newQuestion.sectionId}
               onChange={(e) => setNewQuestion({ ...newQuestion, sectionId: e.target.value })}
               className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold"
             >
-              {currentExam.sections.map(s => (
-                <option key={s.id} value={s.id}>{s.name}</option>
+              {currentExam.sections.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.name}
+                </option>
               ))}
             </select>
           </div>
 
           <div>
-            <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">Topic Name</label>
+            <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
+              Topic Name
+            </label>
             <input
               type="text"
               placeholder="e.g. Time Speed Distance"
@@ -203,7 +209,9 @@ export const AddQuestionModal = ({
           </div>
 
           <div>
-            <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">Question Type</label>
+            <label className="font-bold text-slate-600 dark:text-slate-300 block mb-1">
+              Question Type
+            </label>
             <select
               value={newQuestion.type}
               onChange={(e) => setNewQuestion({ ...newQuestion, type: e.target.value })}
@@ -239,7 +247,9 @@ export const AddQuestionModal = ({
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={() => setNewQuestion(prev => ({ ...prev, options: [...prev.options, ''] }))}
+                  onClick={() =>
+                    setNewQuestion((prev) => ({ ...prev, options: [...prev.options, ''] }))
+                  }
                   className="text-[11px] font-bold text-indigo-600 hover:underline cursor-pointer"
                 >
                   + Add Option
@@ -247,7 +257,9 @@ export const AddQuestionModal = ({
                 {newQuestion.options.length > 2 && (
                   <button
                     type="button"
-                    onClick={() => setNewQuestion(prev => ({ ...prev, options: prev.options.slice(0, -1) }))}
+                    onClick={() =>
+                      setNewQuestion((prev) => ({ ...prev, options: prev.options.slice(0, -1) }))
+                    }
                     className="text-[11px] font-bold text-rose-500 hover:underline cursor-pointer"
                   >
                     - Remove Option
@@ -258,7 +270,9 @@ export const AddQuestionModal = ({
 
             {newQuestion.options.map((opt, i) => (
               <div key={i} className="flex items-center gap-2">
-                <span className="text-xs font-bold w-4 text-slate-500">{String.fromCharCode(65 + i)}</span>
+                <span className="text-xs font-bold w-4 text-slate-500">
+                  {String.fromCharCode(65 + i)}
+                </span>
                 <input
                   type="text"
                   value={opt}
@@ -314,10 +328,12 @@ export const AddQuestionModal = ({
                 rows={2}
                 placeholder="Underlying formula or axiom..."
                 value={newQuestion.solution.coreConcept}
-                onChange={(e) => setNewQuestion({
-                  ...newQuestion,
-                  solution: { ...newQuestion.solution, coreConcept: e.target.value }
-                })}
+                onChange={(e) =>
+                  setNewQuestion({
+                    ...newQuestion,
+                    solution: { ...newQuestion.solution, coreConcept: e.target.value }
+                  })
+                }
                 className="w-full p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"
               />
             </div>
@@ -330,10 +346,12 @@ export const AddQuestionModal = ({
                 rows={2}
                 placeholder="Option elimination, boundary value, symmetry..."
                 value={newQuestion.solution.shortcut}
-                onChange={(e) => setNewQuestion({
-                  ...newQuestion,
-                  solution: { ...newQuestion.solution, shortcut: e.target.value }
-                })}
+                onChange={(e) =>
+                  setNewQuestion({
+                    ...newQuestion,
+                    solution: { ...newQuestion.solution, shortcut: e.target.value }
+                  })
+                }
                 className="w-full p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"
               />
             </div>
@@ -347,10 +365,12 @@ export const AddQuestionModal = ({
               rows={3}
               placeholder="Detailed mathematical steps in KaTeX..."
               value={newQuestion.solution.stepByStep}
-              onChange={(e) => setNewQuestion({
-                ...newQuestion,
-                solution: { ...newQuestion.solution, stepByStep: e.target.value }
-              })}
+              onChange={(e) =>
+                setNewQuestion({
+                  ...newQuestion,
+                  solution: { ...newQuestion.solution, stepByStep: e.target.value }
+                })
+              }
               className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-mono"
             />
           </div>
@@ -363,10 +383,12 @@ export const AddQuestionModal = ({
               rows={2}
               placeholder="Why are options B or C distractors? Common misreadings..."
               value={newQuestion.solution.pitfalls}
-              onChange={(e) => setNewQuestion({
-                ...newQuestion,
-                solution: { ...newQuestion.solution, pitfalls: e.target.value }
-              })}
+              onChange={(e) =>
+                setNewQuestion({
+                  ...newQuestion,
+                  solution: { ...newQuestion.solution, pitfalls: e.target.value }
+                })
+              }
               className="w-full p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"
             />
           </div>

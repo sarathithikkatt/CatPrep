@@ -4,12 +4,7 @@ import { Sparkles, Loader2, Settings, AlertTriangle } from 'lucide-react';
 /**
  * Trigger section for Gemini AI Vision OCR & 4-tier solution generation.
  */
-export const GeminiAutoSolveSection = ({
-  isAiAnalyzing,
-  aiError,
-  onAutoSolve,
-  onOpenSettings
-}) => {
+export const GeminiAutoSolveSection = ({ isAiAnalyzing, aiError, onAutoSolve, onOpenSettings }) => {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between flex-wrap gap-2">

@@ -22,15 +22,15 @@ export const AccuracyMetricCard = ({
         </div>
       </div>
       <div className="flex items-baseline gap-2 mb-2">
-        <span className="text-4xl font-extrabold text-slate-900 dark:text-white">
-          {accuracy}%
-        </span>
+        <span className="text-4xl font-extrabold text-slate-900 dark:text-white">{accuracy}%</span>
         <span className="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
           Target: 80%+
         </span>
       </div>
       <div className="text-xs text-slate-500 mb-4">
-        <span className="text-emerald-600 dark:text-emerald-400 font-bold">{correctCount} Correct</span>
+        <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+          {correctCount} Correct
+        </span>
         {' • '}
         <span className="text-rose-500 font-bold">{incorrectCount} Wrong</span>
       </div>

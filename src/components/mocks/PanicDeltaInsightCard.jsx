@@ -16,7 +16,10 @@ export const PanicDeltaInsightCard = () => {
             The 99th Percentile "Panic Delta" Diagnostic (from CAT Knowledge Vault):
           </span>
           <p className="text-slate-300 leading-relaxed">
-            After finishing a timed mock test, solve the unattempted questions in an <strong>untimed "Capability" session</strong>. The difference between your Capability Score and your Timed Score is your <strong>Panic Delta</strong>. A high delta means your knowledge is sound, but question selection or speed panic is reducing your score!
+            After finishing a timed mock test, solve the unattempted questions in an{' '}
+            <strong>untimed "Capability" session</strong>. The difference between your Capability
+            Score and your Timed Score is your <strong>Panic Delta</strong>. A high delta means your
+            knowledge is sound, but question selection or speed panic is reducing your score!
           </p>
         </div>
       </div>

@@ -16,12 +16,18 @@ export const EnvTemplateBlock = ({ template }) => {
   return (
     <div>
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">Environment template:</span>
+        <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+          Environment template:
+        </span>
         <button
           onClick={copyToClipboard}
           className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1 font-medium cursor-pointer"
         >
-          {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+          {copied ? (
+            <Check className="w-3.5 h-3.5 text-emerald-500" />
+          ) : (
+            <Copy className="w-3.5 h-3.5" />
+          )}
           {copied ? 'Copied template!' : 'Copy template'}
         </button>
       </div>

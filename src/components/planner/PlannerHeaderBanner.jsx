@@ -17,9 +17,10 @@ export const PlannerHeaderBanner = ({
 }) => {
   const completedHours = Math.round((completedMinutes / 60) * 10) / 10;
   const targetHours = Math.round((totalMinutesPlanned / 60) * 10) / 10;
-  const timeProgressPercent = totalMinutesPlanned > 0
-    ? Math.min(100, Math.round((completedMinutes / totalMinutesPlanned) * 100))
-    : 0;
+  const timeProgressPercent =
+    totalMinutesPlanned > 0
+      ? Math.min(100, Math.round((completedMinutes / totalMinutesPlanned) * 100))
+      : 0;
 
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
@@ -32,7 +33,8 @@ export const PlannerHeaderBanner = ({
             </h1>
           </div>
           <p className="text-xs text-slate-400">
-            Structured multi-week schedule: Revise fundamentals, Enhance via targeted drills, Strategize pacing & Test in real conditions.
+            Structured multi-week schedule: Revise fundamentals, Enhance via targeted drills,
+            Strategize pacing & Test in real conditions.
           </p>
         </div>
 
@@ -81,9 +83,7 @@ export const PlannerHeaderBanner = ({
             <span className="text-lg font-black text-slate-900 dark:text-white">
               {completedHours} hrs done
             </span>
-            <span className="text-xs text-slate-400 font-medium">
-              of {targetHours} hrs target
-            </span>
+            <span className="text-xs text-slate-400 font-medium">of {targetHours} hrs target</span>
           </div>
           <ProgressBar percent={timeProgressPercent} height="h-2" color="bg-emerald-500" />
         </div>

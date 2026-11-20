@@ -5,11 +5,7 @@ import { MathText } from '../MathText';
 /**
  * Tabbed solution viewer for the mistake notebook, showing Step-by-Step, Shortcut, and Core Concept.
  */
-export const NotebookSolutionViewer = ({
-  solution,
-  currentTab = 'step',
-  onSelectTab
-}) => {
+export const NotebookSolutionViewer = ({ solution, currentTab = 'step', onSelectTab }) => {
   if (!solution) return null;
 
   return (

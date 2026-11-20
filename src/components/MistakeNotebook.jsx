@@ -11,16 +11,16 @@ import { NotebookQuestionCard } from './notebook/NotebookQuestionCard';
  * Error notebook with root-cause categorization, reflection notes,
  * and blind re-test mode to confirm concept mastery.
  */
-export const MistakeNotebook = ({ 
-  userData, 
-  onUpdateUserData, 
+export const MistakeNotebook = ({
+  userData,
+  onUpdateUserData,
   onNavigateToPractice,
   onRetestInPractice
 }) => {
   const [activeReasonFilter, setActiveReasonFilter] = useState('all');
   const [editingNotesId, setEditingNotesId] = useState(null);
   const [tempNotes, setTempNotes] = useState('');
-  
+
   // Re-test state per question
   const [activeRetestId, setActiveRetestId] = useState(null);
   const [retestAnswers, setRetestAnswers] = useState({});
@@ -32,11 +32,11 @@ export const MistakeNotebook = ({
   // Questions in notebook are either bookmarked or marked incorrect
   const bookmarkedIds = Object.keys(userData.bookmarkedQuestions || {});
   const incorrectIds = Object.keys(userData.questionAttempts || {}).filter(
-    qid => userData.questionAttempts[qid]?.isCorrect === false
+    (qid) => userData.questionAttempts[qid]?.isCorrect === false
   );
 
   const unionIds = Array.from(new Set([...bookmarkedIds, ...incorrectIds]));
-  const notebookQuestions = allQuestions.filter(q => unionIds.includes(q.id));
+  const notebookQuestions = allQuestions.filter((q) => unionIds.includes(q.id));
 
   // Save reason tag
   const handleUpdateReason = (qid, reason) => {
@@ -104,8 +104,8 @@ export const MistakeNotebook = ({
   // Start inline re-test
   const handleStartRetest = (qid) => {
     setActiveRetestId(qid);
-    setRetestAnswers(prev => ({ ...prev, [qid]: undefined }));
-    setRetestSubmissions(prev => {
+    setRetestAnswers((prev) => ({ ...prev, [qid]: undefined }));
+    setRetestSubmissions((prev) => {
       const updated = { ...prev };
       delete updated[qid];
       return updated;
@@ -122,10 +122,11 @@ export const MistakeNotebook = ({
     if (q.type === 'MCQ') {
       isCorrect = parseInt(answer, 10) === q.correctAnswer;
     } else {
-      isCorrect = answer.toString().trim().toLowerCase() === q.correctAnswer.toString().trim().toLowerCase();
+      isCorrect =
+        answer.toString().trim().toLowerCase() === q.correctAnswer.toString().trim().toLowerCase();
     }
 
-    setRetestSubmissions(prev => ({
+    setRetestSubmissions((prev) => ({
       ...prev,
       [qid]: { isCorrect }
     }));
@@ -158,14 +159,16 @@ export const MistakeNotebook = ({
   };
 
   // Filter notebook questions
-  const filteredQuestions = notebookQuestions.filter(q => {
+  const filteredQuestions = notebookQuestions.filter((q) => {
     if (activeReasonFilter === 'all') return true;
     const reason = userData.bookmarkedQuestions?.[q.id]?.reason || 'General Review';
     return reason === activeReasonFilter;
   });
 
   const retestAttempts = userData.retestAttempts || {};
-  const masteredRetestCount = notebookQuestions.filter(q => retestAttempts[q.id]?.isCorrect === true).length;
+  const masteredRetestCount = notebookQuestions.filter(
+    (q) => retestAttempts[q.id]?.isCorrect === true
+  ).length;
 
   return (
     <div className="space-y-6">
@@ -175,14 +178,20 @@ export const MistakeNotebook = ({
         masteredCount={masteredRetestCount}
         activeReasonFilter={activeReasonFilter}
         onSelectReasonFilter={setActiveReasonFilter}
-        onStartDrill={() => notebookQuestions.length > 0 && handleStartRetest(notebookQuestions[0].id)}
+        onStartDrill={() =>
+          notebookQuestions.length > 0 && handleStartRetest(notebookQuestions[0].id)
+        }
       />
 
       {/* Notebook Questions List */}
       {filteredQuestions.length === 0 ? (
         <EmptyState
           icon={CheckCircle2}
-          title={activeReasonFilter === 'all' ? 'Zero Unresolved Errors!' : `No errors tagged under "${activeReasonFilter}"`}
+          title={
+            activeReasonFilter === 'all'
+              ? 'Zero Unresolved Errors!'
+              : `No errors tagged under "${activeReasonFilter}"`
+          }
           description="Practice previous year questions in the PYQ tab. Bookmark tough questions or flag incorrect solutions to review and re-test them here."
           actionLabel="Start Practicing PYQs"
           onAction={onNavigateToPractice}
@@ -209,18 +218,24 @@ export const MistakeNotebook = ({
                 onCancelRetest={() => setActiveRetestId(null)}
                 onRetestInPractice={onRetestInPractice}
                 onRemove={handleRemove}
-                onSelectRetestOption={(id, optIdx) => setRetestAnswers(prev => ({ ...prev, [id]: optIdx }))}
-                onInputRetestTita={(id, val) => setRetestAnswers(prev => ({ ...prev, [id]: val }))}
+                onSelectRetestOption={(id, optIdx) =>
+                  setRetestAnswers((prev) => ({ ...prev, [id]: optIdx }))
+                }
+                onInputRetestTita={(id, val) =>
+                  setRetestAnswers((prev) => ({ ...prev, [id]: val }))
+                }
                 onSubmitRetest={handleSubmitRetest}
                 onResetRetestSubmission={(id) => {
-                  setRetestSubmissions(prev => {
+                  setRetestSubmissions((prev) => {
                     const updated = { ...prev };
                     delete updated[id];
                     return updated;
                   });
-                  setRetestAnswers(prev => ({ ...prev, [id]: undefined }));
+                  setRetestAnswers((prev) => ({ ...prev, [id]: undefined }));
                 }}
-                onSelectSolutionTab={(id, tab) => setActiveSolutionTab(prev => ({ ...prev, [id]: tab }))}
+                onSelectSolutionTab={(id, tab) =>
+                  setActiveSolutionTab((prev) => ({ ...prev, [id]: tab }))
+                }
                 onStartEditingNotes={(id, currentNotes) => {
                   setEditingNotesId(id);
                   setTempNotes(currentNotes);

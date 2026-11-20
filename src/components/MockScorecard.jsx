@@ -25,7 +25,7 @@ export const MockScorecard = ({ userData, onUpdateUserData }) => {
 
   const handleDeleteMock = (id) => {
     if (confirm('Delete this mock test report?')) {
-      const updated = mockList.filter(m => m.id !== id);
+      const updated = mockList.filter((m) => m.id !== id);
       onUpdateUserData({
         ...userData,
         mockReports: updated
@@ -53,11 +53,7 @@ export const MockScorecard = ({ userData, onUpdateUserData }) => {
       ) : (
         <div className="space-y-4">
           {mockList.map((mock) => (
-            <MockReportCard
-              key={mock.id}
-              mock={mock}
-              onDeleteMock={handleDeleteMock}
-            />
+            <MockReportCard key={mock.id} mock={mock} onDeleteMock={handleDeleteMock} />
           ))}
         </div>
       )}

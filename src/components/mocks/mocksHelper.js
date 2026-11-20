@@ -3,7 +3,7 @@
  */
 export const calcSectionScore = (sec) => {
   if (!sec) return 0;
-  return ((sec.correct || 0) * 3) - ((sec.incorrectMcq || 0) * 1);
+  return (sec.correct || 0) * 3 - (sec.incorrectMcq || 0) * 1;
 };
 
 /**

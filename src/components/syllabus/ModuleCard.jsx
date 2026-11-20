@@ -22,11 +22,10 @@ export const ModuleCard = ({
       {/* Module Header */}
       <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <div>
-          <h3 className="text-base font-bold text-slate-900 dark:text-white">
-            {module.title}
-          </h3>
+          <h3 className="text-base font-bold text-slate-900 dark:text-white">{module.title}</h3>
           <span className="text-xs text-slate-400">
-            Est. Study Effort: ~{module.estimatedHours} hours • {filteredTopics.length} Topics • {modulePYQCount} PYQs Available
+            Est. Study Effort: ~{module.estimatedHours} hours • {filteredTopics.length} Topics •{' '}
+            {modulePYQCount} PYQs Available
           </span>
         </div>
       </div>

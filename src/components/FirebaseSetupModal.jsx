@@ -59,12 +59,15 @@ VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id_here`;
             </SetupStepItem>
 
             <SetupStepItem stepNumber="2" title="Enable Google Auth & Firestore">
-              • <strong>Build &gt; Authentication</strong> → Click <strong>Get started</strong> → Enable <strong>Google</strong>.<br />
-              • <strong>Build &gt; Firestore Database</strong> → Click <strong>Create database</strong> (choose Test or Production mode).
+              • <strong>Build &gt; Authentication</strong> → Click <strong>Get started</strong> →
+              Enable <strong>Google</strong>.<br />• <strong>Build &gt; Firestore Database</strong>{' '}
+              → Click <strong>Create database</strong> (choose Test or Production mode).
             </SetupStepItem>
 
             <SetupStepItem stepNumber="3" title="Add Web App & Copy Keys">
-              Click the Web icon (<strong>&lt;/&gt;</strong>) in Project Overview, register your app, and paste the config values into your local <code>.env.local</code> file (and into Vercel/Netlify Environment Variables):
+              Click the Web icon (<strong>&lt;/&gt;</strong>) in Project Overview, register your
+              app, and paste the config values into your local <code>.env.local</code> file (and
+              into Vercel/Netlify Environment Variables):
             </SetupStepItem>
           </div>
 
@@ -73,7 +76,8 @@ VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id_here`;
           <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/50 flex items-center gap-2.5 text-xs text-indigo-800 dark:text-indigo-300">
             <ShieldCheck className="w-5 h-5 flex-shrink-0 text-indigo-600 dark:text-indigo-400" />
             <span>
-              <strong>Note:</strong> Until configured, all progress continues to be stored locally in your browser. No data is lost!
+              <strong>Note:</strong> Until configured, all progress continues to be stored locally
+              in your browser. No data is lost!
             </span>
           </div>
         </div>

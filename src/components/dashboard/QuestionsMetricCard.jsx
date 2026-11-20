@@ -23,9 +23,7 @@ export const QuestionsMetricCard = ({ questionsSolved = 0, targetQuestions = 25 
         <span className="text-4xl font-extrabold text-slate-900 dark:text-white">
           {questionsSolved}
         </span>
-        <span className="text-slate-400 font-semibold text-lg">
-          / {targetQuestions}
-        </span>
+        <span className="text-slate-400 font-semibold text-lg">/ {targetQuestions}</span>
       </div>
       <ProgressBar percent={qsPercent} height="h-2.5" color="bg-blue-600" className="mb-3" />
       <div className="flex items-center justify-between text-xs">

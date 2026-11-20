@@ -10,14 +10,9 @@ import { ModuleCard } from './syllabus/ModuleCard';
  * SyllabusManager Page:
  * Structured topic breakdown, historical question weightage, and mastery tracking.
  */
-export const SyllabusManager = ({ 
-  activeExamId, 
-  userData, 
-  onUpdateUserData, 
-  onPracticeTopic 
-}) => {
-  const currentExam = useMemo(() => 
-    EXAMS_CONFIG.find(e => e.id === activeExamId) || EXAMS_CONFIG[0],
+export const SyllabusManager = ({ activeExamId, userData, onUpdateUserData, onPracticeTopic }) => {
+  const currentExam = useMemo(
+    () => EXAMS_CONFIG.find((e) => e.id === activeExamId) || EXAMS_CONFIG[0],
     [activeExamId]
   );
 
@@ -27,16 +22,17 @@ export const SyllabusManager = ({
   const [expandedTopicId, setExpandedTopicId] = useState(null);
 
   // Fallback to first section if selected section is not present in the current target exam
-  const activeSectionId = currentExam.sections.some(s => s.id === selectedSectionId)
+  const activeSectionId = currentExam.sections.some((s) => s.id === selectedSectionId)
     ? selectedSectionId
-    : (currentExam.sections[0]?.id || 'qa');
+    : currentExam.sections[0]?.id || 'qa';
 
-  const activeSection = currentExam.sections.find(s => s.id === activeSectionId) || currentExam.sections[0];
+  const activeSection =
+    currentExam.sections.find((s) => s.id === activeSectionId) || currentExam.sections[0];
 
-  const allQuestions = useMemo(() => [
-    ...QUESTIONS_BANK,
-    ...(userData.customQuestions || [])
-  ], [userData.customQuestions]);
+  const allQuestions = useMemo(
+    () => [...QUESTIONS_BANK, ...(userData.customQuestions || [])],
+    [userData.customQuestions]
+  );
 
   // Topic-level question count mapping
   const topicQuestionCounts = useMemo(() => {
@@ -100,10 +96,7 @@ export const SyllabusManager = ({
           sectionQuestionCounts={sectionQuestionCounts}
         />
 
-        <StatusFilterPills
-          statusFilter={statusFilter}
-          onSelectStatus={setStatusFilter}
-        />
+        <StatusFilterPills statusFilter={statusFilter} onSelectStatus={setStatusFilter} />
       </div>
 
       {/* Modules & Topics List */}
@@ -112,15 +105,19 @@ export const SyllabusManager = ({
           const filteredTopics = module.topics.filter((t) => {
             const progress = userData.topicProgress?.[t.id]?.status || 'not_started';
             const matchesStatus = statusFilter === 'all' || progress === statusFilter;
-            const matchesSearch = searchQuery === '' || 
+            const matchesSearch =
+              searchQuery === '' ||
               t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
               t.keyConcepts?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-              t.subtopics?.some(st => st.toLowerCase().includes(searchQuery.toLowerCase()));
+              t.subtopics?.some((st) => st.toLowerCase().includes(searchQuery.toLowerCase()));
             return matchesStatus && matchesSearch;
           });
 
           if (filteredTopics.length === 0) return null;
-          const modulePYQCount = filteredTopics.reduce((acc, t) => acc + (topicQuestionCounts[t.id] || 0), 0);
+          const modulePYQCount = filteredTopics.reduce(
+            (acc, t) => acc + (topicQuestionCounts[t.id] || 0),
+            0
+          );
 
           return (
             <ModuleCard

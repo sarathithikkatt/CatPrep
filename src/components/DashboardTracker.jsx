@@ -5,23 +5,26 @@ import { DailyMetricsGrid } from './dashboard/DailyMetricsGrid';
 import { DailyTargetEditor } from './dashboard/DailyTargetEditor';
 import { SyllabusBurndownCard } from './dashboard/SyllabusBurndownCard';
 import { VelocityForecastCard } from './dashboard/VelocityForecastCard';
+import { ActivePlanWidget } from './features/dashboard/ActivePlanWidget';
 
 /**
  * DashboardTracker Page:
  * Top-level dashboard view orchestrating daily targets, exam countdown,
- * metrics burndown, and velocity forecasts.
+ * metrics burndown, velocity forecasts, and active study plan tracking.
  */
-export const DashboardTracker = ({ 
-  activeExamId, 
-  userData, 
-  onUpdateUserData, 
-  onNavigateToPractice 
+export const DashboardTracker = ({
+  activeExamId,
+  userData,
+  onUpdateUserData,
+  onNavigateToPractice,
+  onNavigateToPlanner,
+  onNavigateAction
 }) => {
   const [isEditingTarget, setIsEditingTarget] = useState(false);
   const [targetQsInput, setTargetQsInput] = useState(userData.dailyTarget?.questions || 25);
   const [targetMinsInput, setTargetMinsInput] = useState(userData.dailyTarget?.minutes || 120);
 
-  const currentExam = EXAMS_CONFIG.find(e => e.id === activeExamId) || EXAMS_CONFIG[0];
+  const currentExam = EXAMS_CONFIG.find((e) => e.id === activeExamId) || EXAMS_CONFIG[0];
   const today = new Date().toISOString().split('T')[0];
   const todayLog = userData.dailyLogs?.[today] || {
     questionsSolved: 0,
@@ -33,9 +36,10 @@ export const DashboardTracker = ({
   const targetQs = userData.dailyTarget?.questions || 25;
   const targetMins = userData.dailyTarget?.minutes || 120;
 
-  const todayAccuracy = todayLog.questionsSolved > 0 
-    ? Math.round((todayLog.correctCount / todayLog.questionsSolved) * 100) 
-    : 0;
+  const todayAccuracy =
+    todayLog.questionsSolved > 0
+      ? Math.round((todayLog.correctCount / todayLog.questionsSolved) * 100)
+      : 0;
 
   // Calculate Syllabus Metrics across modules & topics
   let totalTopics = 0;
@@ -44,12 +48,12 @@ export const DashboardTracker = ({
   let totalEstimatedHours = 0;
   const sectionProgressMap = {};
 
-  currentExam.sections.forEach(sec => {
+  currentExam.sections.forEach((sec) => {
     let secTotal = 0;
     let secMastered = 0;
-    sec.modules.forEach(mod => {
-      totalEstimatedHours += (mod.estimatedHours || 0);
-      mod.topics.forEach(top => {
+    sec.modules.forEach((mod) => {
+      totalEstimatedHours += mod.estimatedHours || 0;
+      mod.topics.forEach((top) => {
         totalTopics += 1;
         secTotal += 1;
         const progress = userData.topicProgress?.[top.id];
@@ -69,9 +73,8 @@ export const DashboardTracker = ({
     };
   });
 
-  const overallSyllabusPercent = totalTopics > 0 
-    ? Math.round((masteredTopics / totalTopics) * 100) 
-    : 0;
+  const overallSyllabusPercent =
+    totalTopics > 0 ? Math.round((masteredTopics / totalTopics) * 100) : 0;
 
   // Quick add study minutes handler
   const handleAddMinutes = (additionalMinutes) => {
@@ -114,10 +117,7 @@ export const DashboardTracker = ({
   return (
     <div className="space-y-6">
       {/* Welcome Banner & Exam Countdown */}
-      <ExamHeroBanner
-        currentExam={currentExam}
-        streakCount={userData.streak?.currentStreak || 1}
-      />
+      <ExamHeroBanner currentExam={currentExam} streakCount={userData.streak?.currentStreak || 1} />
 
       {/* Primary Metrics Grid: Questions, Time Invested, Accuracy */}
       <DailyMetricsGrid
@@ -128,6 +128,12 @@ export const DashboardTracker = ({
         isEditingTarget={isEditingTarget}
         onToggleEditTarget={() => setIsEditingTarget(!isEditingTarget)}
         onAddMinutes={handleAddMinutes}
+      />
+
+      {/* Active Multi-Track Study Plan Widget */}
+      <ActivePlanWidget
+        onNavigateToPlanner={onNavigateToPlanner}
+        onNavigateAction={onNavigateAction}
       />
 
       {/* Target Customizer Form (Toggleable) */}

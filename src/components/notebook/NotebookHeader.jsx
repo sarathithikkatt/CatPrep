@@ -23,7 +23,8 @@ export const NotebookHeader = ({
             </h1>
           </div>
           <p className="text-xs text-slate-400">
-            The #1 differentiator for 99+ percentile scorers. Re-test errors with answers hidden & confirm true mastery.
+            The #1 differentiator for 99+ percentile scorers. Re-test errors with answers hidden &
+            confirm true mastery.
           </p>
         </div>
 

@@ -4,11 +4,7 @@ import { UploadCloud, Trash2 } from 'lucide-react';
 /**
  * Dropzone for clipboard screenshots and file uploads.
  */
-export const ScreenshotDropzone = ({
-  imageBase64,
-  onImageFile,
-  onRemoveImage
-}) => {
+export const ScreenshotDropzone = ({ imageBase64, onImageFile, onRemoveImage }) => {
   const fileInputRef = useRef(null);
 
   return (
@@ -20,9 +16,9 @@ export const ScreenshotDropzone = ({
       {imageBase64 ? (
         <div className="relative rounded-xl border border-indigo-200 dark:border-indigo-800 bg-indigo-50/40 dark:bg-indigo-950/30 p-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 overflow-hidden">
-            <img 
-              src={imageBase64} 
-              alt="Uploaded Preview" 
+            <img
+              src={imageBase64}
+              alt="Uploaded Preview"
               className="w-16 h-16 object-cover rounded-lg border border-slate-200 dark:border-slate-700 shrink-0"
             />
             <div className="truncate">
@@ -47,7 +43,7 @@ export const ScreenshotDropzone = ({
           </div>
         </div>
       ) : (
-        <div 
+        <div
           onClick={() => fileInputRef.current?.click()}
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => {
@@ -58,7 +54,11 @@ export const ScreenshotDropzone = ({
         >
           <UploadCloud className="w-8 h-8 text-slate-400 group-hover:text-indigo-600 mx-auto mb-2 transition" />
           <p className="text-xs font-bold text-slate-700 dark:text-slate-200">
-            Paste mock screenshot (<kbd className="px-1 py-0.5 rounded bg-white dark:bg-slate-800 border text-[10px]">Ctrl+V</kbd>) or click to browse
+            Paste mock screenshot (
+            <kbd className="px-1 py-0.5 rounded bg-white dark:bg-slate-800 border text-[10px]">
+              Ctrl+V
+            </kbd>
+            ) or click to browse
           </p>
           <span className="text-[10px] text-slate-400">
             Supports PNG, JPEG, WebP mock screenshots from IMS, TIME, CL, Cracku

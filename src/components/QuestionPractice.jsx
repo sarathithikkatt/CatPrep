@@ -13,17 +13,17 @@ import { AddQuestionModal } from './practice/AddQuestionModal';
  * Practice workspace for authentic past papers with instant evaluation,
  * interactive MCQ/TITA, Gemini Vision screenshot OCR, and 4-tier solution drawers.
  */
-export const QuestionPractice = ({ 
-  activeExamId, 
-  initialTopicFilter = 'all', 
+export const QuestionPractice = ({
+  activeExamId,
+  initialTopicFilter = 'all',
   retestQuestionId = null,
   onClearRetest,
   onOpenSettings,
-  userData, 
-  onUpdateUserData 
+  userData,
+  onUpdateUserData
 }) => {
-  const currentExam = useMemo(() => 
-    EXAMS_CONFIG.find(e => e.id === activeExamId) || EXAMS_CONFIG[0],
+  const currentExam = useMemo(
+    () => EXAMS_CONFIG.find((e) => e.id === activeExamId) || EXAMS_CONFIG[0],
     [activeExamId]
   );
 
@@ -46,26 +46,26 @@ export const QuestionPractice = ({
     setSelectedTopic('all');
   }
 
-  const allQuestions = useMemo(() => [
-    ...QUESTIONS_BANK,
-    ...(userData.customQuestions || [])
-  ], [userData.customQuestions]);
+  const allQuestions = useMemo(
+    () => [...QUESTIONS_BANK, ...(userData.customQuestions || [])],
+    [userData.customQuestions]
+  );
 
   // Re-attempt / Re-test fresh attempt handler
   const handleRetestQuestion = useCallback((qid) => {
-    setUserAnswers(prev => {
+    setUserAnswers((prev) => {
       const updated = { ...prev };
       delete updated[qid];
       return updated;
     });
-    setSubmittedQuestions(prev => ({ ...prev, [qid]: false }));
-    setRetestingQuestions(prev => ({ ...prev, [qid]: true }));
+    setSubmittedQuestions((prev) => ({ ...prev, [qid]: false }));
+    setRetestingQuestions((prev) => ({ ...prev, [qid]: true }));
   }, []);
 
   // Retest navigation effect when jumping from Mistake Notebook
   useEffect(() => {
     if (retestQuestionId) {
-      const target = allQuestions.find(q => q.id === retestQuestionId);
+      const target = allQuestions.find((q) => q.id === retestQuestionId);
       if (target) {
         if (target.sectionId) setSelectedSection(target.sectionId);
         if (target.topicId) setSelectedTopic(target.topicId);
@@ -82,7 +82,7 @@ export const QuestionPractice = ({
   const handleSelectOption = (qid, optionIndexOrVal) => {
     const isRetesting = !!retestingQuestions[qid];
     if (submittedQuestions[qid] && !isRetesting) return;
-    setUserAnswers(prev => ({ ...prev, [qid]: optionIndexOrVal }));
+    setUserAnswers((prev) => ({ ...prev, [qid]: optionIndexOrVal }));
   };
 
   // Submit Answer & Evaluate
@@ -95,13 +95,14 @@ export const QuestionPractice = ({
     if (q.type === 'MCQ') {
       isCorrect = parseInt(answer, 10) === q.correctAnswer;
     } else {
-      isCorrect = answer.toString().trim().toLowerCase() === q.correctAnswer.toString().trim().toLowerCase();
+      isCorrect =
+        answer.toString().trim().toLowerCase() === q.correctAnswer.toString().trim().toLowerCase();
     }
 
     const wasRetesting = !!retestingQuestions[qid];
-    setSubmittedQuestions(prev => ({ ...prev, [qid]: true }));
+    setSubmittedQuestions((prev) => ({ ...prev, [qid]: true }));
     if (wasRetesting) {
-      setRetestingQuestions(prev => ({ ...prev, [qid]: false }));
+      setRetestingQuestions((prev) => ({ ...prev, [qid]: false }));
     }
 
     if (isCorrect) {
@@ -195,7 +196,11 @@ export const QuestionPractice = ({
     if (q.examId && q.examId !== activeExamId) return false;
     if (selectedSection !== 'all' && q.sectionId !== selectedSection) return false;
     if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
-    if (selectedDifficulty !== 'all' && q.difficulty.toLowerCase() !== selectedDifficulty.toLowerCase()) return false;
+    if (
+      selectedDifficulty !== 'all' &&
+      q.difficulty.toLowerCase() !== selectedDifficulty.toLowerCase()
+    )
+      return false;
     if (selectedYear !== 'all' && q.year.toString() !== selectedYear) return false;
 
     const attempt = userData.questionAttempts?.[q.id];
@@ -245,12 +250,21 @@ export const QuestionPractice = ({
           filteredQuestions.map((q, index) => {
             const qid = q.id;
             const isRetesting = !!retestingQuestions[qid];
-            const isSubmitted = !isRetesting && (submittedQuestions[qid] || (submittedQuestions[qid] !== false && !!userData.questionAttempts?.[qid]));
+            const isSubmitted =
+              !isRetesting &&
+              (submittedQuestions[qid] ||
+                (submittedQuestions[qid] !== false && !!userData.questionAttempts?.[qid]));
             const previousAttempt = userData.questionAttempts?.[qid];
             const isBookmarked = !!userData.bookmarkedQuestions?.[qid];
-            const currentAnswer = userAnswers[qid] !== undefined ? userAnswers[qid] : (previousAttempt?.userAnswer ?? '');
-            const isCorrect = isSubmitted 
-              ? (q.type === 'MCQ' ? parseInt(currentAnswer, 10) === q.correctAnswer : currentAnswer.toString().trim().toLowerCase() === q.correctAnswer.toString().trim().toLowerCase())
+            const currentAnswer =
+              userAnswers[qid] !== undefined
+                ? userAnswers[qid]
+                : (previousAttempt?.userAnswer ?? '');
+            const isCorrect = isSubmitted
+              ? q.type === 'MCQ'
+                ? parseInt(currentAnswer, 10) === q.correctAnswer
+                : currentAnswer.toString().trim().toLowerCase() ===
+                  q.correctAnswer.toString().trim().toLowerCase()
               : null;
 
             return (
@@ -268,7 +282,9 @@ export const QuestionPractice = ({
                 onSubmitAnswer={handleSubmitAnswer}
                 onRetestQuestion={handleRetestQuestion}
                 onToggleBookmark={handleToggleBookmark}
-                onSelectSolutionTab={(id, tab) => setActiveSolutionTab(prev => ({ ...prev, [id]: tab }))}
+                onSelectSolutionTab={(id, tab) =>
+                  setActiveSolutionTab((prev) => ({ ...prev, [id]: tab }))
+                }
               />
             );
           })

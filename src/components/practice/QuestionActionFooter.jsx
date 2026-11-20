@@ -30,13 +30,19 @@ export const QuestionActionFooter = ({
               <span>Correct (+3 Marks)</span>
             </div>
           ) : (
-            <div className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border ${
-              questionType === 'TITA'
-                ? 'text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800'
-                : 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800'
-            }`}>
+            <div
+              className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border ${
+                questionType === 'TITA'
+                  ? 'text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800'
+                  : 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800'
+              }`}
+            >
               <XCircle className="w-4 h-4" />
-              <span>{questionType === 'TITA' ? 'Incorrect (0 Penalty — TITA Exempt)' : 'Incorrect (-1 Mark Penalty)'}</span>
+              <span>
+                {questionType === 'TITA'
+                  ? 'Incorrect (0 Penalty — TITA Exempt)'
+                  : 'Incorrect (-1 Mark Penalty)'}
+              </span>
             </div>
           )}
 
@@ -53,9 +59,7 @@ export const QuestionActionFooter = ({
 
       {/* Solution indicator */}
       {isSubmitted && (
-        <div className="text-xs font-semibold text-slate-400">
-          Solution revealed below 👇
-        </div>
+        <div className="text-xs font-semibold text-slate-400">Solution revealed below 👇</div>
       )}
     </div>
   );

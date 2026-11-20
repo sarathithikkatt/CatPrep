@@ -5,11 +5,7 @@ import { ProgressBar } from '../common/ProgressBar';
 /**
  * Metric card showing time invested today with quick-log buttons (+15m, +30m, +1h).
  */
-export const TimeSpentMetricCard = ({
-  minutesSpent = 0,
-  targetMinutes = 120,
-  onAddMinutes
-}) => {
+export const TimeSpentMetricCard = ({ minutesSpent = 0, targetMinutes = 120, onAddMinutes }) => {
   const minsRemaining = Math.max(0, targetMinutes - minutesSpent);
   const minsPercent = Math.min(100, Math.round((minutesSpent / targetMinutes) * 100));
   const hours = Math.floor(minutesSpent / 60);
@@ -36,7 +32,9 @@ export const TimeSpentMetricCard = ({
       <ProgressBar percent={minsPercent} height="h-2.5" color="bg-purple-600" className="mb-3" />
       <div className="flex items-center justify-between text-xs mb-3">
         <span className={minsRemaining === 0 ? 'text-emerald-600 font-bold' : 'text-slate-500'}>
-          {minsRemaining === 0 ? 'Target reached' : `${minsRemaining} mins remaining of ${targetMinutes}m goal`}
+          {minsRemaining === 0
+            ? 'Target reached'
+            : `${minsRemaining} mins remaining of ${targetMinutes}m goal`}
         </span>
         <span className="font-semibold text-slate-700 dark:text-slate-300">{minsPercent}%</span>
       </div>

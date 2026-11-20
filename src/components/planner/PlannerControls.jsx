@@ -29,7 +29,7 @@ export const PlannerControls = ({
 
         {weeklyPlan.map((d) => {
           const isSelected = selectedDay === d.dayId;
-          const dayDone = d.tasks.filter(t => t.completed).length;
+          const dayDone = d.tasks.filter((t) => t.completed).length;
           const dayTotal = d.tasks.length;
 
           return (
@@ -43,11 +43,13 @@ export const PlannerControls = ({
               }`}
             >
               <span>{d.dayName.slice(0, 3)}</span>
-              <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
-                isSelected
-                  ? 'bg-white/20 text-white'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
-              }`}>
+              <span
+                className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                  isSelected
+                    ? 'bg-white/20 text-white'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                }`}
+              >
                 {dayDone}/{dayTotal}
               </span>
             </button>

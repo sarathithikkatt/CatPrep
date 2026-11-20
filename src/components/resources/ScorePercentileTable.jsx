@@ -53,7 +53,8 @@ export const ScorePercentileTable = () => {
         </h2>
       </div>
       <p className="text-xs text-slate-400 mb-4">
-        CAT has 66 questions (Total 198 Marks, +3 for correct, -1 for wrong). Here are the actual raw score cutoffs:
+        CAT has 66 questions (Total 198 Marks, +3 for correct, -1 for wrong). Here are the actual
+        raw score cutoffs:
       </p>
 
       <div className="overflow-x-auto">
@@ -72,7 +73,9 @@ export const ScorePercentileTable = () => {
             {benchmarkRows.map((row, idx) => (
               <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
                 <td className={`p-3 ${row.percentileColor}`}>{row.percentile}</td>
-                <td className="p-3 font-black text-slate-900 dark:text-white">{row.overallMarks}</td>
+                <td className="p-3 font-black text-slate-900 dark:text-white">
+                  {row.overallMarks}
+                </td>
                 <td className="p-3 font-bold">{row.netQs}</td>
                 <td className="p-3">{row.varc}</td>
                 <td className="p-3">{row.dilr}</td>

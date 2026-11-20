@@ -3,11 +3,7 @@ import React from 'react';
 /**
  * TITA (Type In The Answer) input field for numerical question entries.
  */
-export const QuestionTitaInput = ({
-  currentAnswer = '',
-  isSubmitted = false,
-  onChangeAnswer
-}) => {
+export const QuestionTitaInput = ({ currentAnswer = '', isSubmitted = false, onChangeAnswer }) => {
   return (
     <div className="mb-6 space-y-2">
       <label className="text-xs font-bold text-slate-600 dark:text-slate-300 block">

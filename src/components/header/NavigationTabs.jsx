@@ -1,8 +1,8 @@
 import React from 'react';
-import { Target, Calendar, BookOpen, Layers, Bookmark, Award, Sparkles } from 'lucide-react';
+import { Target, Calendar, BookOpen, Layers, Bookmark, Award, Sparkles, Flame } from 'lucide-react';
 
 /**
- * Navigation tabs row switching between the 7 primary application views.
+ * Navigation tabs row switching between the 8 primary application views.
  */
 export const NavigationTabs = ({ activeTab, onSelectTab }) => {
   const tabs = [
@@ -16,6 +16,13 @@ export const NavigationTabs = ({ activeTab, onSelectTab }) => {
       label: 'Study Planner',
       icon: Calendar,
       badge: 'R-E-S-T'
+    },
+    {
+      id: 'roadmaps',
+      label: 'Sprint Plans',
+      icon: Flame,
+      badge: '3M • 1M • 1W',
+      badgeColor: 'bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200'
     },
     {
       id: 'syllabus',
@@ -48,7 +55,7 @@ export const NavigationTabs = ({ activeTab, onSelectTab }) => {
   ];
 
   return (
-    <div className="flex space-x-1 sm:space-x-4 overflow-x-auto py-2 scrollbar-none">
+    <div className="flex space-x-1 sm:space-x-3 overflow-x-auto py-2 scrollbar-none scroll-smooth">
       {tabs.map((tab) => {
         const Icon = tab.icon;
         const isActive = activeTab === tab.id;
@@ -66,11 +73,14 @@ export const NavigationTabs = ({ activeTab, onSelectTab }) => {
             <Icon className="w-4 h-4" />
             <span>{tab.label}</span>
             {tab.badge && (
-              <span className={`ml-0.5 px-1.5 py-0.2 rounded-full text-[10px] ${
-                tab.badgeColor || (isActive 
-                  ? 'bg-white/20 text-white' 
-                  : 'bg-indigo-100 dark:bg-indigo-900/60 text-indigo-900 dark:text-indigo-200')
-              }`}>
+              <span
+                className={`ml-0.5 px-1.5 py-0.2 rounded-full text-[10px] ${
+                  tab.badgeColor ||
+                  (isActive
+                    ? 'bg-white/20 text-white'
+                    : 'bg-indigo-100 dark:bg-indigo-900/60 text-indigo-900 dark:text-indigo-200')
+                }`}
+              >
                 {tab.badge}
               </span>
             )}

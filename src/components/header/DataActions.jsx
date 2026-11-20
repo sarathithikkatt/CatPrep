@@ -5,11 +5,7 @@ import { exportUserDataJSON } from '../../utils/storage';
 /**
  * Data backup, restore, and AI settings action buttons in the header.
  */
-export const DataActions = ({
-  userData,
-  onImportData,
-  onOpenSettings
-}) => {
+export const DataActions = ({ userData, onImportData, onOpenSettings }) => {
   const handleFileUpload = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -42,7 +38,7 @@ export const DataActions = ({
       >
         <Download className="w-4 h-4" />
       </button>
-      <label 
+      <label
         title="Restore progress from JSON"
         className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
       >

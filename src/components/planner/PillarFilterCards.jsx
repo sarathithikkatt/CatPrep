@@ -21,7 +21,9 @@ export const PillarFilterCards = ({ pillarFilter, onSelectPillar }) => {
             }`}
           >
             <div className="flex items-center gap-2 mb-1">
-              <span className={`w-6 h-6 rounded-lg ${pillar.colorBg} text-white font-black text-xs flex items-center justify-center`}>
+              <span
+                className={`w-6 h-6 rounded-lg ${pillar.colorBg} text-white font-black text-xs flex items-center justify-center`}
+              >
                 {pillar.letter}
               </span>
               <span className="font-extrabold text-sm text-slate-900 dark:text-white">

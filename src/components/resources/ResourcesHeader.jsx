@@ -10,7 +10,8 @@ export const ResourcesHeader = () => {
         CAT Preparation Resources & Official Repositories
       </h1>
       <p className="text-xs text-slate-400">
-        Curated authentic previous year papers, top video lectures, reading lists & percentile benchmarks
+        Curated authentic previous year papers, top video lectures, reading lists & percentile
+        benchmarks
       </p>
     </div>
   );

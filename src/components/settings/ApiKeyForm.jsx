@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Key, ExternalLink, Eye, EyeOff, ShieldCheck, CheckCircle2, XCircle, Trash2 } from 'lucide-react';
+import {
+  Key,
+  ExternalLink,
+  Eye,
+  EyeOff,
+  ShieldCheck,
+  CheckCircle2,
+  XCircle,
+  Trash2
+} from 'lucide-react';
 import { saveGeminiApiKey, testGeminiApiKey } from '../../utils/gemini';
 
 /**
  * API Key Form with key visibility toggle, connection testing, and secure local storage saving.
  */
-export const ApiKeyForm = ({
-  apiKey,
-  setApiKey,
-  onClose
-}) => {
+export const ApiKeyForm = ({ apiKey, setApiKey, onClose }) => {
   const [showKey, setShowKey] = useState(false);
   const [isTesting, setIsTesting] = useState(false);
   const [testResult, setTestResult] = useState(null);
@@ -86,19 +91,19 @@ export const ApiKeyForm = ({
 
       {/* Test Status Feedback */}
       {testResult && (
-        <div className={`p-3 rounded-xl border text-xs flex items-start gap-2 ${
-          testResult.success
-            ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200'
-            : 'bg-rose-50 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800 text-rose-800 dark:text-rose-200'
-        }`}>
+        <div
+          className={`p-3 rounded-xl border text-xs flex items-start gap-2 ${
+            testResult.success
+              ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200'
+              : 'bg-rose-50 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800 text-rose-800 dark:text-rose-200'
+          }`}
+        >
           {testResult.success ? (
             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
           ) : (
             <XCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
           )}
-          <span className="font-semibold text-[11px] leading-relaxed">
-            {testResult.message}
-          </span>
+          <span className="font-semibold text-[11px] leading-relaxed">{testResult.message}</span>
         </div>
       )}
 
@@ -111,7 +116,9 @@ export const ApiKeyForm = ({
       {/* Privacy Disclaimer */}
       <div className="flex items-center gap-2 text-[10px] text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-800/40 p-2.5 rounded-xl">
         <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
-        <span>Stored strictly on your device in browser LocalStorage. Never uploaded to our servers.</span>
+        <span>
+          Stored strictly on your device in browser LocalStorage. Never uploaded to our servers.
+        </span>
       </div>
 
       {/* Action Buttons */}
