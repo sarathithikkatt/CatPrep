@@ -10,7 +10,6 @@ import { ResourcesGuide } from './components/ResourcesGuide';
 import { SettingsModal } from './components/SettingsModal';
 import { FirebaseSetupModal } from './components/FirebaseSetupModal';
 import { loadUserData, saveUserData } from './utils/storage';
-import { EXAMS_CONFIG } from './data/examsData';
 import { useAuth } from './context/AuthContext';
 import { 
   loadUserCloudData, 
@@ -19,7 +18,7 @@ import {
 } from './utils/cloudSync';
 
 export default function App() {
-  const { currentUser, syncStatus, setSyncStatus } = useAuth();
+  const { currentUser, setSyncStatus } = useAuth();
   const [userData, setUserData] = useState(() => loadUserData());
   const [activeExamId, setActiveExamId] = useState(userData.activeExamId || 'cat');
   const [activeTab, setActiveTab] = useState('dashboard');

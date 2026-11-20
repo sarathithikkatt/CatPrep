@@ -128,7 +128,7 @@ ${questionHint ? `User notes/hints: ${questionHint}` : ''}
     const parsed = JSON.parse(cleanedText);
     return parsed;
   } catch (err) {
-    console.error('Failed to parse Gemini output:', rawContent);
+    console.error('Failed to parse Gemini output:', err, rawContent);
     throw new Error('Failed to parse AI solution into structured question format. Raw response: ' + rawContent.slice(0, 150));
   }
 };

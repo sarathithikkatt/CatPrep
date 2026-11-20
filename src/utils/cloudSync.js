@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db, isFirebaseConfigured } from './firebase';
 import { getDefaultUserData } from './storage';
 
@@ -91,6 +91,7 @@ export const saveUserCloudDataDebounced = (uid, userData, delayMs = 1500, onStat
       await saveUserCloudDataImmediate(uid, userData);
       if (onStatusChange) onStatusChange('synced');
     } catch (error) {
+      console.error('Cloud sync debounced error:', error);
       if (onStatusChange) onStatusChange('error');
     }
   }, delayMs);

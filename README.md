@@ -1,6 +1,6 @@
 # 🎯 CatPrep (AptiPrep Elite Hub)
 
-> **A focused, local-first preparation workstation, AI diagnostic solver, and multi-exam preparation hub for the Common Admission Test (CAT), XAT, and GMAT Focus Edition.**
+> **A focused, local-first preparation workstation, multimodal AI diagnostic solver, and multi-exam preparation hub for the Common Admission Test (CAT), XAT, and GMAT Focus Edition.**
 
 [![React](https://img.shields.io/badge/React-19.3-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat&logo=vite&logoColor=white)](https://vite.dev/)
@@ -28,6 +28,7 @@
   - [8. Multi-Exam Ecosystem (CAT, XAT & GMAT Focus)](#8-multi-exam-ecosystem-cat-xat--gmat-focus)
   - [9. Google Sign-In & Multi-Device Cloud Sync (Firebase Spark)](#9-google-sign-in--multi-device-cloud-sync-firebase-spark)
   - [10. Local-First Sovereignty & Instant Backup](#10-local-first-sovereignty--instant-backup)
+- [Architecture & Modular Component Design](#-architecture--modular-component-design)
 - [Exam Structure & Scoring Blueprints](#-exam-structure--scoring-blueprints)
   - [Common Admission Test (CAT)](#common-admission-test-cat)
   - [Xavier Aptitude Test (XAT)](#xavier-aptitude-test-xat)
@@ -168,6 +169,103 @@ flowchart LR
 
 ---
 
+## 🏗️ Architecture & Modular Component Design
+
+CatPrep is architected with a **fully component-wise, modular, and extensible design**. Each major domain encapsulates its presentation, business logic, and UI elements into dedicated feature directories under `src/components/`:
+
+```
+src/components/
+├── common/                              # Reusable cross-cutting UI primitives
+│   ├── Badge.jsx                        # Status & difficulty indicator pills
+│   ├── EmptyState.jsx                   # Consistent empty-state displays
+│   └── ProgressBar.jsx                  # Animated progress bars
+│
+├── dashboard/                           # Daily Tracker & Velocity domain
+│   ├── ExamHeroBanner.jsx               # Header banner & CAT countdown timer
+│   ├── DailyMetricsGrid.jsx             # 3-column metric cards container
+│   ├── QuestionsMetricCard.jsx          # Questions solved vs target
+│   ├── TimeSpentMetricCard.jsx          # Study time invested + quick logging (+15m, +30m, +1h)
+│   ├── AccuracyMetricCard.jsx           # Daily accuracy % and target editor toggle
+│   ├── DailyTargetEditor.jsx            # Inline target customization form
+│   ├── SyllabusBurndownCard.jsx         # Master burndown progress & section breakdown
+│   ├── TopicsStatsGrid.jsx              # Topic mastery statistics grid
+│   ├── SectionProgressRow.jsx           # Individual section progress row
+│   └── VelocityForecastCard.jsx         # Remaining hours, completion forecast & CTA
+│
+├── planner/                             # Weekly Study Planner (R-E-S-T)
+│   ├── plannerConstants.js              # DEFAULT_REST_PLAN, badge helpers & pillar metadata
+│   ├── PlannerHeaderBanner.jsx          # Header, task meter, study time meter, reset
+│   ├── PillarFilterCards.jsx            # Interactive Revise-Enhance-Strategize-Test filter cards
+│   ├── PlannerControls.jsx              # Day selection pills + section filter dropdown
+│   ├── PlannerTaskItem.jsx              # Task row with checkbox, badges, minutes & delete
+│   ├── DayScheduleCard.jsx              # Day card with theme, progress bar, complete-all
+│   └── AddTaskModal.jsx                 # Custom scheduled task creator dialog
+│
+├── syllabus/                            # Syllabus & Weightage domain
+│   ├── syllabusHelpers.js               # Topic status badge styling helper
+│   ├── SyllabusHeader.jsx               # Header banner & search input
+│   ├── SectionTabs.jsx                  # Section tabs (QA, DILR, VARC) with PYQ count badges
+│   ├── StatusFilterPills.jsx            # Filter buttons (All, Mastered, In Progress, Not Started)
+│   ├── ModuleCard.jsx                   # Module grouping card with study effort hours
+│   ├── TopicRow.jsx                     # Topic row (confidence stars, status dropdown, quick practice)
+│   ├── TopicDetailsDrawer.jsx           # Expandable cheatsheet, subtopics & study hour logger
+│   └── CuratedVideoItem.jsx             # Curated YouTube lecture masterclass cards
+│
+├── practice/                            # PYQs & Solutions domain
+│   ├── PracticeFiltersHeader.jsx        # 5-filter control bar (Section, Difficulty, Status, Year)
+│   ├── QuestionCard.jsx                 # Full question container with KaTeX & solutions
+│   ├── QuestionOptions.jsx              # MCQ options list with post-submission highlights
+│   ├── QuestionTitaInput.jsx            # Numerical input field for TITA questions
+│   ├── QuestionActionFooter.jsx         # Submit button, marks breakdown (+3/-1/0) & re-attempt
+│   ├── SolutionDrawer.jsx               # 4-tier solution drawer (Step/Shortcut/Concept/Traps)
+│   ├── ScreenshotDropzone.jsx           # Drag-and-drop & clipboard screenshot upload area
+│   ├── GeminiAutoSolveSection.jsx       # Gemini AI Vision OCR & 4-tier solution trigger
+│   └── AddQuestionModal.jsx             # Custom question creation & screenshot OCR modal
+│
+├── notebook/                            # Mistake & Revision Notebook domain
+│   ├── notebookConstants.js             # MISTAKE_REASONS root-cause taxonomy
+│   ├── NotebookHeader.jsx               # Counters, Start Drill CTA & root-cause filter pills
+│   ├── NotebookQuestionHeader.jsx       # Exam slot badge, re-test status, root-cause tag
+│   ├── InlineRetestArea.jsx             # Active re-test mode with answers hidden & evaluation
+│   ├── NotebookSolutionViewer.jsx       # Tabbed solution viewer (Step, Shortcut, Concept)
+│   ├── MistakeReflectionNotes.jsx       # Personal mistake reflection view & editor
+│   └── NotebookQuestionCard.jsx         # Combined mistake card orchestrator
+│
+├── mocks/                               # Mock Scorecard domain
+│   ├── mocksHelper.js                   # calcSectionScore & percentile estimator
+│   ├── MockScorecardHeader.jsx          # Header with Log Mock Score CTA
+│   ├── PanicDeltaInsightCard.jsx        # Explainer for Untimed Capability & Panic Delta
+│   ├── SectionScoreCard.jsx             # Section-level score badges (VARC, DILR, QA)
+│   ├── MockReportCard.jsx               # Logged test card with panic delta summary
+│   └── LogMockModal.jsx                 # Scorecard logger with real-time net score preview
+│
+├── resources/                           # Resources & Knowledge Repository domain
+│   ├── ResourcesHeader.jsx              # Resources title and description
+│   ├── ScorePercentileTable.jsx         # Score vs Percentile cutoffs (99.5%, 99%, 95%, 90%)
+│   ├── PastPapersRepository.jsx         # 2IIM, IIM official portal, Cracku past paper links
+│   ├── VideoMasterclassesList.jsx       # Elites Grid, Rodha, Bodhee Prep, Aeon recommendations
+│   └── ExamExtensibilityCards.jsx       # Architecture roadmap for XAT, GMAT, GRE, GATE
+│
+├── header/                              # Global Navigation & Top Bar domain
+│   ├── BrandLogo.jsx                    # AptiPrep branding & 99%ile badge
+│   ├── ExamSelector.jsx                 # Target exam switcher
+│   ├── QuickStatsBar.jsx                # Daily target progress bar & streak counter
+│   ├── DataActions.jsx                  # AI settings, export JSON, restore JSON
+│   ├── GoogleSignInButton.jsx           # Google OAuth button with spinner
+│   ├── UserProfileDropdown.jsx          # Avatar, sync status, and account dropdown
+│   └── NavigationTabs.jsx               # 7 primary navigation view tabs
+│
+├── settings/                            # AI Settings domain
+│   ├── FeatureExplainer.jsx             # Vision OCR & 4-tier solution explainer
+│   └── ApiKeyForm.jsx                   # Password toggle, key verification & storage
+│
+└── firebase/                            # Cloud Auth Setup domain
+    ├── SetupStepItem.jsx                # Numbered guide step cards
+    └── EnvTemplateBlock.jsx             # One-click copyable environment template
+```
+
+---
+
 ## 📊 Exam Structure & Scoring Blueprints
 
 ### Common Admission Test (CAT)
@@ -219,23 +317,34 @@ CatPrep/
 ├── public/                 # Static assets & web manifest
 ├── src/
 │   ├── assets/             # Brand graphics, icons & logos
-│   ├── components/         # Modular UI components
-│   │   ├── DashboardTracker.jsx   # Daily tracker, burndown, streak & countdown
-│   │   ├── FirebaseSetupModal.jsx # Google Sign-In & Firebase credentials setup guide
-│   │   ├── Header.jsx             # Top navbar, exam switcher, Cloud Sync & data actions
-│   │   ├── MathText.jsx           # KaTeX parser component for inline/display math
-│   │   ├── MistakeNotebook.jsx    # Error logging with root-cause categorization & re-test
-│   │   ├── MockScorecard.jsx      # Mock exam scorecard and capability gap analyzer
-│   │   ├── QuestionPractice.jsx   # Interactive practice arena with 4-tier drawer & OCR
-│   │   ├── ResourcesGuide.jsx     # Score vs percentile guide & educator links
-│   │   ├── SettingsModal.jsx      # Gemini API key configuration & connection test
-│   │   ├── StudyPlanner.jsx       # 7-day R-E-S-T study planner with customizable tasks
-│   │   └── SyllabusManager.jsx    # Interactive topic manager & video lectures
+│   ├── components/         # Modular feature-driven component architecture
+│   │   ├── common/         # Cross-cutting primitives (Badge, EmptyState, ProgressBar)
+│   │   ├── dashboard/      # Daily tracker, burndown, velocity & countdown subcomponents
+│   │   ├── firebase/       # Cloud sync setup guide & template block
+│   │   ├── header/         # Top navbar, exam selector, cloud status, Google auth & tabs
+│   │   ├── mocks/          # Scorecard, section breakdown, panic delta & modal
+│   │   ├── notebook/       # Mistake notebook, root-cause tags, re-test & reflection
+│   │   ├── planner/        # 7-day R-E-S-T study planner, pillars, task items & modal
+│   │   ├── practice/       # Practice cards, KaTeX options, 4-tier solution & AI modal
+│   │   ├── resources/      # Score vs percentile, official repos, mentors & roadmap
+│   │   ├── settings/       # Gemini AI settings & key verification form
+│   │   ├── syllabus/       # Syllabus header, section tabs, module cards & video links
+│   │   ├── DashboardTracker.jsx   # Dashboard coordinator page
+│   │   ├── FirebaseSetupModal.jsx # Firebase setup guide modal
+│   │   ├── Header.jsx             # Application header coordinator
+│   │   ├── MathText.jsx           # KaTeX parser for inline & display math
+│   │   ├── MistakeNotebook.jsx    # Mistake notebook coordinator page
+│   │   ├── MockScorecard.jsx      # Mock scorecard coordinator page
+│   │   ├── QuestionPractice.jsx   # Practice & solutions coordinator page
+│   │   ├── ResourcesGuide.jsx     # Resources guide coordinator page
+│   │   ├── SettingsModal.jsx      # Settings modal coordinator
+│   │   ├── StudyPlanner.jsx       # Study planner coordinator page
+│   │   └── SyllabusManager.jsx    # Syllabus manager coordinator page
 │   ├── context/
 │   │   └── AuthContext.jsx        # Google Firebase authentication state & login/logout
 │   ├── data/
 │   │   ├── examsData.js           # Comprehensive CAT, XAT & GMAT syllabus schemas
-│   │   └── questionsData.js       # 61 authentic questions with 4-tier KaTeX solutions
+│   │   └── questionsData.js       # Authentic questions with 4-tier KaTeX solutions
 │   ├── utils/
 │   │   ├── cloudSync.js           # Bi-directional Firestore sync engine for user state
 │   │   ├── firebase.js            # Firebase app, Google Auth, and Firestore initialization
@@ -304,9 +413,9 @@ VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id_here
 
 #### 2. Gemini Multimodal AI (Image OCR & Solver)
 You can enter your Google Gemini API key directly in the application UI:
-- Click the **Gear icon (⚙️)** in the top header.
+- Click the **Sparkles icon (✨)** in the top header.
 - Paste your Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
-- Click **Test Connection & Save**. The key is stored locally in your browser.
+- Click **Test Key & Save Settings**. The key is stored locally in your browser.
 
 ### Available Scripts
 
@@ -334,6 +443,7 @@ You can enter your Google Gemini API key directly in the application UI:
 - [x] **Multi-Exam Expansion**: Full syllabus and authentic questions for XAT (Decision Making) and GMAT Focus Edition (Data Insights).
 - [x] **Multimodal AI Solver**: Gemini 2.5 Flash vision OCR, image paste/upload, and automatic 4-tier solution generation.
 - [x] **Firebase Cloud Sync & Google Auth**: Free Spark tier Google OAuth and bi-directional Firestore cloud synchronization.
+- [x] **Component-Wise Modular Architecture**: Every page decomposed into clean, extensible feature directories.
 - [ ] **Expanded PYQ Bank**: Continuous scaling of past year questions towards the 200+ milestone.
 - [ ] **Offline PWA Service Worker**: Installable desktop/mobile progressive web app.
 
